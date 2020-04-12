@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/.gitignore
+.idea/dataSources.xml
+.idea/gorizont.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+venv/
+venv
+.gitignore
+/temp
+.idea
