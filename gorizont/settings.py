@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'main.apps.MainConfig',
     'bootstrap4',
     'book.apps.BookConfig',
     'django.contrib.admin',
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'gorizont.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'gorizont/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,7 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'templates/gorizont/static')
+# ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Auntifications and autorization redirect/url
 
