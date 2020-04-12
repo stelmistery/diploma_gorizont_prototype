@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'gorizont.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gorizont_db',
+        'NAME': 'gorizont_db2',
         'USER': 'root',
         'PASSWORD': 'admin1234',
         'HOST': '127.0.0.1',
@@ -139,3 +139,6 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'login'
 
 LOGOUT_REDIRECT_URL = 'main'
+
+# Auth settings
+AUTH_USER_MODEL = 'main.User'
