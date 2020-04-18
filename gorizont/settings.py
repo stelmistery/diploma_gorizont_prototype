@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'news.apps.NewsConfig',
     'main.apps.MainConfig',
     'bootstrap4',
     'book.apps.BookConfig',
