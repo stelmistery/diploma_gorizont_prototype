@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth.models import User
 
 
 class Post(models.Model):
@@ -10,7 +9,7 @@ class Post(models.Model):
     body = models.TextField(verbose_name='Тело новости')
     image = models.ImageField(upload_to='news/', verbose_name='Картинка')
     pub_date = models.DateTimeField(verbose_name='Дата публикации')
-    # viewcount = models.IntegerField(default=0, verbose_name='Просмотры')
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
