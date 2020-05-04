@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {#    <form>#}
+    {#        <div class="form-row">#}
+    {#            <div class="form-group col-md-2">#}
+    {#                <label for="inputEmail4">Дата заезда</label>#}
+    {#                <input type="date" class="form-control" id="inputEmail4" placeholder="Email">#}
+    {#            </div>#}
+    {#            <div class="form-group col-md-2">#}
+    {#                <label for="inputPassword4">Дата выезда</label>#}
+    {#                <input type="date" class="form-control" id="inputPassword4" placeholder="Password">#}
+    {##}
+    {#            </div>#}
+    {#            <div class="form-group col-md-2">#}
+    {#                <label for="cat">Категория</label>#}
+    {#                <select name="cat" id="cat" class="form-control">#}
+    {#                    {% for cat in categories %}#}
+    {#                        <option value="{{ cat.pk }}">{{ cat.name }}</option>#}
+    {#                    {% endfor %}#}
+    {#                </select>#}
+    {#            </div>#}
+    {#            <div class="form-group col-md-2">#}
+    {#                <label for="cat">Взрослые</label>#}
+    {#                <select name="cat" id="cat" class="form-control">#}
+    {#                    <option value="1">1</option>#}
+    {#                    <option value="2">2</option>#}
+    {#                    <option value="3">3</option>#}
+    {#                    <option value="4">4</option>#}
+    {#                </select>#}
+    {#            </div>#}
+    {#            <div class="form-group col-md-2">#}
+    {#                <label for="cat">Дети</label>#}
+    {#                <select name="cat" id="cat" class="form-control">#}
+    {#                    <option value="1">1</option>#}
+    {#                        <option value="2">2</option>#}
+    {#                        <option value="3">3</option>#}
+    {#                        <option value="4">4</option>#}
+    {#                    </select>#}
+    {#                </div>#}
+    {##}
+    {#            </div>#}
+    {#            <button type="submit" class="btn btn-primary">Забронировать</button>#}
+    {#        </form>#}
+    {#    <hr>#}
+    <form method="POST" action="{% url 'room_check' %}">
+        {% csrf_token %}
+        <div class="form-row">
+            {% for field in bookform %}
+                <div class="form-group col-md-2">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Забронировать</button>
+
+    </form>
+
+    {#        <div class="form-row">#}
+    {#            {% for field in dataform %}#}
+    {#                <div class="form-group col-md-2">#}
+    {#                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>#}
+    {#                    {{ field }}#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+{% endblock %}

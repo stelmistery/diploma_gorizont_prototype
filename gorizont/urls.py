@@ -22,6 +22,6 @@ from main.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('category/', include('book.urls')),
+    path('book/', include('book.urls')),
     path('', index),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
