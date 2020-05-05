@@ -7,26 +7,24 @@ from django.http import JsonResponse
 from django.db.models import Q
 
 
-# TODO: Add data validation
 def room_check(request):
     if request.method == 'POST':
+        bf = BookForm(request.POST)
+        if bf.is_valid():
+            check_in_date = bf.cleaned_data['check_in_date']
+            date_of_eviction = bf.cleaned_data['date_of_eviction']
+            category = bf.cleaned_data['category']
+            number_of_adults = int(bf.cleaned_data['number_of_adults'])
+            number_of_children = int(bf.cleaned_data['number_of_children'])
+            num = number_of_adults + number_of_children
 
-        check_in_date = request.POST.get('check_in_date')
-        date_of_eviction = request.POST.get('date_of_eviction')
-        category = request.POST.get('category')
-        number_of_adults = int(request.POST.get('number_of_adults'))
-        number_of_children = int(request.POST.get('number_of_children'))
+            qr = (Q(book__check_in_date__lte=check_in_date) & Q(book__date_of_eviction__gte=check_in_date)) | \
+                (Q(book__check_in_date__lte=date_of_eviction) & Q(book__date_of_eviction__gte=date_of_eviction)) | \
+                (Q(book__check_in_date__lte=check_in_date) & Q(book__date_of_eviction__gte=date_of_eviction)) | \
+                (Q(book__check_in_date__gte=check_in_date) & Q(book__date_of_eviction__lte=date_of_eviction))
+            rooms = Room.objects.filter(category_id=category, number_of_place=num).exclude(qr)
 
-        num = number_of_adults + number_of_children
-
-        qr = (Q(book__check_in_date__lte=check_in_date) & Q(book__date_of_eviction__gte=check_in_date)) | \
-            (Q(book__check_in_date__lte=date_of_eviction) & Q(book__date_of_eviction__gte=date_of_eviction)) | \
-            (Q(book__check_in_date__lte=check_in_date) & Q(book__date_of_eviction__gte=date_of_eviction)) | \
-            (Q(book__check_in_date__gte=check_in_date) & Q(book__date_of_eviction__lte=date_of_eviction))
-
-        rooms = Room.objects.filter(category_id=category, number_of_place=num).exclude(qr)
-
-        return HttpResponse(rooms)
+            return HttpResponse(rooms)
 
     bookForm = BookForm()
     context = {'bookform': bookForm}
