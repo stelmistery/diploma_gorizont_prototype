@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from django .http.response import HttpResponse
+from django.http.response import HttpResponse
 from .models import Category, Room, Book
 from .forms import BookForm, DataForm
-import datetime
-from django.http import JsonResponse
-from django.db.models import Q
+from .services.booking_services import free_room_search_func
 
 
 def room_check(request):
@@ -18,34 +16,14 @@ def room_check(request):
             number_of_children = int(bf.cleaned_data['number_of_children'])
             num = number_of_adults + number_of_children
 
-            qr = (Q(book__check_in_date__lte=check_in_date) & Q(book__date_of_eviction__gte=check_in_date)) | \
-                (Q(book__check_in_date__lte=date_of_eviction) & Q(book__date_of_eviction__gte=date_of_eviction)) | \
-                (Q(book__check_in_date__lte=check_in_date) & Q(book__date_of_eviction__gte=date_of_eviction)) | \
-                (Q(book__check_in_date__gte=check_in_date) & Q(book__date_of_eviction__lte=date_of_eviction))
-            rooms = Room.objects.filter(category_id=category, number_of_place=num).exclude(qr)
+            room = free_room_search_func(check_in_date, date_of_eviction, category, num)
 
-            return HttpResponse(rooms)
+            if room:
+                return HttpResponse(room)
+            else:
+                return HttpResponse('К сожалению свободные места на заданную дату отсутствуют. Вы можете выбрать /'
+                                    ' другую дату или другую категорию')
 
     bookForm = BookForm()
     context = {'bookform': bookForm}
     return render(request, 'book/booking.html', context)
-
-
-# def booking_procedure(request):
-#
-#     check_in_date = request.POST.get('check_in_date')
-#     date_of_eviction = request.POST.get('date_of_eviction')
-#     category = request.POST.get('category')
-#     number_of_adults = request.POST.get('number_of_adults')
-#     number_of_children = request.POST.get('number_of_children')
-#
-#     bookForm = BookForm(initial={'check_in_date': check_in_date})
-#     dataForm = DataForm()
-#
-#
-#
-#     return HttpResponse('def data_confirmation')
-#
-#
-# def data_confirmation(request):
-#     return HttpResponse('def data_confirmation')
