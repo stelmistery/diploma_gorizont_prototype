@@ -1,6 +1,102 @@
 {% extends 'base.html' %}
 
 {% block body %}
-{{ var1 }}
-{{ var2 }}
+    <form method="POST" action="{% url 'book_form' %}">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h4>Серёга шо за дизайн</h4>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.fio.id_for_label }}">{{ df.fio.label }}</label>
+                {{ df.fio }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.phone.id_for_label }}">{{ df.phone.label }}</label>
+                {{ df.phone }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.email.id_for_label }}">{{ df.email.label }}</label>
+                {{ df.email }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h4>Памагити</h4>
+            </div>
+            {{ category.name }}
+            {{ category.conditions }}
+            {{ category.price }}
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h4>Если вас зовут Серёга, то у меня для вас плохие новости</h4> <br>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.check_in_date.id_for_label }}">{{ df.check_in_date.label }}</label>
+                {{ df.check_in_date }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.date_of_eviction.id_for_label }}">{{ df.date_of_eviction.label }}</label>
+                {{ df.date_of_eviction }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.number_of_adults.id_for_label }}">{{ df.number_of_adults.label }}</label>
+                {{ df.number_of_adults }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.number_of_children.id_for_label }}">{{ df.number_of_children.label }}</label>
+                {{ df.number_of_children }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.category.id_for_label }}">{{ df.category.label }}</label>
+                {{ df.category }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h4>Серёга сам пили свой диплом</h4>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.additional_info.id_for_label }}">{{ df.additional_info.label }}</label>
+                {{ df.additional_info }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Забронировать</button>
+    </form>
+
+
+
 {% endblock %}
+
+{##}
+{#{% load i18n %}#}
+{##}
+{#{% block head %}#}
+{#{{ wizard.form.media }}#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>#}
+{#<form action="" method="post">{% csrf_token %}#}
+{#<table>#}
+{#{{ wizard.management_form }}#}
+{#{% if wizard.form.forms %}#}
+{#    {{ wizard.form.management_form }}#}
+{#    {% for form in wizard.form.forms %}#}
+{#        {{ form }}#}
+{#    {% endfor %}#}
+{#{% else %}#}
+{#    {{ wizard.form }}#}
+{#{% endif %}#}
+{#</table>#}
+{#{% if wizard.steps.prev %}#}
+{#<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>#}
+{#<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>#}
+{#{% endif %}#}
+{#<input type="submit" value="{% trans "submit" %}"/>#}
+{#</form>#}
+{#{% endblock %}#}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>дата заселения</td>
+        <td>{{ check_in_date }}</td>
+    </tr>
+    <tr>
+        <td>Дата выселения</td>
+        <td>{{ date_of_eviction }}</td>
+    </tr>
+    <tr>
+        <td>Категория</td>
+        <td>{{ category }}</td>
+    </tr>
+    <tr>
+        <td>Взрослые</td>
+        <td>{{ number_of_adults }}</td>
+    </tr>
+    <tr>
+        <td>Дети</td>
+        <td>{{ number_of_children }}</td>
+    </tr>
+    <tr>
+        <td>ФИО</td>
+        <td>{{ fio }}</td>
+    </tr>
+    <tr>
+        <td>Телефон</td>
+        <td>{{ phone }}</td>
+    </tr>
+    <tr>
+        <td>Мыло</td>
+        <td>{{ email }}</td>
+    </tr>
+    <tr>
+        <td>Допинфа</td>
+        <td>{{ additional_info }}</td>
+    </tr>
+</table>
+<form action="{% url 'book_conf' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Подтвердить">
+</form>
+</body>
+</html>
