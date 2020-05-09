@@ -8,8 +8,16 @@
                 <h4>Серёга шо за дизайн</h4>
             </div>
             <div class="form-group col-md-2">
-                <label for="{{ df.fio.id_for_label }}">{{ df.fio.label }}</label>
-                {{ df.fio }}
+                <label for="{{ df.first_name.id_for_label }}">{{ df.first_name.label }}</label>
+                {{ df.first_name }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.last_name.id_for_label }}">{{ df.last_name.label }}</label>
+                {{ df.last_name }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.middle_name.id_for_label }}">{{ df.middle_name.label }}</label>
+                {{ df.middle_name }}
             </div>
             <div class="form-group col-md-2">
                 <label for="{{ df.phone.id_for_label }}">{{ df.phone.label }}</label>

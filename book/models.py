@@ -37,8 +37,7 @@ class Book(models.Model):
     number_of_people = models.IntegerField(verbose_name='Кол-во жильцов', default=0, validators=[MaxValueValidator(4)])
     check_in_date = models.DateField(verbose_name='Дата заселения')
     date_of_eviction = models.DateField(verbose_name='Дата выселения')
-    additional_information = models.TextField(verbose_name='Дополнительная информация', null=True, blank=True, )
-    # paid = models.BooleanField(default=False, verbose_name='Оплачено')
+    additional_information = models.TextField(verbose_name='Дополнительная информация', null=True, blank=True )
     confirmed = models.BooleanField(default=False, verbose_name='Подтвержедено')
 
     def __str__(self):

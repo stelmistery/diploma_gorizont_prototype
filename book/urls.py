@@ -7,9 +7,9 @@ from .views import *
 initial = {}
 
 urlpatterns = [
-    path('form/check/', room_check, name='room_check'),
-    path('form/process/', book_process, name='book_form'),
-    path('form/confirmed/', book_confirmed, name='book_conf'),
+    path('check/', room_check, name='room_check'),
+    path('process/', book_process, name='book_form'),
+    path('confirmed/', book_confirmed, name='book_conf'),
     # path('test/', index, name='test'),
     # path('form/processing/', data_confirmation, name='book_conf'),
     # path('contact/', BookWizard.as_view(FORMS, initial_dict=initial)),
