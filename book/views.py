@@ -115,21 +115,32 @@ def book_confirmed(request):
 
         room = free_room_search_func(check_in_date, date_of_eviction, category, num)
         if room:
-            book = Book.objects.create(room_id_id=room.pk, number_of_people=num, check_in_date=check_in_date,
-                                       date_of_eviction=date_of_eviction, additional_information=additional_info,
-                                       confirmed=False)
-
-            customer = Customer.objects.get(phone=phone)
-            if customer:
-                cb = Customer_Book.objects.create(customer_id_id=customer.pk, book_id_id=book.pk)
-            else:
-                customer = Customer.objects.create(first_name=first_name, last_name=last_name, middle_name=middle_name,
+            try:
+                customer = Customer.objects.get(phone=phone)
+                book = Book.objects.create(room_id_id=room.pk,
+                                           number_of_people=num,
+                                           check_in_date=check_in_date,
+                                           date_of_eviction=date_of_eviction,
+                                           additional_information=additional_info,
+                                           confirmed=False)
+                cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
+            except Customer.DoesNotExist:
+                customer = Customer.objects.create(first_name=first_name,
+                                                   last_name=last_name,
+                                                   middle_name=middle_name,
                                                    phone=phone, email=email)
-                cb = Customer_Book.objects.create(customer_id_id=customer.pk, book_id_id=book.pk)
+                book = Book.objects.create(room_id_id=room.pk,
+                                           number_of_people=num,
+                                           check_in_date=check_in_date,
+                                           date_of_eviction=date_of_eviction,
+                                           additional_information=additional_info,
+                                           confirmed=False)
+                cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
 
             if cb.pk:
                 return HttpResponse('Поздравляю, это ваша бронь: ' + str(cb.pk))
             else:
+                book.delete()
                 return HttpResponse('Брони нема, ибо руки из жопы Рикардо Милоса')
         else:
             return HttpResponse('К сожалению, по вашим критериям все комнаты заняты')

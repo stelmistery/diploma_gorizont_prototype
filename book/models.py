@@ -52,7 +52,10 @@ class Customer_Book(models.Model):
     book_id = models.ForeignKey(Book, verbose_name='Номер брони', on_delete=models.CASCADE)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.customer_id.phone + ' | ' + str(self.book_id.Book_code)
+
     class Meta:
-        verbose_name = 'Список жителей'
-        verbose_name_plural = 'Списки жителей'
+        verbose_name = 'Клиент - Бронь'
+        verbose_name_plural = 'Клиент - Бронь'
         ordering = ['book_id']
