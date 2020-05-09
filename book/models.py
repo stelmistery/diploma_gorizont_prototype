@@ -51,7 +51,6 @@ class Book(models.Model):
 class Customer_Book(models.Model):
     book_id = models.ForeignKey(Book, verbose_name='Номер брони', on_delete=models.CASCADE)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=20, null=False, verbose_name='Номер телефона')
 
     class Meta:
         verbose_name = 'Список жителей'
