@@ -144,3 +144,4 @@ def book_confirmed(request):
                 return HttpResponse('Брони нема, ибо руки из жопы Рикардо Милоса')
         else:
             return HttpResponse('К сожалению, по вашим критериям все комнаты заняты')
+    return HttpResponse('Заполните поля для бронирования')
