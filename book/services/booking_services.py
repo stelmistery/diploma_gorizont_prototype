@@ -22,3 +22,8 @@ def phone_converter(phone):
     return phone
 
 
+def del_session(request):
+    del request.session['category']
+    del request.session['phone']
+    del request.session['number_of_adults']
+    del request.session['number_of_children']

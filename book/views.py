@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from .models import Room, Book, Customer, Customer_Book
 from .forms import BookForm, DataForm
-from .services.booking_services import free_room_search_func, phone_converter
+from .services.booking_services import free_room_search_func, phone_converter, del_session
 import datetime
 
 
@@ -115,7 +115,9 @@ def book_confirmed(request):
             num = number_of_children + number_of_adults
         except:
             return HttpResponse('Что-то пошло не так. Попробуйте выполнить процесс бронирования ещё раз')
+
         room = free_room_search_func(check_in_date, date_of_eviction, category, num)
+
         if room:
             try:
                 customer = Customer.objects.get(phone=phone)
@@ -140,18 +142,14 @@ def book_confirmed(request):
                 cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
 
             if cb.pk:
-                for key in request.session.keys():
-                    del request.session[key]
+                del_session(request)
                 return HttpResponse('Поздравляю, это ваша бронь: ' + str(cb.pk))
             else:
-                for key in request.session.keys():
-                    del request.session[key]
+                del_session(request)
                 book.delete()
                 return HttpResponse('Брони нема, ибо руки из жопы Рикардо Милоса')
         else:
-            for key in request.session.keys():
-                del request.session[key]
+            del_session(request)
             return HttpResponse('К сожалению, по вашим критериям все комнаты заняты')
-    for key in request.session.keys():
-        del request.session[key]
+    del_session(request)
     return HttpResponse('Заполните поля для бронирования')

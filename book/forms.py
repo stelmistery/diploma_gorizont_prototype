@@ -1,9 +1,5 @@
 from django import forms
-from .models import Book
 from .models import Category
-import datetime
-import re
-from django.core.validators import ValidationError
 from .validators import validate_phone_number
 
 # class PhoneField(forms.CharField):
