@@ -100,19 +100,21 @@ def book_process(request):
 
 def book_confirmed(request):
     if request.method == 'POST':
-        check_in_date = datetime.datetime.strptime(request.session['check_in_date_str'], '%m/%d/%Y')
-        date_of_eviction = datetime.datetime.strptime(request.session['date_of_eviction_str'], '%m/%d/%Y')
-        number_of_adults = request.session['number_of_adults']
-        number_of_children = request.session['number_of_children']
-        category = request.session['category']
-        first_name = request.session['first_name']
-        last_name = request.session['last_name']
-        middle_name = request.session['middle_name']
-        phone = request.session['phone']
-        email = request.session['email']
-        additional_info = request.session['additional_info']
-        num = number_of_children + number_of_adults
-
+        try:
+            check_in_date = datetime.datetime.strptime(request.session['check_in_date_str'], '%m/%d/%Y')
+            date_of_eviction = datetime.datetime.strptime(request.session['date_of_eviction_str'], '%m/%d/%Y')
+            number_of_adults = request.session['number_of_adults']
+            number_of_children = request.session['number_of_children']
+            category = request.session['category']
+            first_name = request.session['first_name']
+            last_name = request.session['last_name']
+            middle_name = request.session['middle_name']
+            phone = request.session['phone']
+            email = request.session['email']
+            additional_info = request.session['additional_info']
+            num = number_of_children + number_of_adults
+        except:
+            return HttpResponse('Что-то пошло не так. Попробуйте выполнить процесс бронирования ещё раз')
         room = free_room_search_func(check_in_date, date_of_eviction, category, num)
         if room:
             try:
@@ -138,10 +140,18 @@ def book_confirmed(request):
                 cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
 
             if cb.pk:
+                for key in request.session.keys():
+                    del request.session[key]
                 return HttpResponse('Поздравляю, это ваша бронь: ' + str(cb.pk))
             else:
+                for key in request.session.keys():
+                    del request.session[key]
                 book.delete()
                 return HttpResponse('Брони нема, ибо руки из жопы Рикардо Милоса')
         else:
+            for key in request.session.keys():
+                del request.session[key]
             return HttpResponse('К сожалению, по вашим критериям все комнаты заняты')
+    for key in request.session.keys():
+        del request.session[key]
     return HttpResponse('Заполните поля для бронирования')

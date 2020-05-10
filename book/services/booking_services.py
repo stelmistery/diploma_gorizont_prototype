@@ -20,3 +20,5 @@ def free_room_search_func(check_in_date, date_of_eviction, category, num):
 def phone_converter(phone):
     phone = re.sub(r"[()-]", "", phone).replace(' ', '')
     return phone
+
+
