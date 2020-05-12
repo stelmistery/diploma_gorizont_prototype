@@ -14,7 +14,7 @@ def free_room_search_func(check_in_date, date_of_eviction, category, num):
     except Room.DoesNotExist:
         return False
     return room
-
+св 
 
 # The function converts the number to a single format
 def phone_converter(phone):

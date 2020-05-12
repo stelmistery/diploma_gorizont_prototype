@@ -5,9 +5,6 @@ from .forms import BookForm, DataForm
 from .services.booking_services import free_room_search_func, phone_converter, del_session
 import datetime
 
-
-# from formtools.wizard.views import SessionWizardView
-
 # TODO: Добавить свою валидацию полей
 # TODO: Добавить дополнительную проверку комнаты
 def room_check(request):

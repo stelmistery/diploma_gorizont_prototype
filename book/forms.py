@@ -2,13 +2,6 @@ from django import forms
 from .models import Category
 from .validators import validate_phone_number
 
-# class PhoneField(forms.CharField):
-#     def clean(self, value):
-#         try:
-#             if re.match(r'^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,12}$', value):
-#                 return value
-#         except:
-#             raise ValidationError
 
 
 class BookForm(forms.Form):
@@ -59,7 +52,7 @@ class DataForm(forms.Form):
     additional_info = forms.CharField(label='Дополнительная информация', required=False,
                                       widget=forms.Textarea(attrs={'class': 'form-control'}))
 
-################## Form wizard. Used for booking
+################# Form wizard. Used for booking
 #
 # class ContactForm1(forms.Form):
 #     subject = forms.CharField(
@@ -71,4 +64,4 @@ class DataForm(forms.Form):
 # class ContactForm2(forms.Form):
 #     message = forms.CharField(
 #         widget=forms.Textarea)
-##################
+#################
