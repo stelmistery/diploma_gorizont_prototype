@@ -112,8 +112,8 @@
                         <td class="text-center">{{ cb.book_id.number_of_adults }}</td>
                         <td class="text-center">{{ cb.book_id.number_of_children }}</td>
                         <td class="text-center hidden-xs"><strong>{{ cb.book_id.price }}</strong></td>
-                        <td class="hidden-xs text-center">25/12/2014</td>
-                        <td class="hidden-xs text-center">25/12/2014</td>
+                        <td class="hidden-xs text-center">{{ cb.book_id.check_in_date }}</td>
+                        <td class="hidden-xs text-center">{{ cb.book_id.date_of_eviction }}</td>
                         <td>
                             {% if cb.book_id.confirmed %}
                             <span class="label label-success">Подтверждён</span>
@@ -123,7 +123,7 @@
                         </td>
                         <td class="text-center">
                             <div class="btn-group btn-group-xs">
-                                <a href="page_ecom_order_view.html" data-toggle="tooltip" title="View"
+                                <a href="book_view" data-toggle="tooltip" title="View"
                                    class="btn btn-default"><i class="fa fa-eye"></i></a>
                                 <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
                                    class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
