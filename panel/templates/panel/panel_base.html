@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>{% block title %}ProUI - Responsive Bootstrap Admin Template{% endblock %}</title>
+    <title>{% block title %}Главная{% endblock %}</title>
 
     <meta name="description"
           content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
@@ -64,7 +64,7 @@
     <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
     <!-- Used only if page preloader is enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
     <div class="preloader themed-background">
-        <h1 class="push-top-bottom text-light text-center"><strong>Pro</strong>UI</h1>
+        <h1 class="push-top-bottom text-light text-center"><strong>СОЛ</strong>Горизонт</h1>
         <div class="inner">
             <h3 class="text-light visible-lt-ie10"><strong>Loading..</strong></h3>
             <div class="preloader-spinner hidden-lt-ie10"></div>
@@ -112,8 +112,8 @@
                 <!-- Sidebar Content -->
                 <div class="sidebar-content">
                     <!-- Brand -->
-                    <a href="index.html" class="sidebar-brand">
-                        <i class="gi gi-flash"></i><span class="sidebar-nav-mini-hide"><strong>Pro</strong>UI</span>
+                    <a href="{% url 'main' %}" class="sidebar-brand">
+                        <i class="gi gi-flash"></i><span class="sidebar-nav-mini-hide">СОЛ <strong>Горизонт</strong></span>
                     </a>
                     <!-- END Brand -->
 
@@ -124,7 +124,7 @@
                                 <img src="{% static 'back/img/placeholders/avatars/avatar2.jpg' %}" alt="avatar">
                             </a>
                         </div>
-                        <div class="sidebar-user-name">John Doe</div>
+                        <div class="sidebar-user-name">Какой-то юзер</div>
                         <div class="sidebar-user-links">
                             <a href="page_ready_user_profile.html" data-toggle="tooltip" data-placement="bottom"
                                title="Profile"><i class="gi gi-user"></i></a>
@@ -149,18 +149,7 @@
                             <a href="{% url 'orders' %}"><i class="hi hi-list sidebar-nav-icon"></i><span
                                     class="sidebar-nav-mini-hide">Список всех броней</span></a>
                         </li>
-                        <li>
-                            <a href="page_widgets_social.html"><i class="gi gi-share_alt sidebar-nav-icon"></i><span
-                                    class="sidebar-nav-mini-hide">Social</span></a>
-                        </li>
-                        <li>
-                            <a href="page_widgets_media.html"><i class="gi gi-film sidebar-nav-icon"></i><span
-                                    class="sidebar-nav-mini-hide">Media</span></a>
-                        </li>
-                        <li>
-                            <a href="page_widgets_links.html"><i class="gi gi-link sidebar-nav-icon"></i><span
-                                    class="sidebar-nav-mini-hide">Links</span></a>
-                        </li>
+
                         <!-- END Sidebar Navigation -->
                     </ul>
                 </div>

@@ -123,7 +123,7 @@
                         </td>
                         <td class="text-center">
                             <div class="btn-group btn-group-xs">
-                                <a href="book_view" data-toggle="tooltip" title="View"
+                                <a href="{% url 'book_view' pk=cb.book_id.pk %}" data-toggle="tooltip" title="View"
                                    class="btn btn-default"><i class="fa fa-eye"></i></a>
                                 <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
                                    class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>

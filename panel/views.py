@@ -22,3 +22,7 @@ class BookDetailView(DetailView):
     model = Customer_Book
     context_object_name = 'cb'
     template_name = 'panel/book_view.html'
+
+
+class CustomerDetailView(DetailView):
+    pass
