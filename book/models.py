@@ -34,10 +34,12 @@ class Room(models.Model):
 class Book(models.Model):
     Book_code = models.AutoField(primary_key=True, verbose_name='Код брони')
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Номер комнаты')
-    number_of_people = models.IntegerField(verbose_name='Кол-во жильцов', default=0, validators=[MaxValueValidator(4)])
+    number_of_adults = models.IntegerField(verbose_name='Кол-во взрослых', default=0, validators=[MaxValueValidator(4)])
+    number_of_children = models.IntegerField(verbose_name='Кол-во детей', default=0, validators=[MaxValueValidator(4)])
     check_in_date = models.DateField(verbose_name='Дата заселения')
     date_of_eviction = models.DateField(verbose_name='Дата выселения')
-    additional_information = models.TextField(verbose_name='Дополнительная информация', null=True, blank=True )
+    additional_information = models.TextField(verbose_name='Дополнительная информация', null=True, blank=True)
+    price = models.DecimalField(verbose_name='Сумма', max_digits=6, decimal_places=2, default=0)
     confirmed = models.BooleanField(default=False, verbose_name='Подтвержедено')
 
     def __str__(self):

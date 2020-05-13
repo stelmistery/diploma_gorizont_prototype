@@ -43,6 +43,10 @@
         <td>Допинфа</td>
         <td>{{ additional_info }}</td>
     </tr>
+    <tr>
+        <td>Стоимость</td>
+        <td>{{ price }}</td>
+    </tr>
 </table>
 <form action="{% url 'book_conf' %}" method="POST">
     {% csrf_token %}

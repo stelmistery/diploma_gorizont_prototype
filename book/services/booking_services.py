@@ -1,4 +1,4 @@
-from book.models import Category, Room, Book
+from book.models import Category, Room, Book, Customer_Book
 from django.db.models import Q
 import re
 
@@ -14,6 +14,15 @@ def free_room_search_func(check_in_date, date_of_eviction, category, num):
     except Room.DoesNotExist:
         return False
     return room
+
+
+def get_books_all():
+    return Book.objects.all()
+
+
+def get_book_customer_all():
+    return Customer_Book.objects.all()
+
 
 # The function converts the number to a single format
 def phone_converter(phone):

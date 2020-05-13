@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'gorizont.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gorizont_db2',
+        'NAME': 'gorizont_db',
         'USER': 'root',
         'PASSWORD': 'admin1234',
         'HOST': '127.0.0.1',

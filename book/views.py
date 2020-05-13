@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
-from .models import Room, Book, Customer, Customer_Book
+from .models import Room, Book, Customer, Customer_Book, Category
 from .forms import BookForm, DataForm
 from .services.booking_services import free_room_search_func, phone_converter, del_session
 import datetime
@@ -61,6 +61,10 @@ def book_process(request):
             additional_info = df.cleaned_data['additional_info']
 
             room = free_room_search_func(check_in_date, date_of_eviction, category, num)
+
+            price = Category.objects.get(pk=room.category_id_id)
+            price = (float(price.price) * number_of_adults) + (float(price.price) * number_of_children * 0.5)
+
             if room:
                 check_in_date_str = check_in_date.strftime('%m/%d/%Y')
                 date_of_eviction_str = date_of_eviction.strftime('%m/%d/%Y')
@@ -75,6 +79,7 @@ def book_process(request):
                 request.session['middle_name'] = middle_name
                 request.session['phone'] = phone
                 request.session['email'] = email
+                request.session['price'] = price
                 request.session['additional_info'] = additional_info
 
                 context = {'check_in_date': check_in_date,
@@ -87,6 +92,7 @@ def book_process(request):
                            'middle_name': middle_name,
                            'phone': phone,
                            'email': email,
+                           'price': price,
                            'additional_info': additional_info}
 
                 return render(request, 'book/confirmed.html', context)
@@ -109,20 +115,25 @@ def book_confirmed(request):
             phone = request.session['phone']
             email = request.session['email']
             additional_info = request.session['additional_info']
+            price = request.session['price']
             num = number_of_children + number_of_adults
         except:
             return HttpResponse('Что-то пошло не так. Попробуйте выполнить процесс бронирования ещё раз')
 
         room = free_room_search_func(check_in_date, date_of_eviction, category, num)
 
+
+
         if room:
             try:
                 customer = Customer.objects.get(phone=phone)
                 book = Book.objects.create(room_id_id=room.pk,
-                                           number_of_people=num,
+                                           number_of_adults=number_of_adults,
+                                           number_of_children=number_of_children,
                                            check_in_date=check_in_date,
                                            date_of_eviction=date_of_eviction,
                                            additional_information=additional_info,
+                                           price=price,
                                            confirmed=False)
                 cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
             except Customer.DoesNotExist:
@@ -131,10 +142,12 @@ def book_confirmed(request):
                                                    middle_name=middle_name,
                                                    phone=phone, email=email)
                 book = Book.objects.create(room_id_id=room.pk,
-                                           number_of_people=num,
+                                           number_of_adults=number_of_adults,
+                                           number_of_children=number_of_children,
                                            check_in_date=check_in_date,
                                            date_of_eviction=date_of_eviction,
                                            additional_information=additional_info,
+                                           price=price,
                                            confirmed=False)
                 cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
 
