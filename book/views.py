@@ -5,8 +5,7 @@ from .forms import BookForm, DataForm
 from .services.booking_services import free_room_search_func, phone_converter, del_session
 import datetime
 
-# TODO: Добавить свою валидацию полей
-# TODO: Добавить дополнительную проверку комнаты
+
 def room_check(request):
     if request.method == 'POST':
         bf = BookForm(request.POST)
@@ -42,7 +41,6 @@ def room_check(request):
     return render(request, 'book/booking.html', context)
 
 
-# TODO: Изменить формат даты записываемый в сессию
 def book_process(request):
     if request.method == 'POST':
         df = DataForm(request.POST)

@@ -6,6 +6,58 @@
 {% endblock %}
 
 {% block mainblock %}
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i> Orders</a>
+            </li>
+            <li class="active">
+                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i> Order View</a>
+            </li>
+            <li>
+                <a href="page_ecom_products.html"><i class="gi gi-shopping_bag"></i> Products</a>
+            </li>
+            <li>
+                <a href="page_ecom_product_edit.html"><i class="gi gi-pencil"></i> Product Edit</a>
+            </li>
+            <li>
+                <a href="page_ecom_customer_view.html"><i class="gi gi-user"></i> Customer View</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="block">
+        <!-- Basic Form Elements Title -->
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip"
+                   data-toggle="button" title="" data-original-title="Toggles .form-bordered class">No Borders</a>
+            </div>
+            <h2><strong>Basic Form</strong> Elements</h2>
+        </div>
+        <!-- END Form Elements Title -->
+
+        <!-- Basic Form Elements Content -->
+        <form action="{% url 'book_view' %}" method="post"
+              class="form-horizontal form-bordered">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-md-1 control-label" for="example-text-input">ID-номер</label>
+                <div class="col-md-3">
+                    <input type="text" id="example-text-input" name="pk" class="form-control"
+                           placeholder="1234">
+                    <span class="help-block">Введите номер брони для просмотра</span>
+                </div>
+                <div class="col-md-2">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-angle-right"></i> Найти
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% if cb %}
     <div class="block">
         <!-- Info Title -->
         <div class="block-title">
@@ -15,54 +67,74 @@
                 <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""
                    data-original-title="Hire"><i class="fa fa-briefcase"></i></a>
             </div>
-            <h2 style="font-size: 14pt">Подробности бронирования <strong>{{ cb.book_id.pk }}</strong>
+            <h2 style="font-size: 14pt">Подробности бронирования <strong>{{ cb.book_id.pk }}</strong></h2>
+            <h2>
+                <strong>Статус: </strong>
+                {% if cb.book_id.confirmed %}
+                    <span class="label label-success">Подтверждено</span>
+                {% else %}
+                    <span class="label label-danger">Не подтверждено</span>
+                {% endif %}
             </h2>
         </div>
         <!-- END Info Title -->
 
         <!-- Info Content -->
-        <table class="table table-borderless table-striped" style="font-size: 13pt">
+        <table class="table table-borderless table-striped " style="font-size: 13pt">
             <tbody>
             <tr>
-                <td style="width: 20%;"><strong>Клиент</strong></td>
-                <td><a href="{% url 'customer_view' pk=cb.customer_id.pk %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
+                <td><strong>Клиент</strong></td>
+                <td>
+                    <a href="{% url 'customer_view' pk=cb.customer_id.pk %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
                 </td>
             </tr>
             <tr>
-                <td><strong>Номер бронирования</strong></td>
+                <td><strong>ID-номер бронирования</strong></td>
                 <td>{{ cb.book_id.pk }}</td>
             </tr>
             <tr>
-                <td><strong>Номер комнаты</strong></td>
-                <td>{{ cb.book_id.room_id_id }}</td>
+                <td><strong>ID-номер комнаты / кол-во мест</strong></td>
+                <td>{{ cb.book_id.room_id_id }}/{{ cb.book_id.room_id.number_of_place }}</td>
             </tr>
             <tr>
                 <td><strong>Категория номера</strong></td>
                 <td>{{ cb.book_id.room_id.category_id }}</td>
             </tr>
             <tr>
-                <td><strong>Количество взрослых</strong></td>
-                <td>{{ cb.book_id.number_of_adults }}</td>
-            </tr>
-            <tr>
-                <td><strong>Количество детей</strong></td>
-                <td>{{ cb.book_id.number_of_children }}</td>
+                <td><strong>Количество взрослых/детей</strong></td>
+                <td>{{ cb.book_id.number_of_adults }} / {{ cb.book_id.number_of_children }}</td>
             </tr>
             <tr>
                 <td><strong>Дата заселения</strong></td>
                 <td>{{ cb.book_id.check_in_date|date:"d/m/Y" }}</td>
             </tr>
             <tr>
-                <td><strong>Дата выселения</strong></td>
+                <td><strong {{ cb.book_id }}>Дата выселения</strong></td>
                 <td>{{ cb.book_id.date_of_eviction|date:"d/m/Y" }}</td>
             </tr>
             <tr>
                 <td><strong>Стоимость бронирования</strong></td>
                 <td>{{ cb.book_id.price }}₽</td>
             </tr>
+            <tr>
+                <td><strong>Дополнительная инфомарция</strong></td>
+                <td>{{ cb.book_id.additional_information }}</td>
+            </tr>
+
 
             </tbody>
         </table>
+        <form action="{% url 'book_success' pk=cb.book_id %}" class="form-horizontal form-bordered">
+            <div class="form-group form-actions">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn  btn-success"><i class="fa fa-angle-right"></i> Подтвердить
+                        бронирование
+                    </button>
+                    <button type="reset" class="btn  btn-danger"><i class="fa fa-repeat"></i> Отменить</button>
+                </div>
+            </div>
+        </form>
+{% endif %}
         <!-- END Info Content -->
     </div>
 {% endblock %}
