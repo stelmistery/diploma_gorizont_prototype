@@ -13,6 +13,7 @@ def index(request):
 
 
 class BookListView(ListView):
+    paginate_by = 20
     template_name = 'panel/book_list.html'
     context_object_name = 'cbs'
 
