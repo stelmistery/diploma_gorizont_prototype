@@ -21,7 +21,9 @@ class BookListView(ListView):
         return Customer_Book.objects.all()
 
 
-def book_detail(request):
+#################################
+# TODO: объелинить две функции
+def book_view(request):
     if request.method == 'POST':
         pk = request.POST['pk']
         try:
@@ -30,6 +32,15 @@ def book_detail(request):
             return render(request, 'panel/book_view.html', {'error': 'Такой брони нет'})
         return render(request, 'panel/book_view.html', {'cb': cb})
     return render(request, 'panel/book_view.html')
+
+
+def book_view_detail(request, pk):
+    try:
+        cb = Customer_Book.objects.get(book_id_id=pk)
+    except:
+        return render(request, 'panel/book_view.html', {'error': 'Такой брони нет'})
+    return render(request, 'panel/book_view.html', {'cb': cb})
+#################################
 
 
 # TODO: Дописать класс просмотря профиля
