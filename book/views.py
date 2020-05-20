@@ -120,8 +120,6 @@ def book_confirmed(request):
 
         room = free_room_search_func(check_in_date, date_of_eviction, category, num)
 
-
-
         if room:
             try:
                 customer = Customer.objects.get(phone=phone)

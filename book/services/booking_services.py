@@ -24,6 +24,10 @@ def get_book_customer_all():
     return Customer_Book.objects.all()
 
 
+def get_book_customer(pk):
+    return Customer_Book.objects.get(pk=pk)
+
+
 # The function converts the number to a single format
 def phone_converter(phone):
     phone = re.sub(r"[()-]", "", phone).replace(' ', '')
