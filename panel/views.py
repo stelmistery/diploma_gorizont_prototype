@@ -52,9 +52,9 @@ def customer_detail_view(request, pk):
         cust = Customer.objects.get(pk=pk)
     except:
         return render(request, 'panel/book_view.html', {'error': 'Пользователь не найден'})
-    cb = Customer_Book.objects.get(customer_id=cust.id)
+    cbs = Customer_Book.objects.filter(customer_id__phone=cust.phone)
     context = {
-        'cb': cb,
+        'cbs': cbs,
         'cust': cust,
     }
     return render(request, 'panel/customer_view.html', context)
@@ -64,7 +64,7 @@ def book_success(request, pk):
     Book.objects.filter(pk=pk).update(confirmed=True)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-#
+
 # def book_edit(request):
 #     if request.method == 'POST':
 #         if request.POST['pk']:
