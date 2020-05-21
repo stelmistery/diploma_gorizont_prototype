@@ -101,7 +101,7 @@
                         <td class="text-center"><a
                                 href="page_ecom_order_view.html"><strong>{{ cb.book_id.room_id }}</strong></a></td>
                         <td class="visible-lg"><a
-                                href="javascript:void(0)">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
+                                href="{% url 'customer_view' cb.customer_id.id %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
                         </td>
                         <td class="text-center">{{ cb.book_id.number_of_adults }}</td>
                         <td class="text-center">{{ cb.book_id.number_of_children }}</td>

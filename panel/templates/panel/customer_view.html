@@ -1,0 +1,199 @@
+{% extends 'panel/panel_base.html' %}
+{% load static %}
+
+{% block title %}
+    Информация о ползователе
+{% endblock %}
+
+{% block mainblock %}
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
+            </li>
+            <li>
+                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
+            </li>
+
+            <li class="active">
+                <a href="#"><i class="gi gi-user"></i>Информация о пользователе</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <!-- Customer Info Block -->
+            <div class="block">
+                <!-- Customer Info Title -->
+                <div class="block-title">
+                    <h2><i class="fa fa-file-o"></i> Данные клиента</h2>
+                </div>
+                <!-- END Customer Info Title -->
+
+                <!-- Customer Info -->
+                <div class="block-section text-center">
+                    <a href="javascript:void(0)">
+                        <img src="{% static 'back/img/placeholders/avatars/avatar4@2x.jpg' %}" alt="avatar"
+                             class="img-circle">
+                    </a>
+                    <h3>
+                        <strong>{{ cust.last_name }} {{ cust.first_name }}</strong><br><small></small>
+                    </h3>
+                </div>
+                <table class="table table-borderless table-striped table-vcenter">
+                    <tbody>
+                    <tr>
+                        <td class="text-right" style="width: 50%;"><strong>Организация</strong></td>
+                        <td>{{ cust.organization }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Должность</strong></td>
+                        <td>{{ cust.place }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Дата рождения</strong></td>
+                        <td>{{ cust.data_of_birth }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Пол</strong></td>
+                        <td>{{ cust.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Телефон</strong></td>
+                        <td>{{ cust.phone }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Email</strong></td>
+                        <td>{{ cust.email }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Зарегестрирован</strong></td>
+                        {% if cust.user_id %}
+                            <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
+                        {% else %}
+                            <td><span class="label label-danger"><i class="fa fa-times"></i></span></td>
+                        {% endif %}
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- END Customer Info -->
+            </div>
+            <!-- END Customer Info Block -->
+
+        </div>
+        <div class="col-lg-8">
+            <!-- Orders Block -->
+            <div class="block">
+                <!-- Orders Title -->
+                <div class="block-title">
+                    <h2><i class="fa fa-truck"></i> <strong>Брони</strong> </h2>
+                </div>
+                <!-- END Orders Title -->
+
+                <!-- Orders Content -->
+                <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 100px;">Номер брони</th>
+                        <th class="text-center" style="width: 100px;">Номер команты</th>
+                        <th class="visible-lg text-center">Сумма</th>
+                        <th class="hidden-xs text-center">Дата заселения</th>
+                        <th class="hidden-xs text-center">Дата выселения</th>
+                        <th class="text-center hidden-xs">Статус</th>
+                        <th class="text-center">Действие</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cb in cbs %}
+                        <tr>
+                            <td class="text-center"><a
+                                    href="page_ecom_order_view.html"><strong>{{ cb.book_id }}</strong></a></td>
+                            <td class="text-center"><a
+                                    href="page_ecom_order_view.html"><strong>{{ cb.book_id.room_id }}</strong></a></td>
+
+                            <td class="text-center hidden-xs"><strong>{{ cb.book_id.price }}</strong></td>
+                            <td class="hidden-xs text-center">{{ cb.book_id.check_in_date }}</td>
+                            <td class="hidden-xs text-center">{{ cb.book_id.date_of_eviction }}</td>
+                            <td>
+                                {% if cb.book_id.confirmed %}
+                                    <span class="label label-success">Подтверждён</span>
+                                {% else %}
+                                    <span class="label label-danger">Не подтверждён</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group btn-group-xs">
+                                    <a href="{% url 'book_view_detail' pk=cb.book_id %}" data-toggle="tooltip"
+                                       title="View"
+                                       class="btn btn-default"><i class="fa fa-eye"></i></a>
+                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
+                                       class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <!-- END Orders Content -->
+            </div>
+            <!-- END Orders Block -->
+
+            <!-- Products in Cart Block -->
+            <div class="block">
+                <!-- Products in Cart Title -->
+                <div class="block-title">
+                    <div class="block-options pull-right">
+                        <span class="label label-success"><strong>$ 517,00</strong></span>
+                    </div>
+                    <h2><i class="fa fa-shopping-cart"></i> <strong>Products</strong> in Cart (3)</h2>
+                </div>
+                <!-- END Products in Cart Title -->
+
+                <!-- Products in Cart Content -->
+                <table class="table table-bordered table-striped table-vcenter">
+                    <tbody>
+                    <tr>
+                        <td class="text-center" style="width: 100px;"><a href="page_ecom_product_edit.html"><strong>PID.8715</strong></a>
+                        </td>
+                        <td class="hidden-xs" style="width: 15%;"><a href="page_ecom_product_edit.html">Product #98</a>
+                        </td>
+                        <td class="text-right hidden-xs" style="width: 10%;"><strong>$399,00</strong></td>
+                        <td><span class="label label-success">Available (479)</span></td>
+                        <td class="text-center" style="width: 70px;">
+                            <a href="page_ecom_product_edit.html" data-toggle="tooltip" title=""
+                               class="btn btn-xs btn-default" data-original-title="Edit"><i
+                                    class="fa fa-pencil"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><a href="page_ecom_product_edit.html"><strong>PID.8725</strong></a></td>
+                        <td class="hidden-xs"><a href="page_ecom_product_edit.html">Product #98</a></td>
+                        <td class="text-right hidden-xs"><strong>$59,00</strong></td>
+                        <td><span class="label label-success">Available (163)</span></td>
+                        <td class="text-center">
+                            <a href="page_ecom_product_edit.html" data-toggle="tooltip" title=""
+                               class="btn btn-xs btn-default" data-original-title="Edit"><i
+                                    class="fa fa-pencil"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><a href="page_ecom_product_edit.html"><strong>PID.8798</strong></a></td>
+                        <td class="hidden-xs"><a href="page_ecom_product_edit.html">Product #98</a></td>
+                        <td class="text-right hidden-xs"><strong>$59,00</strong></td>
+                        <td><span class="label label-danger">Out of Stock</span></td>
+                        <td class="text-center">
+                            <a href="page_ecom_product_edit.html" data-toggle="tooltip" title=""
+                               class="btn btn-xs btn-default" data-original-title="Edit"><i
+                                    class="fa fa-pencil"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- END Products in Cart Content -->
+            </div>
+            <!-- END Products in Cart Block -->
+
+        </div>
+    </div>
+{% endblock %}

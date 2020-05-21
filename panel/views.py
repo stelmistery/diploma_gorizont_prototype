@@ -26,10 +26,6 @@ class BookListView(ListView):
 def book_view(request):
     if request.method == 'POST':
         pk = request.POST['pk']
-        try:
-            cb = get_book_customer(pk)
-        except:
-            return render(request, 'panel/book_view.html', {'error': 'Такой брони нет'})
         return redirect('/panel/book/detail/' + str(pk))
     return render(request, 'panel/book_view.html')
 
@@ -45,12 +41,25 @@ def book_view_detail(request, pk):
 #################################
 
 
-# TODO: Дописать класс просмотря профиля
-class CustomerDetailView(DetailView):
-    pass
+# class CustomerDetailView(DetailView):
+#     template_name = 'panel/customer_view.html'
+#     model = Customer
+#     context_object_name = 'cust'
 
 
-# TODO:Дописать функцию подтверждения бронирования со стороны менеджера
+def customer_detail_view(request, pk):
+    try:
+        cust = Customer.objects.get(pk=pk)
+    except:
+        return render(request, 'panel/book_view.html', {'error': 'Пользователь не найден'})
+    cb = Customer_Book.objects.get(customer_id=cust.id)
+    context = {
+        'cb': cb,
+        'cust': cust,
+    }
+    return render(request, 'panel/customer_view.html', context)
+
+
 def book_success(request, pk):
     Book.objects.filter(pk=pk).update(confirmed=True)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

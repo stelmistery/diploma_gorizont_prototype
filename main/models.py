@@ -12,7 +12,7 @@ class Customer(models.Model):
     middle_name = models.CharField(max_length=50, verbose_name='Отчество')
     organization = models.CharField(max_length=255, null=True, blank=True, verbose_name='Организация')
     place = models.CharField(max_length=255, null=True, blank=True, verbose_name='Должность')
-    age = models.IntegerField(null=True, blank=True, verbose_name='Возраст')
+    data_of_birth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDERS, null=True, blank=True, verbose_name='Пол')
     phone = models.CharField(unique=True, max_length=20, null=False, verbose_name='Телефон')
     email = models.CharField(max_length=255, null=True, blank=True, verbose_name='Email')
