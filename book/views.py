@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
-from .models import Room, Book, Customer, Customer_Book, Category
+from .models import Room, Book, Customer_Book, Category
+from account.models import Customer
 from .forms import BookForm, DataForm
 from .services.booking_services import free_room_search_func, phone_converter, del_session
 import datetime

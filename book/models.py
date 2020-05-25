@@ -1,5 +1,5 @@
 from django.db import models
-from main.models import Customer
+from account.models import Customer
 from django.core.validators import MaxValueValidator
 
 

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'book',
     'formtools',
     'panel',
+    'account',
 ]
 
 MIDDLEWARE = [
