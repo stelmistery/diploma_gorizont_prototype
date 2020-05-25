@@ -9,25 +9,21 @@
     <div class="content-header">
         <ul class="nav-horizontal text-center">
             <li>
-                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i> Orders</a>
+                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
             </li>
             <li class="active">
-                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i> Order View</a>
+                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
             </li>
+
             <li>
-                <a href="page_ecom_customer_view.html"><i class="gi gi-user"></i> Customer View</a>
+                <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
             </li>
         </ul>
     </div>
-
     <div class="block">
         <!-- Basic Form Elements Title -->
         <div class="block-title">
-            <div class="block-options pull-right">
-                <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip"
-                   data-toggle="button" title="" data-original-title="Toggles .form-bordered class">No Borders</a>
-            </div>
-            <h2><strong>Basic Form</strong> Elements</h2>
+            <h2><strong>Поиск</strong> брони</h2>
         </div>
         <!-- END Form Elements Title -->
 
@@ -40,7 +36,7 @@
                 <div class="col-md-3">
                     <input type="text" id="example-text-input" name="pk" class="form-control"
                            placeholder="1234">
-                    <span class="help-block">Введите номер брони для редактирования</span>
+                    <span class="help-block">Введите номер брони для просмотра</span>
                 </div>
                 <div class="col-md-2">
                     <div class="col-xs-12">
@@ -79,7 +75,7 @@
             <tr>
                 <td><strong>Клиент</strong></td>
                 <td>
-                    <a href="{% url 'customer_view' pk=cb.customer_id.pk %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
+                    <a href="{% url 'customer_view_detail' pk=cb.customer_id.pk %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
                 </td>
             </tr>
             <tr>

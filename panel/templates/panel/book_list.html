@@ -2,27 +2,26 @@
 {% load static %}
 
 {% block title %}
+    Список броней
 {% endblock %}
 
 {% block mainblock %}
     <div id="page-content">
         <!-- eCommerce Orders Header -->
         <div class="content-header">
-            <ul class="nav-horizontal text-center">
-                <li class="active">
-                    <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i> Orders</a>
-                </li>
-                <li>
-                    <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i> Order View</a>
-                </li>
-{#                <li>#}
-{#                    <a href="{% url 'book_edit' %}"><i class="gi gi-pencil"></i> Product Edit</a>#}
-{#                </li>#}
-                <li>
-                    <a href="page_ecom_customer_view.html"><i class="gi gi-user"></i> Customer View</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="nav-horizontal text-center">
+            <li  class="active">
+                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
+            </li>
+            <li>
+                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
+            </li>
+
+            <li>
+                <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
+            </li>
+        </ul>
+    </div>
         <!-- END eCommerce Orders Header -->
 
         <!-- Quick Stats -->
@@ -73,7 +72,7 @@
                     <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip"
                        title="Settings"><i class="fa fa-cog"></i></a>
                 </div>
-                <h2><strong>All</strong> Orders</h2>
+                <h2><strong>Все</strong> бронирования</h2>
             </div>
             <!-- END All Orders Title -->
 
@@ -101,7 +100,7 @@
                         <td class="text-center"><a
                                 href="page_ecom_order_view.html"><strong>{{ cb.book_id.room_id }}</strong></a></td>
                         <td class="visible-lg"><a
-                                href="{% url 'customer_view' cb.customer_id.id %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
+                                href="{% url 'customer_view_detail' cb.customer_id.id %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
                         </td>
                         <td class="text-center">{{ cb.book_id.number_of_adults }}</td>
                         <td class="text-center">{{ cb.book_id.number_of_children }}</td>

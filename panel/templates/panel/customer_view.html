@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Информация о ползователе
+    Информация о клиенте
 {% endblock %}
 
 {% block mainblock %}
@@ -16,150 +16,182 @@
             </li>
 
             <li class="active">
-                <a href="#"><i class="gi gi-user"></i>Информация о пользователе</a>
+                <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
             </li>
         </ul>
     </div>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <!-- Customer Info Block -->
-            <div class="block">
-                <!-- Customer Info Title -->
-                <div class="block-title">
-                    <h2><i class="fa fa-file-o"></i> Данные клиента</h2>
-                </div>
-                <!-- END Customer Info Title -->
+    <div class="block">
+        <!-- Basic Form Elements Title -->
+        <div class="block-title">
 
-                <!-- Customer Info -->
-                <div class="block-section text-center">
-                    <a href="javascript:void(0)">
-                        <img src="{% static 'back/img/placeholders/avatars/avatar4@2x.jpg' %}" alt="avatar"
-                             class="img-circle">
-                    </a>
-                    <h3>
-                        <strong>{{ cust.last_name }} {{ cust.first_name }}</strong><br><small></small>
-                    </h3>
-                </div>
-                <table class="table table-borderless table-striped table-vcenter">
-                    <tbody>
-                    <tr>
-                        <td class="text-right" style="width: 50%;"><strong>Организация</strong></td>
-                        <td>{{ cust.organization }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right"><strong>Должность</strong></td>
-                        <td>{{ cust.place }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right"><strong>Дата рождения</strong></td>
-                        <td>{{ cust.data_of_birth }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right"><strong>Пол</strong></td>
-                        <td>{{ cust.gender }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right"><strong>Телефон</strong></td>
-                        <td>{{ cust.phone }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right"><strong>Email</strong></td>
-                        <td>{{ cust.email }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right"><strong>Зарегестрирован</strong></td>
-                        {% if cust.user_id %}
-                            <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
-                        {% else %}
-                            <td><span class="label label-danger"><i class="fa fa-times"></i></span></td>
-                        {% endif %}
-                    </tr>
-                    </tbody>
-                </table>
-                <!-- END Customer Info -->
-            </div>
-            <!-- END Customer Info Block -->
-
+            <h2><strong>Поиск</strong> клиента</h2>
         </div>
-        <div class="col-lg-8">
-            <!-- Orders Block -->
-            <div class="block">
-                <!-- Orders Title -->
-                <div class="block-title">
-                    <h2><i class="fa fa-truck"></i> <strong>Брони</strong> </h2>
+        <!-- END Form Elements Title -->
+
+        <!-- Basic Form Elements Content -->
+        <form action="{% url 'customer_view' %}" method="post"
+              class="form-horizontal form-bordered">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-md-1 control-label" for="example-text-input">ID-номер</label>
+                <div class="col-md-3">
+                    <input type="text" id="example-text-input" name="pk" class="form-control"
+                           placeholder="1234">
+                    <span class="help-block">Введите номер клиента для просмотра</span>
                 </div>
-                <!-- END Orders Title -->
-
-                <!-- Orders Content -->
-                <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
-                    <thead>
-                    <tr>
-                        <th class="text-center" style="width: 100px;">Номер брони</th>
-                        <th class="text-center" style="width: 100px;">Номер команты</th>
-                        <th class="visible-lg text-center">Сумма</th>
-                        <th class="hidden-xs text-center">Дата заселения</th>
-                        <th class="hidden-xs text-center">Дата выселения</th>
-                        <th class="text-center hidden-xs">Статус</th>
-                        <th class="text-center">Действие</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for cb in cbs %}
-                        <tr>
-                            <td class="text-center"><a
-                                    href="page_ecom_order_view.html"><strong>{{ cb.book_id }}</strong></a></td>
-                            <td class="text-center"><a
-                                    href="page_ecom_order_view.html"><strong>{{ cb.book_id.room_id }}</strong></a></td>
-
-                            <td class="text-center hidden-xs"><strong>{{ cb.book_id.price }}</strong></td>
-                            <td class="hidden-xs text-center">{{ cb.book_id.check_in_date }}</td>
-                            <td class="hidden-xs text-center">{{ cb.book_id.date_of_eviction }}</td>
-                            <td>
-                                {% if cb.book_id.confirmed %}
-                                    <span class="label label-success">Подтверждён</span>
-                                {% else %}
-                                    <span class="label label-danger">Не подтверждён</span>
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-xs">
-                                    <a href="{% url 'book_view_detail' pk=cb.book_id %}" data-toggle="tooltip"
-                                       title="View"
-                                       class="btn btn-default"><i class="fa fa-eye"></i></a>
-                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
-                                       class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                <!-- END Orders Content -->
-            </div>
-            <!-- END Orders Block -->
-
-            <!-- Products in Cart Block -->
-            <div class="block">
-                <!-- Products in Cart Title -->
-                <div class="block-title">
-                    <div class="block-options pull-right">
-                        <span class="label label-success"><strong>$ 517,00</strong></span>
+                <div class="col-md-2">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-angle-right"></i> Найти
+                        </button>
                     </div>
-                    <h2><i class="fa fa-shopping-cart"></i> <strong>Мероприятия</strong> </h2>
                 </div>
-                <!-- END Products in Cart Title -->
-
-                <!-- Products in Cart Content -->
-                <table class="table table-bordered table-striped table-vcenter">
-                    <tbody>
-
-                    </tbody>
-                </table>
-                <!-- END Products in Cart Content -->
             </div>
-            <!-- END Products in Cart Block -->
-
-        </div>
+        </form>
     </div>
+
+    {% if cust %}
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- Customer Info Block -->
+                <div class="block">
+                    <!-- Customer Info Title -->
+                    <div class="block-title">
+                        <h2><i class="fa fa-file-o"></i> Данные клиента</h2>
+                    </div>
+                    <!-- END Customer Info Title -->
+
+                    <!-- Customer Info -->
+                    <div class="block-section text-center">
+                        <a href="javascript:void(0)">
+                            <img src="{% static 'back/img/placeholders/avatars/avatar4@2x.jpg' %}" alt="avatar"
+                                 class="img-circle">
+                        </a>
+                        <h3>
+                            <strong>{{ cust.last_name }} {{ cust.first_name }}</strong><br><small></small>
+                        </h3>
+                    </div>
+                    <table class="table table-borderless table-striped table-vcenter">
+                        <tbody>
+                        <tr>
+                            <td class="text-right" style="width: 50%;"><strong>Организация</strong></td>
+                            <td>{{ cust.organization }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><strong>Должность</strong></td>
+                            <td>{{ cust.place }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><strong>Дата рождения</strong></td>
+                            <td>{{ cust.data_of_birth }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><strong>Пол</strong></td>
+                            <td>{{ cust.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><strong>Телефон</strong></td>
+                            <td>{{ cust.phone }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><strong>Email</strong></td>
+                            <td>{{ cust.email }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><strong>Зарегестрирован</strong></td>
+                            {% if cust.user_id %}
+                                <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
+                            {% else %}
+                                <td><span class="label label-danger"><i class="fa fa-times"></i></span></td>
+                            {% endif %}
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- END Customer Info -->
+                </div>
+                <!-- END Customer Info Block -->
+
+            </div>
+            <div class="col-lg-8">
+                <!-- Orders Block -->
+                <div class="block">
+                    <!-- Orders Title -->
+                    <div class="block-title">
+                        <h2><i class="fa fa-truck"></i> <strong>Брони</strong></h2>
+                    </div>
+                    <!-- END Orders Title -->
+
+                    <!-- Orders Content -->
+                    <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 100px;">Номер брони</th>
+                            <th class="text-center" style="width: 100px;">Номер команты</th>
+                            <th class="visible-lg text-center">Сумма</th>
+                            <th class="hidden-xs text-center">Дата заселения</th>
+                            <th class="hidden-xs text-center">Дата выселения</th>
+                            <th class="text-center hidden-xs">Статус</th>
+                            <th class="text-center">Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for cb in cbs %}
+                            <tr>
+                                <td class="text-center"><a
+                                        href="page_ecom_order_view.html"><strong>{{ cb.book_id }}</strong></a></td>
+                                <td class="text-center"><a
+                                        href="page_ecom_order_view.html"><strong>{{ cb.book_id.room_id }}</strong></a>
+                                </td>
+
+                                <td class="text-center hidden-xs"><strong>{{ cb.book_id.price }}</strong></td>
+                                <td class="hidden-xs text-center">{{ cb.book_id.check_in_date }}</td>
+                                <td class="hidden-xs text-center">{{ cb.book_id.date_of_eviction }}</td>
+                                <td>
+                                    {% if cb.book_id.confirmed %}
+                                        <span class="label label-success">Подтверждён</span>
+                                    {% else %}
+                                        <span class="label label-danger">Не подтверждён</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{% url 'book_view_detail' pk=cb.book_id %}" data-toggle="tooltip"
+                                           title="View"
+                                           class="btn btn-default"><i class="fa fa-eye"></i></a>
+                                        <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
+                                           class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- END Orders Content -->
+                </div>
+                <!-- END Orders Block -->
+
+                <!-- Products in Cart Block -->
+                <div class="block">
+                    <!-- Products in Cart Title -->
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <span class="label label-success"><strong>$ 517,00</strong></span>
+                        </div>
+                        <h2><i class="fa fa-shopping-cart"></i> <strong>Мероприятия</strong></h2>
+                    </div>
+                    <!-- END Products in Cart Title -->
+
+                    <!-- Products in Cart Content -->
+                    <table class="table table-bordered table-striped table-vcenter">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <!-- END Products in Cart Content -->
+                </div>
+                <!-- END Products in Cart Block -->
+
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

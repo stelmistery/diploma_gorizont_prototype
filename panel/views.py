@@ -41,17 +41,19 @@ def book_view_detail(request, pk):
 #################################
 
 
-# class CustomerDetailView(DetailView):
-#     template_name = 'panel/customer_view.html'
-#     model = Customer
-#     context_object_name = 'cust'
+def customer_view(request):
+    if request.method == 'POST':
+        pk = request.POST['pk']
+        return redirect('/panel/customer/detail/' + str(pk))
+    return render(request, 'panel/customer_view.html')
 
 
+# TODO: Доделать историю мероприятий
 def customer_detail_view(request, pk):
     try:
         cust = Customer.objects.get(pk=pk)
     except:
-        return render(request, 'panel/book_view.html', {'error': 'Пользователь не найден'})
+        return render(request, 'panel/customer_view.html', {'error': 'Пользователь не найден'})
     cbs = Customer_Book.objects.filter(customer_id__phone=cust.phone)
     context = {
         'cbs': cbs,
