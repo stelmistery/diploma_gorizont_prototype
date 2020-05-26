@@ -138,3 +138,5 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'login'
 
 LOGOUT_REDIRECT_URL = 'main'
+
+AUTH_USER_MODEL = 'account.CustomerUser'

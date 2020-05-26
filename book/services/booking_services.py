@@ -1,6 +1,5 @@
 from book.models import Category, Room, Book, Customer_Book
 from django.db.models import Q
-import re
 
 
 # Function for finding a free room for a given date (Room reservation subsystem)
@@ -26,12 +25,6 @@ def get_book_customer_all():
 
 def get_book_customer(pk):
     return Customer_Book.objects.get(pk=pk)
-
-
-# The function converts the number to a single format
-def phone_converter(phone):
-    phone = re.sub(r"[()-]", "", phone).replace(' ', '')
-    return phone
 
 
 def del_session(request):

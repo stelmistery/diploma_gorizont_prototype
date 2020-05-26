@@ -1,5 +1,24 @@
 from django.db import models
+from .managers import CustomUserManager
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from .validators import validate_phone_number
+from django.conf import settings
+
+
+class CustomerUser(AbstractUser):
+    first_name = None
+    last_name = None
+    username = None
+    phone = models.CharField(max_length=15, validators=[validate_phone_number], unique=True)
+
+    USERNAME_FIELD = 'phone'
+    REQUIRED_FIELDS = ['email']
+
+    objects = CustomUserManager()
+
+    def __str__(self):
+        return self.email
 
 
 class Customer(models.Model):
@@ -17,7 +36,7 @@ class Customer(models.Model):
     phone = models.CharField(max_length=20, null=False, verbose_name='Телефон')
     email = models.CharField(max_length=255, null=True, blank=True, verbose_name='Email')
     city = models.CharField(max_length=255, null=True, blank=True, verbose_name='Город')
-    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.last_name + ' ' + self.first_name + ' ' + self.middle_name

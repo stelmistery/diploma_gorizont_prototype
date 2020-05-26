@@ -1,6 +1,6 @@
 from django import forms
 from .models import Category
-from .validators import validate_phone_number
+from account.validators import validate_phone_number
 
 
 class BookForm(forms.Form):

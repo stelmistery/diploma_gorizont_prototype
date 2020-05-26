@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 class Post(models.Model):
@@ -9,7 +10,7 @@ class Post(models.Model):
     body = models.TextField(verbose_name='Тело новости')
     image = models.ImageField(upload_to='news/', verbose_name='Картинка')
     pub_date = models.DateTimeField(verbose_name='Дата публикации')
-    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    author = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
