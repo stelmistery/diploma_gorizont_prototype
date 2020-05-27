@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .forms import CustomerUserCreateForm
 from django.contrib import messages
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from .models import CustomerUser
 from .forms import CustomerUserCreateForm
-from django.urls import reverse
+from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 # def register(request):
 #     if request.method == 'POST':
@@ -19,4 +20,10 @@ class RegisterUserView(CreateView):
     model = CustomerUser
     template_name = 'account/register.html'
     form_class = CustomerUserCreateForm
-    # success_url = reverse('register')
+
+    def get_success_url(self):
+        return ('/account/register/done')
+
+
+class RegisterDoneView(TemplateView):
+    template_name = 'account/register_done.html'
