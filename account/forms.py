@@ -31,8 +31,8 @@ class CustomerUserCreateForm(forms.ModelForm):
 
     def clean(self):
         super().clean()
-        password1 = self.cleaned_data['password1']
-        password2 = self.cleaned_data['password2']
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
         if password1 and password2 and password1 != password2:
             errors = {'password2': ValidationError(
                 'Ввдённые пароли не совпадают', code='password_mismatch')}
