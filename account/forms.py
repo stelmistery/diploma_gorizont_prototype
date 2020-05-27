@@ -49,3 +49,4 @@ class CustomerUserCreateForm(forms.ModelForm):
     class Meta:
         model = CustomerUser
         fields = ('phone', 'email', 'password1', 'password2')
+

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import CustomerUserCreateForm
 from django.contrib import messages
 from django.views.generic import CreateView, TemplateView
+from django.contrib.auth.views import LoginView
 from .models import CustomerUser
 from .forms import CustomerUserCreateForm
 from django.urls import reverse_lazy
@@ -22,8 +23,12 @@ class RegisterUserView(CreateView):
     form_class = CustomerUserCreateForm
 
     def get_success_url(self):
-        return ('/account/register/done')
+        return '/account/register/done'
 
 
 class RegisterDoneView(TemplateView):
     template_name = 'account/register_done.html'
+
+
+class LoginUserView(LoginView):
+    template_name = 'account/login.html'
