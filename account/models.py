@@ -3,6 +3,7 @@ from .managers import CustomUserManager
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from .validators import validate_phone_number
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
 
@@ -10,7 +11,17 @@ class CustomerUser(AbstractUser):
     first_name = None
     last_name = None
     username = None
-    phone = models.CharField(max_length=15, validators=[validate_phone_number], unique=True)
+    phone = models.CharField(_('Номер телефона'),
+                             max_length=15,
+                             validators=[validate_phone_number],
+                             unique=True,
+                             error_messages={
+                                 'unique': _("Пользователь с таким номером уже сущесвтует"), })
+
+    email = models.EmailField(_('Email'),
+                              unique=True,
+                              error_messages={
+                                  'unique': _("Пользователь с таким email уже сущесвтует"), })
 
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = ['email']

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="content-section">
+
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom md-4">Join</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <div class="form-group">
+                <input type="submit" value="Зарегаться">
+            </div>
+        </form>
+    </div>
+{% endblock %}
