@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect, reverse
-from book.models import Book, Customer_Book, Customer
+from book.models import Book, Customer
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from book.services.booking_services import get_book_customer_all, get_book_customer
 from book.forms import BookForm, DataForm
+from book.services.booking_services import get_book
 
 
 # Create your views here.
@@ -15,10 +15,8 @@ def index(request):
 
 class BookListView(ListView):
     template_name = 'panel/book_list.html'
-    context_object_name = 'cbs'
-
-    def get_queryset(self):
-        return Customer_Book.objects.all()
+    context_object_name = 'books'
+    model = Book
 
 
 #################################
@@ -32,10 +30,10 @@ def book_view(request):
 
 def book_view_detail(request, pk):
     try:
-        cb = get_book_customer(pk)
+        book = get_book(pk)
     except:
         return render(request, 'panel/book_view.html', {'error': 'Такой брони нет'})
-    return render(request, 'panel/book_view.html', {'cb': cb})
+    return render(request, 'panel/book_view.html', {'book': book})
 
 
 #################################
@@ -51,13 +49,13 @@ def customer_view(request):
 # TODO: Доделать историю мероприятий
 def customer_detail_view(request, pk):
     try:
-        cust = Customer.objects.get(pk=pk)
+        customer = Customer.objects.get(pk=pk)
     except:
         return render(request, 'panel/customer_view.html', {'error': 'Пользователь не найден'})
-    cbs = Customer_Book.objects.filter(customer_id__phone=cust.phone)
+    books = Book.objects.filter(customer__phone=customer.phone)
     context = {
-        'cbs': cbs,
-        'cust': cust,
+        'customer': customer,
+        'books': books,
     }
     return render(request, 'panel/customer_view.html', context)
 

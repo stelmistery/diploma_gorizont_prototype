@@ -5,5 +5,4 @@ from .models import *
 
 admin.site.register(Category)
 admin.site.register(Book)
-admin.site.register(Customer_Book)
 admin.site.register(Room)

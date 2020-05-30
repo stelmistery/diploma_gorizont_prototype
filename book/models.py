@@ -33,7 +33,8 @@ class Room(models.Model):
 
 class Book(models.Model):
     Book_code = models.AutoField(primary_key=True, verbose_name='Код брони')
-    room_id = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Номер комнаты')
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Номер комнаты')
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name='Клиент')
     number_of_adults = models.IntegerField(verbose_name='Кол-во взрослых', default=0, validators=[MaxValueValidator(4)])
     number_of_children = models.IntegerField(verbose_name='Кол-во детей', default=0, validators=[MaxValueValidator(4)])
     check_in_date = models.DateField(verbose_name='Дата заселения')
@@ -48,16 +49,3 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Бронь'
         verbose_name_plural = 'Брони'
-
-
-class Customer_Book(models.Model):
-    book_id = models.ForeignKey(Book, verbose_name='Номер брони', on_delete=models.CASCADE)
-    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.customer_id.phone + ' | ' + str(self.book_id.Book_code)
-
-    class Meta:
-        verbose_name = 'Клиент - Бронь'
-        verbose_name_plural = 'Клиент - Бронь'
-        ordering = ['book_id']

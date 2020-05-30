@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import index, BookListView, customer_detail_view, book_success, book_view, book_view_detail, customer_view
+from .views import index, BookListView, book_view, book_view_detail, book_success, customer_view, customer_detail_view
 
 urlpatterns = [
     path('', index, name='panel_index'),
@@ -11,6 +11,5 @@ urlpatterns = [
     path('customer/', customer_view, name='customer_view'),
     path('customer/detail/<int:pk>', customer_detail_view, name='customer_view_detail'),
     path('book/<int:pk>/success', book_success, name='book_success'),
-    # path('book/<int:pk>/success', book_success, name='customer_view'),
 ]
 

@@ -47,7 +47,7 @@
             </div>
         </form>
     </div>
-    {% if cb %}
+    {% if book %}
         <div class="block">
         <!-- Info Title -->
         <div class="block-title">
@@ -57,10 +57,10 @@
                 <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""
                    data-original-title="Hire"><i class="fa fa-briefcase"></i></a>
             </div>
-            <h2 style="font-size: 14pt">Подробности бронирования <strong>{{ cb.book_id.pk }}</strong></h2>
+            <h2 style="font-size: 14pt">Подробности бронирования <strong>{{ book.pk }}</strong></h2>
             <h2>
                 <strong>Статус: </strong>
-                {% if cb.book_id.confirmed %}
+                {% if book.confirmed %}
                     <span class="label label-success">Подтверждено</span>
                 {% else %}
                     <span class="label label-danger">Не подтверждено</span>
@@ -74,47 +74,47 @@
             <tbody>
             <tr>
                 <td><strong>Клиент</strong></td>
-                <td>
-                    <a href="{% url 'customer_view_detail' pk=cb.customer_id.pk %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
-                </td>
+{#                <td>#}
+{#                    <a href="{% url 'customer_view_detail' pk=book.customer.pk %}">{{ book.customer.last_name }} {{ book.customer.first_name }}</a>#}
+{#                </td>#}
             </tr>
             <tr>
                 <td><strong>ID-номер бронирования</strong></td>
-                <td>{{ cb.book_id.pk }}</td>
+                <td>{{ book.pk }}</td>
             </tr>
             <tr>
                 <td><strong>ID-номер комнаты / кол-во мест</strong></td>
-                <td>{{ cb.book_id.room_id_id }}/{{ cb.book_id.room_id.number_of_place }}</td>
+                <td>{{ book.room_id }}/{{ book.room.number_of_place }}</td>
             </tr>
             <tr>
                 <td><strong>Категория номера</strong></td>
-                <td>{{ cb.book_id.room_id.category_id }}</td>
+                <td>{{ book.room.category_id }}</td>
             </tr>
             <tr>
                 <td><strong>Количество взрослых/детей</strong></td>
-                <td>{{ cb.book_id.number_of_adults }} / {{ cb.book_id.number_of_children }}</td>
+                <td>{{ book.number_of_adults }} / {{ book.number_of_children }}</td>
             </tr>
             <tr>
                 <td><strong>Дата заселения</strong></td>
-                <td>{{ cb.book_id.check_in_date|date:"d/m/Y" }}</td>
+                <td>{{ book.check_in_date|date:"d/m/Y" }}</td>
             </tr>
             <tr>
                 <td><strong {{ cb.book_id }}>Дата выселения</strong></td>
-                <td>{{ cb.book_id.date_of_eviction|date:"d/m/Y" }}</td>
+                <td>{{ book.date_of_eviction|date:"d/m/Y" }}</td>
             </tr>
             <tr>
                 <td><strong>Стоимость бронирования</strong></td>
-                <td>{{ cb.book_id.price }}₽</td>
+                <td>{{ book.price }}₽</td>
             </tr>
             <tr>
                 <td><strong>Дополнительная инфомарция</strong></td>
-                <td>{{ cb.book_id.additional_information }}</td>
+                <td>{{ book.additional_information }}</td>
             </tr>
 
 
             </tbody>
         </table>
-        <form action="{% url 'book_success' pk=cb.book_id %}" class="form-horizontal form-bordered">
+        <form action="{% url 'book_success' pk=book.pk %}" class="form-horizontal form-bordered">
             <div class="form-group form-actions">
                 <div class="col-xs-12">
                     <button type="submit" class="btn  btn-success"><i class="fa fa-angle-right"></i> Подтвердить

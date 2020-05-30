@@ -9,19 +9,20 @@
     <div id="page-content">
         <!-- eCommerce Orders Header -->
         <div class="content-header">
-        <ul class="nav-horizontal text-center">
-            <li  class="active">
-                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
-            </li>
-            <li>
-                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
-            </li>
+            <ul class="nav-horizontal text-center">
+                <li class="active">
+                    <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
+                </li>
+                <li>
+                    <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
+                </li>
 
-            <li>
-                <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
-            </li>
-        </ul>
-    </div>
+                <li>
+                    <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
+
+                </li>
+            </ul>
+        </div>
         <!-- END eCommerce Orders Header -->
 
         <!-- Quick Stats -->
@@ -93,22 +94,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for cb in cbs %}
+                {% for book in books %}
                     <tr>
                         <td class="text-center"><a
-                                href="page_ecom_order_view.html"><strong>{{ cb.book_id }}</strong></a></td>
+                                href="page_ecom_order_view.html"><strong>{{ book.pk }}</strong></a></td>
                         <td class="text-center"><a
-                                href="page_ecom_order_view.html"><strong>{{ cb.book_id.room_id }}</strong></a></td>
+                                href="page_ecom_order_view.html"><strong>{{ book.room }}</strong></a></td>
                         <td class="visible-lg"><a
-                                href="{% url 'customer_view_detail' cb.customer_id.id %}">{{ cb.customer_id.last_name }} {{ cb.customer_id.first_name }}</a>
+                                href="#">{{ book.customer.last_name }} {{ book.customer.first_name }}</a>
                         </td>
-                        <td class="text-center">{{ cb.book_id.number_of_adults }}</td>
-                        <td class="text-center">{{ cb.book_id.number_of_children }}</td>
-                        <td class="text-center hidden-xs"><strong>{{ cb.book_id.price }}</strong></td>
-                        <td class="hidden-xs text-center">{{ cb.book_id.check_in_date }}</td>
-                        <td class="hidden-xs text-center">{{ cb.book_id.date_of_eviction }}</td>
+                        <td class="text-center">{{ book.number_of_adults }}</td>
+                        <td class="text-center">{{ book.number_of_children }}</td>
+                        <td class="text-center hidden-xs"><strong>{{ book.price }}</strong></td>
+                        <td class="hidden-xs text-center">{{ book.check_in_date }}</td>
+                        <td class="hidden-xs text-center">{{ book.date_of_eviction }}</td>
                         <td>
-                            {% if cb.book_id.confirmed %}
+                            {% if book.confirmed %}
                                 <span class="label label-success">Подтверждён</span>
                             {% else %}
                                 <span class="label label-danger">Не подтверждён</span>
@@ -116,7 +117,7 @@
                         </td>
                         <td class="text-center">
                             <div class="btn-group btn-group-xs">
-                                <a href="{% url 'book_view_detail' pk=cb.book_id %}" data-toggle="tooltip" title="View"
+                                <a href="{% url 'book_view_detail' pk=book.pk %}" data-toggle="tooltip" title="View"
                                    class="btn btn-default"><i class="fa fa-eye"></i></a>
                                 <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
                                    class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
@@ -126,52 +127,52 @@
                 {% endfor %}
                 </tbody>
             </table>
-{#            <div class="row">#}
-{#                <div class="col-sm-5 hidden-xs">#}
-{#                    <div class="dataTables_info" id="ecom-orders_info" role="status" aria-live="polite">#}
-{#                        <strong>21</strong>-<strong>40</strong> of <strong>60</strong></div>#}
-{#                </div>#}
-{#                <div class="col-sm-7 col-xs-12 clearfix">#}
-{#                    <div class="dataTables_paginate paging_bootstrap" id="ecom-orders_paginate">#}
-{#                        <ul class="pagination pagination-sm remove-margin">#}
-{##}
-{#                            {% if page_obj.has_previous %}#}
-{#                                <li><a href="?page=1">&laquo; First page</a></li>#}
-{#                                <li class="prev"><a href="?page={{ page_obj.previous_page_number }}"><i#}
-{#                                        class="fa fa-chevron-left"></i> </a></li>#}
-{#                                <li>#}
-{#                                    <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>#}
-{#                                </li>#}
-{#                            {% else %}#}
-{#                                <li><a href="javascript:void(0)">first page &raquo;</a></li>#}
-{##}
-{#                                <li class="next"><a href="javascript:void(0)"> <i#}
-{#                                        class="fa fa-chevron-left"></i></a></li>#}
-{#                                <li class="prev"><a href="javascript:void(0)"><i></i> </a></li>#}
-{#                                <li>#}
-{#                            {% endif %}#}
-{##}
-{##}
-{#                            <li class="active"><a href="javascript:void(0)">{{ page_obj.number }}</a></li>#}
-{##}
-{##}
-{#                            {% if page_obj.has_next %}#}
-{#                                <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>#}
-{#                                </li>#}
-{#                                <li class="next"><a href="?page={{ page_obj.next_page_number }}"> <i#}
-{#                                        class="fa fa-chevron-right"></i></a></li>#}
-{#                                <li><a href="?page={{ page_obj.paginator.num_pages }}">last page &raquo;</a></li>#}
-{#                            {% else %}#}
-{#                                <li class="next"><a href="javascript:void(0)"> <i></i></a></li>#}
-{#                                <li class="next"><a href="javascript:void(0)"> <i#}
-{#                                        class="fa fa-chevron-right"></i></a></li>#}
-{#                                <li><a href="javascript:void(0)">last page &raquo;</a></li>#}
-{#                            {% endif %}#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
+            {#            <div class="row">#}
+            {#                <div class="col-sm-5 hidden-xs">#}
+            {#                    <div class="dataTables_info" id="ecom-orders_info" role="status" aria-live="polite">#}
+            {#                        <strong>21</strong>-<strong>40</strong> of <strong>60</strong></div>#}
+            {#                </div>#}
+            {#                <div class="col-sm-7 col-xs-12 clearfix">#}
+            {#                    <div class="dataTables_paginate paging_bootstrap" id="ecom-orders_paginate">#}
+            {#                        <ul class="pagination pagination-sm remove-margin">#}
+            {##}
+            {#                            {% if page_obj.has_previous %}#}
+            {#                                <li><a href="?page=1">&laquo; First page</a></li>#}
+            {#                                <li class="prev"><a href="?page={{ page_obj.previous_page_number }}"><i#}
+            {#                                        class="fa fa-chevron-left"></i> </a></li>#}
+            {#                                <li>#}
+            {#                                    <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>#}
+            {#                                </li>#}
+            {#                            {% else %}#}
+            {#                                <li><a href="javascript:void(0)">first page &raquo;</a></li>#}
+            {##}
+            {#                                <li class="next"><a href="javascript:void(0)"> <i#}
+            {#                                        class="fa fa-chevron-left"></i></a></li>#}
+            {#                                <li class="prev"><a href="javascript:void(0)"><i></i> </a></li>#}
+            {#                                <li>#}
+            {#                            {% endif %}#}
+            {##}
+            {##}
+            {#                            <li class="active"><a href="javascript:void(0)">{{ page_obj.number }}</a></li>#}
+            {##}
+            {##}
+            {#                            {% if page_obj.has_next %}#}
+            {#                                <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>#}
+            {#                                </li>#}
+            {#                                <li class="next"><a href="?page={{ page_obj.next_page_number }}"> <i#}
+            {#                                        class="fa fa-chevron-right"></i></a></li>#}
+            {#                                <li><a href="?page={{ page_obj.paginator.num_pages }}">last page &raquo;</a></li>#}
+            {#                            {% else %}#}
+            {#                                <li class="next"><a href="javascript:void(0)"> <i></i></a></li>#}
+            {#                                <li class="next"><a href="javascript:void(0)"> <i#}
+            {#                                        class="fa fa-chevron-right"></i></a></li>#}
+            {#                                <li><a href="javascript:void(0)">last page &raquo;</a></li>#}
+            {#                            {% endif %}#}
+            {#                        </ul>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {##}
+            {#            </div>#}
             <!-- END All Orders Content -->
         </div>
         <!-- END All Orders Block -->
@@ -199,6 +200,7 @@
         {#    showing: false,#}
         {#    lengthChange: false,#}
         {#    "info": false#}
-        {#});#}
+        {# });#}
+
     </script>
 {% endblock %}

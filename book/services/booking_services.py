@@ -1,4 +1,4 @@
-from book.models import Category, Room, Book, Customer_Book
+from book.models import Category, Room, Book, Customer
 from django.db.models import Q
 
 
@@ -19,12 +19,12 @@ def get_books_all():
     return Book.objects.all()
 
 
-def get_book_customer_all():
-    return Customer_Book.objects.all()
+def get_book(pk):
+    return Book.objects.get(pk=pk)
 
 
-def get_book_customer(pk):
-    return Customer_Book.objects.get(pk=pk)
+def get_customer(pk):
+    return Customer.objects.get(pk=pk)
 
 
 def del_session(request):
