@@ -4,6 +4,7 @@ from .models import CustomerUser
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
 from account.validators import validate_phone_number
+from .models import Customer
 
 
 class CustomerUserCreateForm(forms.ModelForm):
@@ -39,12 +40,15 @@ class CustomerUserCreateForm(forms.ModelForm):
             raise ValidationError(errors)
 
     def save(self, commit=True):
-        user = super().save(commit=False)
+        customer = Customer.objects.create(phone=self.cleaned_data.get('phone'), email=self.cleaned_data.get('email'))
 
+        user = super().save(commit=False)
         user.set_password(self.cleaned_data['password1'])
+        user.customer_id = customer.id
         user.is_active = True
         if commit:
             user.save()
+
 
     class Meta:
         model = CustomerUser

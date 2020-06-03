@@ -1,5 +1,6 @@
 import re
 
+
 def phone_converter(phone):
     phone = re.sub(r"[()-]", "", phone).replace(' ', '')
     return phone
