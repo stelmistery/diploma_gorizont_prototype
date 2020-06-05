@@ -28,10 +28,14 @@ class CustomUserManager(BaseUserManager):
         user = self.model(email=self.normalize_email(email),
                           phone=phone_converter(phone))
 
-        user.customer_id = customer
+        user.customer_id = customer.pk
+        user.is_staff = False
         user.set_password(password)
         user.save(using=self._db)
         return user
+    #
+    # def create_staffuser(slef, phone, password, email):
+    #     user = self.create_user()
 
     def create_superuser(self, phone, email, password):
         """
@@ -60,7 +64,7 @@ class Customer(models.Model):
     place = models.CharField(max_length=255, null=True, blank=True, verbose_name='Должность')
     data_of_birth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDERS, null=True, blank=True, verbose_name='Пол')
-    phone = models.CharField(max_length=20, null=False, verbose_name='Телефон')
+    phone = models.CharField(max_length=20, validators=[validate_phone_number], null=False, verbose_name='Телефон')
     email = models.CharField(max_length=255, null=True, blank=True, verbose_name='Email')
     city = models.CharField(max_length=255, null=True, blank=True, verbose_name='Город')
 
@@ -78,6 +82,7 @@ class CustomerUser(AbstractUser):
     first_name = None
     last_name = None
     username = None
+    is_staff = models.BooleanField(default=False)
     phone = models.CharField(_('Номер телефона'),
                              max_length=15,
                              validators=[validate_phone_number],
@@ -98,3 +103,12 @@ class CustomerUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class PhoneOTP(models.Model):
+    phone = models.CharField(validators=[validate_phone_number], max_length=15, unique=True)
+    otp = models.CharField(max_length=9, blank=True, null=True)
+    count = models.IntegerField(default=0, help_text='Кол-во отправленных сообщений')
+
+    def __str__(self):
+        return str(self.phone) + ' отправлено ' + self.otp

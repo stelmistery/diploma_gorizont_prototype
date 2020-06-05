@@ -125,7 +125,13 @@ def book_confirmed(request):
         if room:
             try:
                 customer = Customer.objects.get(phone=phone)
-                book = Book.objects.create(room_id_id=room.pk,
+                if customer.first_name == '-':
+                    customer.objects.update(first_name=first_name,
+                                            last_name=last_name,
+                                            middle_name=middle_name)
+
+                book = Book.objects.create(room_id=room.pk,
+                                           customer_id=customer.id,
                                            number_of_adults=number_of_adults,
                                            number_of_children=number_of_children,
                                            check_in_date=check_in_date,
@@ -133,25 +139,24 @@ def book_confirmed(request):
                                            additional_information=additional_info,
                                            price=price,
                                            confirmed=False)
-                cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
             except Customer.DoesNotExist:
                 customer = Customer.objects.create(first_name=first_name,
                                                    last_name=last_name,
                                                    middle_name=middle_name,
                                                    phone=phone, email=email)
-                book = Book.objects.create(room_id_id=room.pk,
+                book = Book.objects.create(room_id=room.pk,
                                            number_of_adults=number_of_adults,
+                                           customer_id=customer.id,
                                            number_of_children=number_of_children,
                                            check_in_date=check_in_date,
                                            date_of_eviction=date_of_eviction,
                                            additional_information=additional_info,
                                            price=price,
                                            confirmed=False)
-                cb = Customer_Book.objects.create(customer_id=customer, book_id=book)
 
-            if cb.pk:
+            if book.pk:
                 del_session(request)
-                return HttpResponse('Поздравляю, это ваша бронь: ' + str(cb.pk))
+                return HttpResponse('Поздравляю, это ваша бронь: ' + str(book.pk))
             else:
                 del_session(request)
                 book.delete()

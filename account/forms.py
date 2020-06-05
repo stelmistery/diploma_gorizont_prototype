@@ -8,15 +8,6 @@ from .models import Customer
 
 
 class CustomerUserCreateForm(forms.ModelForm):
-    # class Meta:
-    #     fields = ('email', 'phone', 'password1', 'password2')
-    #     model = CustomerUser
-    #
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     self.fields['phone'].label = 'Phone number'
-    #     self.fields['email'].label = 'Email Address'
-
     phone = forms.CharField(required=True, label='Мобильный телефон', validators=[validate_phone_number], max_length=20)
     email = forms.EmailField(required=True, label='Адрес электронной почты')
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput,
@@ -39,16 +30,14 @@ class CustomerUserCreateForm(forms.ModelForm):
                 'Ввдённые пароли не совпадают', code='password_mismatch')}
             raise ValidationError(errors)
 
-    def save(self, commit=True):
-        customer = Customer.objects.create(phone=self.cleaned_data.get('phone'), email=self.cleaned_data.get('email'))
-
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data['password1'])
-        user.customer_id = customer.id
-        user.is_active = True
-        if commit:
-            user.save()
-
+    # def save(self, commit=True):
+    #     customer = Customer.objects.create(phone=self.cleaned_data.get('phone'), email=self.cleaned_data.get('email'))
+    #     user = super().save(commit=False)
+    #     user.set_password(self.cleaned_data['password1'])
+    #     user.customer_id = customer.id
+    #     user.is_active = True
+    #     if commit:
+    #         user.save()
 
     class Meta:
         model = CustomerUser

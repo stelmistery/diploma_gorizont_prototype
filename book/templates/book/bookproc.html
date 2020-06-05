@@ -4,9 +4,7 @@
     <form method="POST" action="{% url 'book_form' %}">
         {% csrf_token %}
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <h4>Серёга шо за дизайн</h4>
-            </div>
+
             <div class="form-group col-md-2">
                 <label for="{{ df.first_name.id_for_label }}">{{ df.first_name.label }}</label>
                 {{ df.first_name }}
@@ -30,18 +28,14 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <h4>Памагити</h4>
-            </div>
+
             {{ category.name }}
             {{ category.conditions }}
             {{ category.price }}
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <h4>Если вас зовут Серёга, то у меня для вас плохие новости</h4> <br>
-            </div>
+
             <div class="form-group col-md-2">
                 <label for="{{ df.check_in_date.id_for_label }}">{{ df.check_in_date.label }}</label>
                 {{ df.check_in_date }}
@@ -65,9 +59,7 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <h4>Серёга сам пили свой диплом</h4>
-            </div>
+
             <div class="form-group col-md-2">
                 <label for="{{ df.additional_info.id_for_label }}">{{ df.additional_info.label }}</label>
                 {{ df.additional_info }}

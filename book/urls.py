@@ -4,7 +4,6 @@ from .views import *
 # from .forms import ContactForm1, ContactForm2
 # from .views import BookWizard
 
-app_name = 'book'
 
 urlpatterns = [
     path('check/', room_check, name='room_check'),
