@@ -43,3 +43,8 @@ class CustomerUserCreateForm(forms.ModelForm):
         model = CustomerUser
         fields = ('phone', 'email', 'password1', 'password2')
 
+
+class PhoneValid(forms.Form):
+    phone = forms.CharField(required=True, label='Мобильный телефон', validators=[validate_phone_number], max_length=20,
+                            widget=forms.HiddenInput)
+    code = forms.CharField(required=True, label='Код из СМС', max_length=4)

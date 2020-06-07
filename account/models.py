@@ -33,7 +33,7 @@ class CustomUserManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
-    #
+
     # def create_staffuser(slef, phone, password, email):
     #     user = self.create_user()
 
@@ -103,6 +103,9 @@ class CustomerUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+    def get_phone(self):
+        return self.phone
 
 
 class PhoneOTP(models.Model):

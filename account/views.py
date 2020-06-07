@@ -6,7 +6,7 @@ from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.views import LoginView
 from .models import CustomerUser, PhoneOTP
 from .services import send_otp
-from .forms import CustomerUserCreateForm
+from .forms import CustomerUserCreateForm, PhoneValid
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
@@ -34,32 +34,52 @@ def register_user(request):
     if request.method == 'POST':
         rf = CustomerUserCreateForm(request.POST)
         if rf.is_valid():
-            cuser = CustomerUser.objects.filter(phone__iexact=rf.cleaned_data.get('phone'))
-            if cuser.exists():
+            filt_user = CustomerUser.objects.filter(phone__iexact=rf.cleaned_data.get('phone'))
+            if filt_user.exists():
                 error = 'Пользователь с таким телефоном уже зарегестрирован в системе'
                 return render(request, 'account/register.html', context={'form': CustomerUserCreateForm,
                                                                          'errors': error})
-            cuser = CustomerUser.objects.filter(email__iexact=rf.cleaned_data.get('email'))
-            if cuser.exists():
+            filt_user = CustomerUser.objects.filter(email__iexact=rf.cleaned_data.get('email'))
+            if filt_user.exists():
                 error = 'Пользователь с таким email уже зарегестрирован в системе'
                 return render(request, 'account/register.html', context={'form': CustomerUserCreateForm,
                                                                          'errors': error})
+            try:
+                user = CustomerUser.objects.create_user(phone=rf.cleaned_data.get('phone'),
+                                                        password=rf.cleaned_data.get('password1'),
+                                                        email=rf.cleaned_data.get('email'))
+            except:
+                error = 'Что-то пошло не так 1'
+                return HttpResponse(error)
+            auth_user = authenticate(request, phone=rf.cleaned_data.get('phone'), password=rf.cleaned_data.get('password1'))
+            if auth_user is not None:
+                login(request, auth_user)
 
-            user = CustomerUser.objects.create_user(phone=rf.cleaned_data.get('phone'),
-                                                    password=rf.cleaned_data.get('password1'),
-                                                    email=rf.cleaned_data.get('email'))
-
-            # error = 'Что-то пошло не так'
-            # return HttpResponse(error)
-            user = authenticate(request, phone=rf.cleaned_data.get('phone'), password=rf.cleaned_data.get('password1'))
-            if user is not None:
-                login(request, user)
-
-            key = send_otp(rf.cleaned_data.get('phone'))
-            phone = PhoneOTP.objects.create(phone=rf.cleaned_data.get('phone'), key=key)
+            key = send_otp(user.phone)
+            if key:
+                phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
+                code_form = PhoneValid(initial={'phone': user.phone})
+                return render(request, 'account/register.html', context={'phone_field': code_form, 'phone': user.phone})
+            else:
+                return HttpResponse('что-то пошло не так 2')
     form = CustomerUserCreateForm
     context = {'form': form}
     return render(request, 'account/register.html', context)
+
+
+def phone_activate(request):
+    if request.method == 'POST':
+        pa = PhoneValid(request.POST)
+        if pa.is_valid():
+            if request.user.phone == pa.cleaned_data.get('phone'):
+                phone_otp = PhoneOTP.objects.get(phone=pa.cleaned_data.get('phone'))
+                if phone_otp:
+                    if phone_otp.otp == pa.cleaned_data.get('code'):
+                        user_id = request.user.id
+                        user = CustomerUser.objects.get(pk=user_id)
+                        user.is_staff = True
+                        user.save()
+        return redirect('/')
 
 
 class RegisterDoneView(TemplateView):

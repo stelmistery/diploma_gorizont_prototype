@@ -2,6 +2,20 @@
 
 {% block body %}
     <div class="content-section">
+        {% if phone_field %}
+            <form method="post" action="{% url 'account:phone_activate' %}">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom md-4">Активация</legend>
+                    <p>На номер {{ phone }} отправлено смс с кодом</p>
+                    {{ phone_field.as_p }}
+                </fieldset>
+                <div class="form-group">
+                    <input type="submit" value="Подтвердить">
+                </div>
+            </form>
+        {% endif %}
+
 
         <form method="post">
             {% csrf_token %}

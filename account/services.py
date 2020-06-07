@@ -32,9 +32,9 @@ def send_otp(phone):
         302: "Пользователь авторизован, но аккаунт не подтвержден (пользователь не ввел код, присланный в регистрационной смс)",
     }
     api_id = '2A6D0CAE-F0F5-30FF-52E9-1225EC4BED94'
-    to = phone
-    key = random.random(999, 9999)
-    msg = quote(key)
+    to = '79787370171'
+    key = random.randint(999, 9999)
+    msg = key
 
     url = "http://sms.ru/sms/send?api_id=%s&to=%s&text=%s" % (api_id, to, msg)
     # if cliargs.debug == True:
