@@ -14,7 +14,7 @@ class CustomUserManager(BaseUserManager):
     for authentication instead of usernames.
     """
 
-    def create_user(self, phone, email, password):
+    def create_user(self, phone, email, password, first_name, last_name, middle_name):
         """
         Create and save a User with the given email and password.
         """
@@ -23,7 +23,11 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError(_('Email должен присутствовать'))
 
-        customer = Customer.objects.create(phone=phone, email=email)
+        customer = Customer.objects.create(phone=phone,
+                                           email=email,
+                                           first_name=first_name,
+                                           last_name=last_name,
+                                           middle_name=middle_name)
 
         user = self.model(email=self.normalize_email(email),
                           phone=phone_converter(phone))

@@ -8,6 +8,12 @@ from .models import Customer
 
 
 class CustomerUserCreateForm(forms.ModelForm):
+    first_name = forms.CharField(label='Имя', max_length=50,
+                                 widget=forms.TextInput())
+    last_name = forms.CharField(label='Фамилия', max_length=50,
+                                widget=forms.TextInput())
+    middle_name = forms.CharField(label='Отчество', max_length=50,
+                                  widget=forms.TextInput())
     phone = forms.CharField(required=True, label='Мобильный телефон', validators=[validate_phone_number], max_length=20)
     email = forms.EmailField(required=True, label='Адрес электронной почты')
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput,
@@ -41,7 +47,7 @@ class CustomerUserCreateForm(forms.ModelForm):
 
     class Meta:
         model = CustomerUser
-        fields = ('phone', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'middle_name', 'phone', 'email', 'password1', 'password2')
 
 
 class PhoneValid(forms.Form):

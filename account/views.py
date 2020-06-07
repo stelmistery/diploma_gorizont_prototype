@@ -29,7 +29,10 @@ def register_user(request):
             try:
                 user = CustomerUser.objects.create_user(phone=rf.cleaned_data.get('phone'),
                                                         password=rf.cleaned_data.get('password1'),
-                                                        email=rf.cleaned_data.get('email'))
+                                                        email=rf.cleaned_data.get('email'),
+                                                        first_name=rf.cleaned_data.get('first_name'),
+                                                        last_name=rf.cleaned_data.get('last_name'),
+                                                        middle_name=rf.cleaned_data.get('middle_name')),
             except:
                 error = 'Что-то пошло не так 1'
                 return HttpResponse(error)
@@ -38,17 +41,18 @@ def register_user(request):
             if auth_user is not None:
                 login(request, auth_user)
 
-            key = send_otp(user.phone)
+            key = send_otp(rf.cleaned_data.get('phone'))
             if key:
                 try:
-                    phone = PhoneOTP.objects.get(phone=user.phone)
+                    phone = PhoneOTP.objects.get(phone=rf.cleaned_data.get('phone'))
                     phone.otp = key
                     print('ключ присвоен')
                     phone.save()
                 except:
-                    phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
-                code_form = PhoneValid(initial={'phone': user.phone})
-                return render(request, 'account/register.html', context={'phone_field': code_form, 'phone': user.phone})
+                    phone = PhoneOTP.objects.create(phone=rf.cleaned_data.get('phone'), otp=key)
+                code_form = PhoneValid(initial={'phone': rf.cleaned_data.get('phone')})
+                return render(request, 'account/register.html',
+                              context={'phone_field': code_form, 'phone': rf.cleaned_data.get('phone')})
             else:
                 return HttpResponse('что-то пошло не так 2')
     form = CustomerUserCreateForm
