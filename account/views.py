@@ -77,7 +77,10 @@ def phone_activate(request):
                         except:
                             print('Какая-то дичь с выдачей прав')
                     else:
-                        return HttpResponse('коды не совпадают')
+                        code_form = PhoneValid(initial={'phone': user.phone})
+                        return render(request, 'account/register.html',
+                                      context={'phone_field': code_form, 'phone': user.phone,
+                                               'error': 'Коды не совпадают, попробуйте ещё раз'})
             else:
                 return HttpResponse('Номер автоизованного пользователя и номера с формы не совпадают')
         return redirect('/')
