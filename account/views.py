@@ -51,7 +51,8 @@ def register_user(request):
             except:
                 error = 'Что-то пошло не так 1'
                 return HttpResponse(error)
-            auth_user = authenticate(request, phone=rf.cleaned_data.get('phone'), password=rf.cleaned_data.get('password1'))
+            auth_user = authenticate(request, phone=rf.cleaned_data.get('phone'),
+                                     password=rf.cleaned_data.get('password1'))
             if auth_user is not None:
                 login(request, auth_user)
 
@@ -60,6 +61,8 @@ def register_user(request):
                 try:
                     phone = PhoneOTP.objects.get(phone=user.phone)
                     phone.otp = key
+                    print('ключ присвоен')
+                    phone.save()
                 except:
                     phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
                 code_form = PhoneValid(initial={'phone': user.phone})
@@ -74,15 +77,23 @@ def register_user(request):
 def phone_activate(request):
     if request.method == 'POST':
         pa = PhoneValid(request.POST)
+        user = request.user
         if pa.is_valid():
-            if request.user.phone == pa.cleaned_data.get('phone'):
+            if user.phone == pa.cleaned_data.get('phone'):
                 phone_otp = PhoneOTP.objects.get(phone=pa.cleaned_data.get('phone'))
                 if phone_otp:
                     if phone_otp.otp == pa.cleaned_data.get('code'):
-                        user_id = request.user.id
-                        user = CustomerUser.objects.get(pk=user_id)
-                        user.is_staff = True
-                        user.save()
+                        try:
+                            user = CustomerUser.objects.get(pk=user.pk)
+                            user.is_staff = True
+                            print('смена прав пользователя')
+                            user.save()
+                        except:
+                            print('Какая-то дичь с выдачей прав')
+                    else:
+                        return HttpResponse('коды не совпадают')
+            else:
+                return HttpResponse('Номер автоизованного пользователя и номера с формы не совпадают')
         return redirect('/')
 
 
@@ -91,4 +102,8 @@ class RegisterDoneView(TemplateView):
 
 
 class LoginUserView(LoginView):
+    template_name = 'account/login.html'
+
+
+class LogoutUserView(LoginView):
     template_name = 'account/login.html'

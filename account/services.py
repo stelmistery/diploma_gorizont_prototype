@@ -34,29 +34,30 @@ def send_otp(phone):
     api_id = '2A6D0CAE-F0F5-30FF-52E9-1225EC4BED94'
     to = '79787370171'
     key = random.randint(999, 9999)
-    msg = key
-
-    url = "http://sms.ru/sms/send?api_id=%s&to=%s&text=%s" % (api_id, to, msg)
-    # if cliargs.debug == True:
-    #     url = "%s&test=1" % (url)
-    # elif cliargs.sendername is not None:
-    #     url = "%s&from=%s" % (url, cliargs.sendername)
-    # elif cliargs.time is not None:
-    #     url = "%s&time=%d" % (url, int(cliargs.time))
-    # elif cliargs.translit == True:
-    #     url = '%s&translit=1' % (url)
-
-    try:
-        res = urlopen(url)
-        print("GET: %s %s\nReply:\n%s" % (res.geturl(), res.msg, res.info()))
-    except URLError as errstr:
-        print("smssend[debug]: %s" % (errstr))
-
-    service_result = res.read().splitlines()
-    if service_result is not None and int(service_result[0]) == 100:
-        # return HttpResponse("smssend[debug]: Message send ok. ID: %s" % (service_result[1]))
-        return key
-    if service_result is not None and int(service_result[0]) != 100:
-        # return HttpResponse("smssend[debug]: Unable send sms message to %s when service has returned code: %s " % (
-        #     to, servicecodes[int(service_result[0])]))
-        return False
+    return key
+    # msg = key
+    #
+    # url = "http://sms.ru/sms/send?api_id=%s&to=%s&text=%s" % (api_id, to, msg)
+    # # if cliargs.debug == True:
+    # #     url = "%s&test=1" % (url)
+    # # elif cliargs.sendername is not None:
+    # #     url = "%s&from=%s" % (url, cliargs.sendername)
+    # # elif cliargs.time is not None:
+    # #     url = "%s&time=%d" % (url, int(cliargs.time))
+    # # elif cliargs.translit == True:
+    # #     url = '%s&translit=1' % (url)
+    #
+    # try:
+    #     res = urlopen(url)
+    #     print("GET: %s %s\nReply:\n%s" % (res.geturl(), res.msg, res.info()))
+    # except URLError as errstr:
+    #     print("smssend[debug]: %s" % (errstr))
+    #
+    # service_result = res.read().splitlines()
+    # if service_result is not None and int(service_result[0]) == 100:
+    #     # return HttpResponse("smssend[debug]: Message send ok. ID: %s" % (service_result[1]))
+    #     return key
+    # if service_result is not None and int(service_result[0]) != 100:
+    #     # return HttpResponse("smssend[debug]: Unable send sms message to %s when service has returned code: %s " % (
+    #     #     to, servicecodes[int(service_result[0])]))
+    #     return False
