@@ -57,7 +57,11 @@ def register_user(request):
 
             key = send_otp(user.phone)
             if key:
-                phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
+                try:
+                    phone = PhoneOTP.objects.get(phone=user.phone)
+                    phone.otp = key
+                except:
+                    phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
                 code_form = PhoneValid(initial={'phone': user.phone})
                 return render(request, 'account/register.html', context={'phone_field': code_form, 'phone': user.phone})
             else:

@@ -4,6 +4,7 @@ from .forms import PhoneValid
 from .models import PhoneOTP
 from .services import send_otp
 
+
 class PhoneValidMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
@@ -26,11 +27,11 @@ class PhoneValidMiddleware:
             if not user.is_staff:
                 key = send_otp(user.phone)
                 if key:
-                    phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
+                    try:
+                        phone = PhoneOTP.objects.get(phone=user.phone)
+                        phone.otp = key
+                    except:
+                        phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
                     code_form = PhoneValid(initial={'phone': user.phone})
                     return render(request, 'account/register.html',
                                   context={'phone_field': code_form, 'phone': user.phone})
-                else:
-                    return HttpResponse('что-то пошло не так 2')
-
-
