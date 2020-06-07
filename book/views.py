@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from .models import Room, Book, Category
 from account.models import Customer
-from .forms import BookForm, DataForm
+from .forms import BookForm, DataForm, AuthDataForm
 from .services.booking_services import free_room_search_func, del_session
 from account.services import phone_converter
 import datetime
@@ -22,13 +22,27 @@ def room_check(request):
             room = free_room_search_func(check_in_date, date_of_eviction, category, num)
 
             if room:
-                initial = {'check_in_date': check_in_date,
-                           'date_of_eviction': date_of_eviction,
-                           'category': category,
-                           'number_of_adults': number_of_adults,
-                           'number_of_children': number_of_children}
+                if request.user.is_authenticated:
+                    user = request.user.customer_id
+                    customer_user = Customer.objects.get(id=user)
+                    initial = {'check_in_date': check_in_date,
+                               'date_of_eviction': date_of_eviction,
+                               'category': category,
+                               'number_of_adults': number_of_adults,
+                               'number_of_children': number_of_children,
+                               'first_name': customer_user.first_name,
+                               'last_name': customer_user.last_name,
+                               'middle_name': customer_user.middle_name}
 
-                df = DataForm(initial=initial)
+                    df = AuthDataForm(initial=initial)
+                else:
+                    initial = {'check_in_date': check_in_date,
+                               'date_of_eviction': date_of_eviction,
+                               'category': category,
+                               'number_of_adults': number_of_adults,
+                               'number_of_children': number_of_children}
+
+                    df = DataForm(initial=initial)
 
                 context = {'df': df, 'category': category}
                 return render(request, 'book/bookproc.html', context)
@@ -123,36 +137,19 @@ def book_confirmed(request):
         room = free_room_search_func(check_in_date, date_of_eviction, category, num)
 
         if room:
-            try:
-                customer = Customer.objects.get(phone=phone)
-                if customer.first_name == '-':
-                    customer.objects.update(first_name=first_name,
-                                            last_name=last_name,
-                                            middle_name=middle_name)
-
-                book = Book.objects.create(room_id=room.pk,
-                                           customer_id=customer.id,
-                                           number_of_adults=number_of_adults,
-                                           number_of_children=number_of_children,
-                                           check_in_date=check_in_date,
-                                           date_of_eviction=date_of_eviction,
-                                           additional_information=additional_info,
-                                           price=price,
-                                           confirmed=False)
-            except Customer.DoesNotExist:
-                customer = Customer.objects.create(first_name=first_name,
-                                                   last_name=last_name,
-                                                   middle_name=middle_name,
-                                                   phone=phone, email=email)
-                book = Book.objects.create(room_id=room.pk,
-                                           number_of_adults=number_of_adults,
-                                           customer_id=customer.id,
-                                           number_of_children=number_of_children,
-                                           check_in_date=check_in_date,
-                                           date_of_eviction=date_of_eviction,
-                                           additional_information=additional_info,
-                                           price=price,
-                                           confirmed=False)
+            customer = Customer.objects.create(first_name=first_name,
+                                               last_name=last_name,
+                                               middle_name=middle_name,
+                                               phone=phone, email=email)
+            book = Book.objects.create(room_id=room.pk,
+                                       number_of_adults=number_of_adults,
+                                       customer_id=customer.id,
+                                       number_of_children=number_of_children,
+                                       check_in_date=check_in_date,
+                                       date_of_eviction=date_of_eviction,
+                                       additional_information=additional_info,
+                                       price=price,
+                                       confirmed=False)
 
             if book.pk:
                 del_session(request)

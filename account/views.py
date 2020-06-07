@@ -12,24 +12,6 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         form = CustomerUserCreateForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#     form = CustomerUserCreateForm()
-#     return render(request, 'account/register.html', {'form': form})
-
-#
-# class RegisterUserView(CreateView):
-#     model = CustomerUser
-#     template_name = 'account/register.html'
-#     form_class = CustomerUserCreateForm
-#
-#     def get_success_url(self):
-#         return '/account/register/done'
-
-
 def register_user(request):
     if request.method == 'POST':
         rf = CustomerUserCreateForm(request.POST)
@@ -104,6 +86,7 @@ class RegisterDoneView(TemplateView):
 class LoginUserView(LoginView):
     template_name = 'account/login.html'
     next = '/'
+
 
 class LogoutUserView(LoginView):
     template_name = 'account/login.html'

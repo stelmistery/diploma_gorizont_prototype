@@ -52,3 +52,11 @@ class DataForm(forms.Form):
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
     additional_info = forms.CharField(label='Дополнительная информация', required=False,
                                       widget=forms.Textarea(attrs={'class': 'form-control'}))
+
+
+class AuthDataForm(DataForm):
+    first_name = forms.CharField(label='', widget=forms.HiddenInput())
+    last_name = forms.CharField(label='', widget=forms.HiddenInput())
+    middle_name = forms.CharField(label='', widget=forms.HiddenInput())
+    phone = forms.CharField(label='', widget=forms.HiddenInput())
+    email = forms.EmailField(label='', widget=forms.HiddenInput())
