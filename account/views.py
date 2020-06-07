@@ -103,7 +103,7 @@ class RegisterDoneView(TemplateView):
 
 class LoginUserView(LoginView):
     template_name = 'account/login.html'
-
+    next = '/'
 
 class LogoutUserView(LoginView):
     template_name = 'account/login.html'
