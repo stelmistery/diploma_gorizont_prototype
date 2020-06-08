@@ -11,6 +11,7 @@ class Event(models.Model):
     end_date = models.DateTimeField(verbose_name='Дата окончания проведения')
     max_members = models.IntegerField(blank=True, null=True, verbose_name='Макс. кол-во участников')
     tech_support = models.TextField(blank=True, null=True, verbose_name='Техническое сопровождение')
+    status = models.BooleanField(default=0, verbose_name='Статус')
 
     def __str__(self):
         return self.name + ': ' + self.type
