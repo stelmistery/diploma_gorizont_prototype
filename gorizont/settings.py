@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'formtools',
     'panel',
     'account',
+    'event',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from .validators import validate_phone_number
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -14,7 +14,7 @@ class CustomUserManager(BaseUserManager):
     for authentication instead of usernames.
     """
 
-    def create_user(self, phone, email, password, first_name, last_name, middle_name):
+    def create_user(self, phone, email, password, first_name='-', last_name='-', middle_name='-'):
         """
         Create and save a User with the given email and password.
         """
