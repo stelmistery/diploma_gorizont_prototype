@@ -23,6 +23,7 @@ from main.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('book/', include('book.urls')),
+    path('event/', include('event.urls')),
     path('', index, name='main'),
     path('panel/', include('panel.urls')),
     path('account/', include('account.urls')),

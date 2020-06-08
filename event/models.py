@@ -21,16 +21,16 @@ class Event(models.Model):
         verbose_name_plural = 'Мероприятия'
         ordering = ['start_date']
 
-
-class Venue(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Наименование')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Площадка'
-        verbose_name_plural = 'Площадки'
+#
+# class Venue(models.Model):
+#     name = models.CharField(max_length=50, verbose_name='Наименование')
+#
+#     def __str__(self):
+#         return self.name
+#
+#     class Meta:
+#         verbose_name = 'Площадка'
+#         verbose_name_plural = 'Площадки'
 
 
 class Member(models.Model):
@@ -44,17 +44,17 @@ class Member(models.Model):
     class Meta:
         verbose_name = 'Участник'
         verbose_name_plural = 'Участники'
-
-
-class Venue_Event(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name='Мероприятие')
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, verbose_name='Площадка')
-    start_date = models.DateTimeField(verbose_name='Дата начала аренды')
-    end_date = models.DateTimeField(verbose_name='Дата окончания аренды')
-
-    def __str__(self):
-        return 'Площадки для: ' + str(self.event.name)
-
-    class Meta:
-        verbose_name = 'Площадка_Мероприятие'
-        verbose_name_plural = 'Площадка_Мероприятие'
+#
+#
+# class Venue_Event(models.Model):
+#     event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name='Мероприятие')
+#     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, verbose_name='Площадка')
+#     start_date = models.DateTimeField(verbose_name='Дата начала аренды')
+#     end_date = models.DateTimeField(verbose_name='Дата окончания аренды')
+#
+#     def __str__(self):
+#         return 'Площадки для: ' + str(self.event.name)
+#
+#     class Meta:
+#         verbose_name = 'Площадка_Мероприятие'
+#         verbose_name_plural = 'Площадка_Мероприятие'
