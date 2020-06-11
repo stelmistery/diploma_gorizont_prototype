@@ -1,0 +1,201 @@
+{% extends 'panel/panel_base.html' %}
+{% load static %}
+
+{% block title %}
+    Создание брони
+{% endblock %}
+
+{% block mainblock %}
+    <div id="page-content" style="min-height: 1125px;">
+        <!-- Forms General Header -->
+        <div class="content-header">
+            <div class="header-section">
+                <h1>
+                    <i class="gi gi-notes_2"></i>Создание бронирония<br>
+                </h1>
+            </div>
+        </div>
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Бронирование</li>
+            <li><a href="">Забронировать</a></li>
+        </ul>
+        <!-- END Forms General Header -->
+
+        <div class="block">
+            <!-- Time and Date Pickers Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""
+                       data-original-title="Settings"><i class="gi gi-cogwheel"></i></a>
+                </div>
+                <h2><strong>Проверить категорию</strong></h2>
+            </div>
+            <!-- END Time and Date Pickers Title -->
+
+            <!-- Time and Date Pickers Content -->
+            {% if pbf %}
+                <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered"
+                      onsubmit="return false;">
+
+                    <div class="form-group">
+
+                        <div class="col-md-3">
+                            <label for="example-daterange1">Выберите даты</label>
+                            <div class="input-group input-daterange" data-date-format="mm/dd/yyyy">
+{#                                <input type="text" id="example-daterange1" name="example-daterange1"#}
+{#                                       class="form-control text-center" placeholder="From">#}
+                                {{ pbf.check_in_date }}
+                                <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+{#                                <input type="text" id="example-daterange2" name="example-daterange2"#}
+{#                                       class="form-control text-center" placeholder="To">#}
+                                {{ pbf.date_of_eviction }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="example-select">Категория</label>
+
+                            {{ pbf.category }}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="example-select">Взрослые</label>
+
+                           {{ pbf.number_of_adults }}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="example-select">Дети</label>
+
+                            {{ pbf.number_of_children }}
+                        </div>
+
+                    </div>
+
+                    <div class="form-group form-actions">
+                        <div class="col-md-8 col-md-offset-4">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
+                                Submit
+                            </button>
+                            <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
+            <!-- END Time and Date Pickers Content -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Basic Form Elements Block -->
+                <div class="block">
+                    <!-- Basic Form Elements Title -->
+                    <div class="block-title">
+
+                    </div>
+                    <!-- END Form Elements Title -->
+
+                    <!-- Basic Form Elements Content -->
+                    {% if pdf %}
+                        <form action="{% url 'book_create' %}" method="post"
+                              class="form-horizontal form-bordered">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="first_name">Имя</label>
+                                <div class="col-md-9">
+                                    {{ pdf.first_name }}
+                                    <span class="help-block">Введите имя бронируемого</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="last_name">Фамилия</label>
+                                <div class="col-md-9">
+                                    {{ pdf.last_name }}
+                                    <span class="help-block">Введите фамилию бронируемого</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="middle_name">Отчество</label>
+                                <div class="col-md-9">
+                                    {{ pdf.middle_name }}
+                                    <span class="help-block">Введите Отчество бронируемого</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="masked_phone">Телефон</label>
+                                <div class="col-md-9">
+                                    {{ pdf.phone }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="email">Email</label>
+                                <div class="col-md-9">
+                                    {{ pdf.email }}
+                                    <span class="help-block">Пожалуйста введите Email</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="number_of_adults">Кол-во взрослых</label>
+                                <div class="col-md-9">
+
+                                    {{ pdf.number_of_adults }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="number_of_children">Кол-во Детей</label>
+                                <div class="col-md-9">
+
+                                    {{ pdf.number_of_children }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="example-select">Дата заезда/дата
+                                    выезда</label>
+                                <div class="col-md-8">
+                                    <div class="input-group input-daterange" data-date-format="mm/dd/yyyy">
+                                        {{ pdf.check_in }}
+                                        <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+                                        {{ pdf.departure }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="additional_info">Дополнительная
+                                    информация</label>
+                                <div class="col-md-9">
+                                <textarea id="additional_info" name="additional_info" rows="9"
+                                          class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group form-actions">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="submit" class="btn btn-lg btn-primary"><i
+                                            class="fa fa-angle-right"></i> Создать
+                                    </button>
+                                    <button type="reset" class="btn btn-lg btn-warning"><i class="fa fa-repeat"></i>
+                                        Сбросить
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                    <!-- END Basic Form Elements Content -->
+                </div>
+                <!-- END Basic Form Elements Block -->
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block footerblock %}
+    <script src="{% static 'back/js/pages/formsGeneral.js' %}"></script>
+    <script>$(function () {
+        FormsGeneral.init();
+    });</script>
+    <script src="{% static 'back/js/pages/formsValidation.js' %}"></script>
+    <script>$(function () {
+        FormsValidation.init();
+    });</script>
+{% endblock %}

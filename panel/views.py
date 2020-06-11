@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect, reverse
 from book.models import Book, Customer
 from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from book.forms import BookForm, DataForm
 from book.services.booking_services import get_book
+from .forms import PanelDataForm, PanelBookForm
+from account.services import phone_converter
 
 
 # Create your views here.
@@ -99,3 +99,24 @@ def book_success(request, pk):
 #
 #
 #     return render(request, 'panel/book_edit.html')
+
+def book_create(request):
+    if request.method == 'POST':
+        df = PanelDataForm(request.POST)
+        if df.is_valid():
+            phone = phone_converter(df.cleaned_data.get('phone'))
+            first_name = df.cleaned_data.get('first_name')
+            last_name = df.cleaned_data.get('last_name')
+            middle_name = df.cleaned_data.get('middle_name')
+            email = df.cleaned_data.get('email')
+            check_in = df.cleaned_data.get('check_in')
+            departure = df.cleaned_data.get('departure')
+            category = df.cleaned_data.get('category')
+            additional_info = df.cleaned_data.get('additional_info')
+    pbf = PanelBookForm()
+    pdf = PanelDataForm()
+    context = {
+        'pdf': pdf,
+        'pbf': pbf
+    }
+    return render(request, 'panel/book_create.html', context)

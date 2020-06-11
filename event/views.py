@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.http.response import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Event, Customer, Member
@@ -13,10 +13,11 @@ def save_event(request):
             customer = request.user.customer
             event = ef.save()
             try:
-                member = Member.objects.create(event=event, customer=customer)
+                Member.objects.create(event=event, customer=customer, orderer=customer)
             except:
                 return HttpResponse('Сохранение Объекта member : неуспешно')
-            return render(request, 'main/index.html', {'event_done': 'Меропряитие отправлено на рассмотрение!'})
+            # return render(request, 'main/index.html', {'event_done': 'Мероприятие отправлено на рассмотрение!'})
+            return redirect(reverse('main'))
     ef = EventForms()
     context = {'ef': ef}
     return render(request, 'event/save_event.html', context)
