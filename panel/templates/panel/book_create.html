@@ -34,21 +34,20 @@
 
             <!-- Time and Date Pickers Content -->
             {% if pbf %}
-                <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered"
-                      onsubmit="return false;">
-
+                <form action="{% url 'book_check' %}" method="post" class="form-horizontal form-bordered">
+                    {% csrf_token %}
                     <div class="form-group">
 
                         <div class="col-md-3">
                             <label for="example-daterange1">Выберите даты</label>
                             <div class="input-group input-daterange" data-date-format="mm/dd/yyyy">
-{#                                <input type="text" id="example-daterange1" name="example-daterange1"#}
-{#                                       class="form-control text-center" placeholder="From">#}
-                                {{ pbf.check_in_date }}
+                                {#                                <input type="text" id="example-daterange1" name="example-daterange1"#}
+                                {#                                       class="form-control text-center" placeholder="From">#}
+                                {{ pbf.check_in }}
                                 <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
-{#                                <input type="text" id="example-daterange2" name="example-daterange2"#}
-{#                                       class="form-control text-center" placeholder="To">#}
-                                {{ pbf.date_of_eviction }}
+                                {#                                <input type="text" id="example-daterange2" name="example-daterange2"#}
+                                {#                                       class="form-control text-center" placeholder="To">#}
+                                {{ pbf.departure }}
                             </div>
                         </div>
 
@@ -61,7 +60,7 @@
                         <div class="col-md-3">
                             <label for="example-select">Взрослые</label>
 
-                           {{ pbf.number_of_adults }}
+                            {{ pbf.number_of_adults }}
                         </div>
 
                         <div class="col-md-3">
@@ -71,7 +70,27 @@
                         </div>
 
                     </div>
-
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                                <div class="form-group form-actions">
+                                    <div class="alert alert-info alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                        </button>
+                                        <h4><i class="fa fa-check-circle"></i> {{ message }}</h4>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="form-group form-actions">
+                                    <div class="alert alert-warning alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                        </button>
+                                        <h4><i class="fa fa-check-circle"></i> {{ message }}</h4>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="form-group form-actions">
                         <div class="col-md-8 col-md-offset-4">
                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
@@ -126,13 +145,21 @@
                                 <label class="col-md-3 control-label" for="masked_phone">Телефон</label>
                                 <div class="col-md-9">
                                     {{ pdf.phone }}
+                                    <span class="help-block">Введите номре телефона бронируемого</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="email">Email</label>
                                 <div class="col-md-9">
                                     {{ pdf.email }}
-                                    <span class="help-block">Пожалуйста введите Email</span>
+                                    <span class="help-block">Пожалуйста введите Email(опционально)</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="category">Категория</label>
+                                <div class="col-md-9">
+                                    {{ pdf.category }}
+                                    <span class="help-block">Пожалуйста выберите категорию</span>
                                 </div>
                             </div>
                             <div class="form-group">

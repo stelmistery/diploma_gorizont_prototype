@@ -11,14 +11,14 @@ class PanelBookForm(forms.Form):
         ("3", "3"),
         ("4", "4"),
     )
-    check_in_date = forms.DateField(label='Дата заезда',
+    check_in = forms.DateField(label='Дата заезда',
                                     widget=forms.DateInput(
                                         attrs={'class': 'form-control text-center',
                                                'type': 'text',
                                                'placeholder': 'От',
                                                'id': 'example-daterange1'}))
 
-    date_of_eviction = forms.DateField(label='Дата выезда',
+    departure = forms.DateField(label='Дата выезда',
                                        widget=forms.DateInput(
                                            attrs={'class': 'form-control text-center',
                                                   'type': 'text',
@@ -112,6 +112,7 @@ class PanelDataForm(forms.Form):
                                        'placeholder': '+7(999) 999-9999'}))
 
     email = forms.EmailField(label='Email',
+                             required=False,
                              widget=forms.EmailInput(
                                  attrs={'class': 'form-control',
                                         'id': 'email',
