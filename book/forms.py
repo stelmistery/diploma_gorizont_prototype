@@ -55,8 +55,12 @@ class DataForm(forms.Form):
 
 
 class AuthDataForm(DataForm):
-    first_name = forms.CharField(label='', widget=forms.HiddenInput())
-    last_name = forms.CharField(label='', widget=forms.HiddenInput())
-    middle_name = forms.CharField(label='', widget=forms.HiddenInput())
-    phone = forms.CharField(label='', widget=forms.HiddenInput())
-    email = forms.EmailField(label='', widget=forms.HiddenInput())
+    first_name = forms.CharField(label='Имя', max_length=50,
+                                 widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}))
+    last_name = forms.CharField(label='Фамилия', max_length=50,
+                                widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}))
+    middle_name = forms.CharField(label='Отчество', max_length=50,
+                                  widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}))
+    phone = forms.CharField(label='Мобильный телефон', max_length=20, validators=[validate_phone_number],
+                            widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}))
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control', 'readonly': True}))

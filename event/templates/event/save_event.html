@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <form method="POST" action="{% url 'save_event' %}">
+    <form method="post" action="{% url 'save_event' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-row">
 {#            {{ ef.as_ul }}#}

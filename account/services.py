@@ -37,14 +37,6 @@ def send_otp(phone):
     msg = key
 
     url = "http://sms.ru/sms/send?api_id=%s&to=%s&text=%s" % (api_id, to, msg)
-    # if cliargs.debug == True:
-    #     url = "%s&test=1" % (url)
-    # elif cliargs.sendername is not None:
-    #     url = "%s&from=%s" % (url, cliargs.sendername)
-    # elif cliargs.time is not None:
-    #     url = "%s&time=%d" % (url, int(cliargs.time))
-    # elif cliargs.translit == True:
-    #     url = '%s&translit=1' % (url)
 
     try:
         res = urlopen(url)

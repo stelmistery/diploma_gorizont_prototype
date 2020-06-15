@@ -21,8 +21,6 @@ class BookListView(ListView):
     model = Book
 
 
-#################################
-# TODO: объелинить две функции
 def book_view(request):
     if request.method == 'POST':
         pk = request.POST['pk']
@@ -38,9 +36,6 @@ def book_view_detail(request, pk):
     return render(request, 'panel/book_view.html', {'book': book})
 
 
-#################################
-
-
 def customer_view(request):
     if request.method == 'POST':
         pk = request.POST['pk']
@@ -48,7 +43,6 @@ def customer_view(request):
     return render(request, 'panel/customer_view.html')
 
 
-# TODO: Доделать историю мероприятий
 def customer_detail_view(request, pk):
     try:
         customer = Customer.objects.get(pk=pk)

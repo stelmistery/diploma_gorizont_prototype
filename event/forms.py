@@ -17,7 +17,9 @@ class EventForms(forms.ModelForm):
                                      widget=forms.TextInput(attrs={'class': 'form-control'}))
     tech_support = forms.CharField(label='Техническое сопровождение',
                                    widget=forms.Textarea(attrs={'class': 'form-control'}))
+    image = forms.ImageField(label='Главное изображение', )
 
     class Meta:
         model = Event
-        fields = ('name', 'type', 'description', 'cost', 'start_date', 'end_date', 'max_members', 'tech_support')
+        fields = (
+            'name', 'type', 'description', 'cost', 'start_date', 'end_date', 'max_members', 'tech_support', 'image')

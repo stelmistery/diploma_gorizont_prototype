@@ -6,7 +6,7 @@ from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.views import LoginView
 from .models import CustomerUser, PhoneOTP
 from .services import send_otp
-from .forms import CustomerUserCreateForm, PhoneValid
+from .forms import CustomerUserCreateForm, PhoneVerify
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
@@ -50,7 +50,7 @@ def register_user(request):
                     phone.save()
                 except:
                     phone = PhoneOTP.objects.create(phone=rf.cleaned_data.get('phone'), otp=key)
-                code_form = PhoneValid(initial={'phone': rf.cleaned_data.get('phone')})
+                code_form = PhoneVerify(initial={'phone': rf.cleaned_data.get('phone')})
                 return render(request, 'account/register.html',
                               context={'phone_field': code_form, 'phone': rf.cleaned_data.get('phone')})
             else:
@@ -62,7 +62,7 @@ def register_user(request):
 
 def phone_activate(request):
     if request.method == 'POST':
-        pa = PhoneValid(request.POST)
+        pa = PhoneVerify(request.POST)
         user = request.user
         if pa.is_valid():
             if user.phone == pa.cleaned_data.get('phone'):
@@ -77,7 +77,7 @@ def phone_activate(request):
                         except:
                             print('Какая-то дичь с выдачей прав')
                     else:
-                        code_form = PhoneValid(initial={'phone': user.phone})
+                        code_form = PhoneVerify(initial={'phone': user.phone})
                         return render(request, 'account/register.html',
                                       context={'phone_field': code_form, 'phone': user.phone,
                                                'error': 'Коды не совпадают, попробуйте ещё раз'})

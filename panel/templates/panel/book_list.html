@@ -6,24 +6,22 @@
 {% endblock %}
 
 {% block mainblock %}
+
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li class="active">
+                <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
+            </li>
+            <li>
+                <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
+            </li>
+
+            <li>
+                <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
+            </li>
+        </ul>
+    </div>
     <div id="page-content">
-        <!-- eCommerce Orders Header -->
-        <div class="content-header">
-            <ul class="nav-horizontal text-center">
-                <li class="active">
-                    <a href="{% url 'book_list' %}"><i class="gi gi-shop_window"></i>Брони</a>
-                </li>
-                <li>
-                    <a href="{% url 'book_view' %}"><i class="gi gi-shopping_cart"></i>Информация о брони</a>
-                </li>
-
-                <li>
-                    <a href="{% url 'customer_view' %}"><i class="gi gi-user"></i>Информация о клиенте</a>
-
-                </li>
-            </ul>
-        </div>
-        <!-- END eCommerce Orders Header -->
 
         <!-- Quick Stats -->
         <div class="row text-center">

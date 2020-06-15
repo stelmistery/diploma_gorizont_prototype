@@ -3,48 +3,29 @@
 {% block body %}
     <form method="POST" action="{% url 'book_form' %}">
         {% csrf_token %}
-        {% if user.is_authenticated %}
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    {{ user.customer.first_name }}
-                </div>
-                <div class="form-group col-md-2">
-                    {{ user.customer.last_name }}
-                </div>
-                <div class="form-group col-md-2">
-                   {{ user.customer.middle_name }}
-                </div>
-                <div class="form-group col-md-2">
-                  {{ user.phone }}
-                </div>
-                <div class="form-group col-md-2">
-                    {{ user.email }}
-                </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="{{ df.first_name.id_for_label }}">{{ df.first_name.label }}</label>
+                {{ df.first_name }}
             </div>
-        {% else %}
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="{{ df.first_name.id_for_label }}">{{ df.first_name.label }}</label>
-                    {{ df.first_name }}
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="{{ df.last_name.id_for_label }}">{{ df.last_name.label }}</label>
-                    {{ df.last_name }}
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="{{ df.middle_name.id_for_label }}">{{ df.middle_name.label }}</label>
-                    {{ df.middle_name }}
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="{{ df.phone.id_for_label }}">{{ df.phone.label }}</label>
-                    {{ df.phone }}
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="{{ df.email.id_for_label }}">{{ df.email.label }}</label>
-                    {{ df.email }}
-                </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.last_name.id_for_label }}">{{ df.last_name.label }}</label>
+                {{ df.last_name }}
             </div>
-        {% endif %}
+            <div class="form-group col-md-2">
+                <label for="{{ df.middle_name.id_for_label }}">{{ df.middle_name.label }}</label>
+                {{ df.middle_name }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.phone.id_for_label }}">{{ df.phone.label }}</label>
+                {{ df.phone }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="{{ df.email.id_for_label }}">{{ df.email.label }}</label>
+                {{ df.email }}
+            </div>
+        </div>
         <div class="form-row">
 
             {{ category.name }}

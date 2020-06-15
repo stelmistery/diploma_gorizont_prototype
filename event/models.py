@@ -6,6 +6,7 @@ class Event(models.Model):
     name = models.CharField(max_length=50, verbose_name='Наименование')
     type = models.CharField(max_length=50, verbose_name='Тип мероприятия')
     description = models.TextField(verbose_name='Описание мероприятия')
+    image = models.ImageField(upload_to='images/')
     cost = models.FloatField(verbose_name='Стоимость участия', default=0, blank=True, null=True)
     start_date = models.DateTimeField(verbose_name='Дата начала проведения')
     end_date = models.DateTimeField(verbose_name='Дата окончания проведения')

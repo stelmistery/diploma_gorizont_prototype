@@ -5,12 +5,15 @@ from .models import Event, Customer, Member
 from .forms import EventForms
 
 
-@login_required(login_url='/account/login/')
+# @login_required(login_url='/account/login/')
 def save_event(request):
-    if request.method == 'POST':
+    print(request.method)
+    if request.method == "POST":
         ef = EventForms(request.POST)
         if ef.is_valid():
             customer = request.user.customer
+            img = ef.cleaned_data.get('image')
+            print('Вроде всё норм')
             event = ef.save()
             try:
                 Member.objects.create(event=event, customer=customer, orderer=customer)
@@ -18,6 +21,7 @@ def save_event(request):
                 return HttpResponse('Сохранение Объекта member : неуспешно')
             # return render(request, 'main/index.html', {'event_done': 'Мероприятие отправлено на рассмотрение!'})
             return redirect(reverse('main'))
+    print('запрос не проходит проверку на post')
     ef = EventForms()
     context = {'ef': ef}
     return render(request, 'event/save_event.html', context)

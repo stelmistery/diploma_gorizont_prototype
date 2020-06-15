@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
-from .forms import PhoneValid
+from .forms import PhoneVerify
 from .models import PhoneOTP
 from .services import send_otp
 
@@ -37,7 +37,7 @@ class PhoneValidMiddleware:
                         phone.save()
                     except:
                         phone = PhoneOTP.objects.create(phone=user.phone, otp=key)
-                    code_form = PhoneValid(initial={'phone': user.phone})
+                    code_form = PhoneVerify(initial={'phone': user.phone})
                     return render(request, 'account/register.html',
                                   context={'phone_field': code_form, 'phone': user.phone})
 

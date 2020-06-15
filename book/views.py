@@ -32,7 +32,9 @@ def room_check(request):
                                'number_of_children': number_of_children,
                                'first_name': customer_user.first_name,
                                'last_name': customer_user.last_name,
-                               'middle_name': customer_user.middle_name}
+                               'middle_name': customer_user.middle_name,
+                               'phone': customer_user.phone,
+                               'email': customer_user.email}
 
                     df = AuthDataForm(initial=initial)
                 else:
@@ -59,7 +61,11 @@ def room_check(request):
 
 def book_process(request):
     if request.method == 'POST':
-        df = DataForm(request.POST)
+        if request.user.is_authenticated:
+            df = AuthDataForm(request.POST)
+            print('проверка на пользователя проходит')
+        else:
+            df = DataForm(request.POST)
         if df.is_valid():
             check_in_date = df.cleaned_data['check_in_date']
             date_of_eviction = df.cleaned_data['date_of_eviction']
