@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponseRedirect, redirect, reverse
-from book.models import Book, Customer, Category
+from django.shortcuts import render, HttpResponseRedirect, redirect, reverse, get_list_or_404
+from book.models import Book, Category
+from account.models import CustomerUser, Customer
 from event.models import Event, Member
 from django.views.generic.list import ListView
 from django.db.models import Q
@@ -8,11 +9,12 @@ from account.services import phone_converter
 from book.services.booking_services import free_room_search_func, get_book
 from event.models import get_event
 from django.contrib import messages
+import pdb
 
 
 # Create your views here.
 
-
+###################### ----> BOOK <---- ######################
 def index(request):
     return render(request, 'panel/panel_base.html')
 
@@ -44,16 +46,25 @@ def customer_view(request):
         return redirect('/panel/customer/detail/' + str(pk))
     return render(request, 'panel/customer_view.html')
 
-# TODO: сделать выборку мероприятий
+
 def customer_detail_view(request, pk):
+    # pdb.set_trace()
     try:
         customer = Customer.objects.get(pk=pk)
     except:
         return render(request, 'panel/customer_view.html', {'error': 'Пользователь не найден'})
     books = Book.objects.filter(customer__phone=customer.phone)
+    events = Event.objects.filter(member__customer_id=customer.id)
+    reg_status = CustomerUser.objects.filter(customer_id=customer.id)
+    if reg_status:
+        reg_status = True
+    else:
+        reg_status = False
     context = {
         'customer': customer,
         'books': books,
+        'events': events,
+        'reg_status': reg_status
     }
     return render(request, 'panel/customer_view.html', context)
 
@@ -62,85 +73,6 @@ def book_success(request, pk):
     Book.objects.filter(pk=pk).update(confirmed=True)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-
-def panel_event_post(request):
-    if request.method == 'POST':
-        pk = request.POST['pk']
-        return redirect('/panel/event/detail/' + str(pk))
-    return render(request, 'panel/event_view.html')
-
-
-def panel_event_view_detail(request, pk):
-    try:
-        event = get_event(pk)
-        # qr = (Q(pk=Member.customer.pk) & Q())
-        orderer = Customer.objects.filter(member__orderer=True).filter(member__event=event).first()
-
-    except:
-        return render(request, 'panel/event_view.html', {'error': 'Такого мероприятия нет'})
-    return render(request, 'panel/event_view.html', {'event': event, 'orderer': orderer})
-
-
-def event_success(request, pk):
-    Event.objects.filter(pk=pk).update(status=True)
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
-
-def orderer_view(request):
-    if request.method == 'POST':
-        pk = request.POST['pk']
-        return redirect('/panel/event/orderer/' + str(pk))
-    return render(request, 'panel/orderer_viev.html')
-
-
-def orderer_detail_view(request, pk):
-    customer = Customer.objects.filter(pk=pk).filter(member__orderer=True).first()
-    if customer is not None:
-        books = Book.objects.filter(customer__phone=customer.phone)
-        events = Event.objects.filter(member__customer=customer)
-        context = {
-            'customer': customer,
-            'books': books,
-            'events': events
-        }
-        return render(request, 'panel/orderer_viev.html', context)
-    return render(request, 'panel/orderer_viev.html', {'error': 'Такого заказчика нет'})
-
-
-# def book_edit(request):
-#     if request.method == 'POST':
-#         if request.POST['pk']:
-#             pk = request.POST['pk']
-#             try:
-#                 cb = get_book_customer(pk)
-#             except:
-#                 return render(request, 'panel/book_edit.html', {'error': 'Такой брони нет'})
-#             request.session['book_pk'] = cb.book_id.id
-#             request.session['customer_pk'] = cb.customer_id.id
-#             initial = {
-#                 'check_in_date': cb.book_id.check_in_date,
-#                 'date_of_eviction': cb.book_id.date_of_eviction,
-#                 'category': cb.book_id.room_id.category_id,
-#                 'number_of_adults': cb.book_id.number_of_adults,
-#                 'number_of_children': cb.book_id.number_of_children,
-#                 'first_name': cb.customer_id.first_name,
-#                 'last_name': cb.customer_id.last_name,
-#                 'middle_name': cb.customer_id.middle_name,
-#                 'phone': cb.customer_id.phone,
-#                 'email': cb.customer_id.email,
-#                 'additional_info': cb.book_id.additional_information
-#             }
-#             df = DataForm(initial=initial)
-#             return render(request, 'panel/book_edit.html', {'cb': cb, 'df': df})
-#
-#         df = DataForm(request.POST)
-#         if df.is_valid():
-#
-#             book = Book.objects.get(pk=request.session['book_pk'])
-#
-#
-#
-#     return render(request, 'panel/book_edit.html')
 
 def book_create(request):
     if request.method == 'POST':
@@ -253,7 +185,68 @@ def book_check(request):
     return render(request, 'panel/book_create.html', context)
 
 
+###################### ----> END BOOK <---- ######################
+
+
+###################### ----> EVENT <---- ######################
+def panel_event_post(request):
+    if request.method == 'POST':
+        pk = request.POST['pk']
+        return redirect('/panel/event/detail/' + str(pk))
+    return render(request, 'panel/event_view.html')
+
+
 def event_list(request):
     events = Event.objects.all()
     context = {'events': events}
     return render(request, 'panel/event_list.html', context)
+
+
+def panel_event_view_detail(request, pk):
+    try:
+        event = get_event(pk)
+        # qr = (Q(pk=Member.customer.pk) & Q())
+        orderer = Customer.objects.filter(member__orderer=True).filter(member__event=event).first()
+
+    except:
+        return render(request, 'panel/event_view.html', {'error': 'Такого мероприятия нет'})
+    return render(request, 'panel/event_view.html', {'event': event, 'orderer': orderer})
+
+
+def event_success(request, pk):
+    Event.objects.filter(pk=pk).update(status=True)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def orderer_view(request):
+    if request.method == 'POST':
+        pk = request.POST['pk']
+        return redirect('/panel/event/orderer/' + str(pk))
+    return render(request, 'panel/orderer_viev.html')
+
+
+def orderer_detail_view(request, pk):
+    customer = Customer.objects.filter(pk=pk).filter(member__orderer=True).first()
+    if customer is not None:
+        books = Book.objects.filter(customer__phone=customer.phone)
+        events = Event.objects.filter(member__customer_id=customer.id)
+        reg_status = CustomerUser.objects.filter(customer_id=customer.id)
+        if reg_status:
+            reg_status = True
+        else:
+            reg_status = False
+        context = {
+            'customer': customer,
+            'books': books,
+            'events': events,
+            'reg_status': reg_status
+        }
+        return render(request, 'panel/orderer_viev.html', context)
+    return render(request, 'panel/orderer_viev.html', {'error': 'Такого заказчика нет'})
+
+
+def member_list_view(request, pk):
+    members = get_list_or_404(Member, event_id=pk)
+    return render(request, 'panel/list_member.html', {'members': members})
+
+###################### ----> END EVENT <---- ######################

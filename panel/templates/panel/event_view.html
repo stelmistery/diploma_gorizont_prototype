@@ -18,6 +18,9 @@
             <li>
                 <a href="{% url 'orderer_view' %}"><i class="gi gi-user"></i>Информация о заказчике</a>
             </li>
+            <li>
+                <a href="#"> <i class="gi gi-user"></i>Список участников</a>
+            </li>
         </ul>
     </div>
     <div class="block">
@@ -65,8 +68,15 @@
                 {% else %}
                     <span class="label label-danger">Не опубликован</span>
                 {% endif %}
-                <h2 style="font-size: 14pt">Заказчик мероприятия: <strong><a href="{% url 'orderer_detail_view' pk=orderer.pk %}">{{ orderer.last_name }} {{ orderer.first_name }}</a></strong></h2>
 
+
+            </h2>
+            <h2 style="font-size: 14pt">Заказчик мероприятия: <strong><a
+                    href="{% url 'orderer_detail_view' pk=orderer.pk %}">{{ orderer.last_name }} {{ orderer.first_name }}</a></strong>
+            </h2>
+
+            <h2 style="font-size: 14pt">
+                <a href="{% url 'member_list_view' pk=event.pk %}">Список участников мероприятия</a>
             </h2>
         </div>
         <!-- END Info Title -->
@@ -76,9 +86,10 @@
         <!-- Paragraphs and Links -->
 
 
-        <div class="row">
+        <div class=" row">
             <div class="col-md-6">
-                <img src="{{ event.image.url }}" class="img-rounded center-block" width="400px"  alt="{{ event.image.name }}">
+                <img src="{{ event.image.url }}" class="img-rounded center-block" width="400px"
+                     alt="{{ event.image.name }}">
                 <h4 class="sub-header">Наименование: {{ event.name }}</h4>
                 <h4 class="sub-header">Тип мероприятия: {{ event.type }}</h4>
                 <h4 class="sub-header">Стоимость участия: {{ event.cost }}</h4>
@@ -100,7 +111,7 @@
         </div>
         <!-- END Paragraphs and Links -->
 
-      
+
         <!--  End Info Content -->
         <form action="{% url 'event_success' pk=event.pk %}" class="form-horizontal form-bordered">
             <div class="form-group form-actions">

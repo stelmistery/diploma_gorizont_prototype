@@ -20,6 +20,9 @@
                 <li>
                     <a href="{% url 'orderer_view' %}"><i class="gi gi-user"></i>Информация о заказчике</a>
                 </li>
+                <li>
+                    <a href="#"> <i class="gi gi-user"></i>Список участников</a>
+                </li>
             </ul>
         </div>
         <div class="block full">
@@ -56,6 +59,9 @@
                                         <a href="{% url 'panel_event_view_detail' pk=event.pk %}"
                                            class="btn btn-default btn-sm">Перейти</a>
 
+                                        <a href="{% url 'member_list_view' pk=event.pk %}"
+                                           class="btn btn-default btn-sm"> Список участников</a>
+
                                         <div class="card-footer">
                                             <small class="text-muted">Создано {{ event.create_date }}</small>
                                         </div>
@@ -68,7 +74,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 {% endblock %}

@@ -99,7 +99,7 @@
                         </tr>
                         <tr>
                             <td class="text-right"><strong>Зарегестрирован</strong></td>
-                            {% if customer.user_id %}
+                            {% if reg_status %}
                                 <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
                             {% else %}
                                 <td><span class="label label-danger"><i class="fa fa-times"></i></span></td>
@@ -155,7 +155,7 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group btn-group-xs">
-                                        <a href="{% url 'book_view_detail' pk=book.pk%}" data-toggle="tooltip"
+                                        <a href="{% url 'book_view_detail' pk=book.pk %}" data-toggle="tooltip"
                                            title="View"
                                            class="btn btn-default"><i class="fa fa-eye"></i></a>
                                         <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
@@ -175,12 +175,34 @@
                     <!-- Products in Cart Title -->
                     <div class="block-title">
                         <div class="block-options pull-right">
-                            <span class="label label-success"><strong>$ 517,00</strong></span>
+                            <span class="label label-success"><strong>$ ,00</strong></span>
                         </div>
                         <h2><i class="fa fa-shopping-cart"></i> <strong>Мероприятия</strong></h2>
                     </div>
                     <!-- END Products in Cart Title -->
-
+                    {% if events %}
+                        {% for event in events %}
+                            <div class="card mb-3" style="max-width: 100%;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="{{ event.image.url }}" class="card-img">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a
+                                                    href="{% url 'panel_event_view_detail' pk=event.pk %}">{{ event.name }}</a>
+                                                | {{ event.type }}</h5>
+                                            <p class="card-text">{{ event.description }}</p>
+                                            <p class="card-text"><small
+                                                    class="text-muted">Create {{ event.create_date }}</small></p>
+                                            <p class="card-text"><small
+                                                    class="text-muted">Published {{ event.pub_date }}</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <!-- Products in Cart Content -->
                     <table class="table table-bordered table-striped table-vcenter">
                         <tbody>

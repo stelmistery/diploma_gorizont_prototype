@@ -1,0 +1,105 @@
+{% extends 'panel/panel_base.html' %}
+{% load static %}
+
+{% block title %}
+    Список броней
+{% endblock %}
+
+{% block mainblock %}
+
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="{% url 'event_list' %}"><i class="gi gi-shop_window"></i>Мероприятия</a>
+            </li>
+            <li>
+                <a href="{% url 'panel_event_post' %}"><i class="gi gi-shopping_cart"></i>Информация о мероприятии</a>
+            </li>
+
+            <li>
+                <a href="{% url 'orderer_view' %}"><i class="gi gi-user"></i>Информация о заказчике</a>
+            </li>
+            <li class="active">
+                <a href="#"> <i class="gi gi-user"></i>Список участников</a>
+            </li>
+        </ul>
+    </div>
+    <div id="page-content">
+
+        <!-- All Orders Block -->
+        <div class="block full">
+            <!-- All Orders Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip"
+                       title="Settings"><i class="fa fa-cog"></i></a>
+                </div>
+                <h2><strong>Все</strong> участники</h2>
+            </div>
+            <!-- END All Orders Title -->
+
+            <!-- All Orders Content -->
+            <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
+                <thead>
+                <tr>
+                    <th class="text-center" style="width: 20px">ID участника</th>
+                    <th class="text-center" style="width: 50px">Телефон</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Фамилия</th>
+                    <th class="visible-lg text-center">Имя</th>
+                    <th class="visible-lg">Отчество</th>
+                    <th class="text-center" style="width: 30px">Действие</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td class="text-center"><strong>{{ member.customer.pk }}</strong></td>
+                        <td class="text-center"><strong>{{ member.customer.phone }}</strong></td>
+                        <td class="visible-lg">{{ member.customer.email }}</td>
+                        <td class="visible-lg">{{ member.customer.last_name }}</td>
+                        <td class="visible-lg">{{ member.customer.first_name }}</td>
+                        <td class="visible-lg">{{ member.customer.middle_name }}</td>
+                        <td class="text-center">
+                            <div class="btn-group btn-group-xs">
+                                <a href="{% url 'customer_view_detail' pk=member.customer.pk %}" data-toggle="tooltip" title="View"
+                                   class="btn btn-default"><i class="fa fa-eye"></i></a>
+                                <a href="" data-toggle="tooltip" title="Delete"
+                                   class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <!-- END All Orders Block -->
+    </div>
+
+{% endblock %}
+
+{% block footerblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs4/dt-1.10.21/cr-1.5.2/datatables.min.css"/>
+
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs4/dt-1.10.21/cr-1.5.2/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#ecom-orders').DataTable({}
+            );
+        });
+        {#$.extend($.fn.dataTable.defaults, {#}
+        {#    searching: true,#}
+        {#    paging: false,#}
+        {#    showing: false,#}
+        {#    lengthChange: false,#}
+        {#    "info": false#}
+        {# });#}
+
+    </script>
+{% endblock %}

@@ -18,6 +18,9 @@
             <li class="active">
                 <a href="{% url 'orderer_view' %}"><i class="gi gi-user"></i>Информация о заказчике</a>
             </li>
+            <li>
+                <a href="#"> <i class="gi gi-user"></i>Список участников</a>
+            </li>
         </ul>
     </div>
 
@@ -99,7 +102,7 @@
                         </tr>
                         <tr>
                             <td class="text-right"><strong>Зарегестрирован</strong></td>
-                            {% if customer.user.id %}
+                            {% if user.customer_id %}
                                 <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
                             {% else %}
                                 <td><span class="label label-danger"><i class="fa fa-times"></i></span></td>
