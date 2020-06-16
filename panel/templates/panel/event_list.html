@@ -43,7 +43,14 @@
                                     <img id='myimg' src="{{ event.image.url }}" class="card-img-top"
                                          alt="{{ event.image.name }}">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ event.name }}</h5>
+                                        <h5 class="card-title">{{ event.name }} |
+                                            {% if event.status %}
+                                                <span class="label label-primary">Опубликован</span>
+                                            {% else %}
+                                                <span class="label label-danger">Не опубликован</span>
+
+                                            {% endif %}
+                                        </h5>
                                         <p class="card-text">{{ event.description|truncatechars:100 }}</p>
 
                                         <a href="{% url 'panel_event_view_detail' pk=event.pk %}"
@@ -57,6 +64,7 @@
                             </div>
                         {% endfor %}
                     {% endif %}
+
                 </div>
             </div>
         </div>

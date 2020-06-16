@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} Мероприятия {% endblock %}
+{% block body %}
+
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Мероприятие {{ event.name }}</h1>
+                <p class="lead text-muted">Something short and leading about the collection below—its contents, the
+                    creator,
+                    etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                </p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <img src="{{ event.image.url }}" alt="">
+                <p>{{ event.type }}</p>
+                <p>{{ event.description }}</p>
+                {% for member in members %}
+                    {% if user.id == member.customer_id %}
+                        <span class="label label-primary">вы уже участвуете в этом мероприяти</span>
+
+                    {% else %}
+                        <a href="{% url 'participate' pk=event.pk user_id=user.id %}">
+                            <button type="button" class="btn btn-alt btn-lg btn-primary">Принять участие</button>
+                        </a>
+                    {% endif %} 
+                {% endfor %}
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting
+                started guide</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none"
+         style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
+        <defs>
+            <style type="text/css"></style>
+        </defs>
+        <text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">
+            Thumbnail
+        </text>
+    </svg>
+    <div id="wt-sky-root"></div>
+{% endblock %}

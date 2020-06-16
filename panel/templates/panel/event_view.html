@@ -61,9 +61,9 @@
             <h2>
                 <strong>Статус: </strong>
                 {% if event.status %}
-                    <span class="label label-success">Подтверждено</span>
+                    <span class="label label-success">Опубликован</span>
                 {% else %}
-                    <span class="label label-danger">Не подтверждено</span>
+                    <span class="label label-danger">Не опубликован</span>
                 {% endif %}
                 <h2 style="font-size: 14pt">Заказчик мероприятия: <strong><a href="{% url 'orderer_detail_view' pk=orderer.pk %}">{{ orderer.last_name }} {{ orderer.first_name }}</a></strong></h2>
 
