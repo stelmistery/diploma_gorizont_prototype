@@ -2,7 +2,7 @@ from django import forms
 from .models import Event, Member
 
 
-class EventForms(forms.ModelForm):
+class EventForms(forms.Form):
     name = forms.CharField(max_length=50, label='Наименование', widget=forms.TextInput(attrs={'class': 'form-control'}))
     type = forms.CharField(max_length=50, label='Тип мероприятия',
                            widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -17,9 +17,9 @@ class EventForms(forms.ModelForm):
                                      widget=forms.TextInput(attrs={'class': 'form-control'}))
     tech_support = forms.CharField(label='Техническое сопровождение',
                                    widget=forms.Textarea(attrs={'class': 'form-control'}))
-    image = forms.ImageField(label='Главное изображение', )
+    image = forms.ImageField(label='Главное изображение')
 
-    class Meta:
-        model = Event
-        fields = (
-            'name', 'type', 'description', 'cost', 'start_date', 'end_date', 'max_members', 'tech_support', 'image')
+    def clean_image(self):
+        image = self.cleaned_data['image']
+        if image:
+            return image

@@ -13,6 +13,8 @@ class Event(models.Model):
     max_members = models.IntegerField(blank=True, null=True, verbose_name='Макс. кол-во участников')
     tech_support = models.TextField(blank=True, null=True, verbose_name='Техническое сопровождение')
     status = models.BooleanField(default=0, verbose_name='Статус')
+    create_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.name + ': ' + self.type
@@ -21,6 +23,10 @@ class Event(models.Model):
         verbose_name = 'Мероприятие'
         verbose_name_plural = 'Мероприятия'
         ordering = ['start_date']
+
+
+def get_event(pk):
+    return Event.objects.get(pk=pk)
 
 #
 # class Venue(models.Model):
