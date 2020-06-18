@@ -27,13 +27,12 @@ class PhoneValidMiddleware:
             if request.POST:
                 return None
             user = request.user
-            if not user.is_staff:
+            if not user.is_active:
                 key = send_otp(user.phone)
                 if key:
                     try:
                         phone = PhoneOTP.objects.get(phone=user.phone)
                         phone.otp = key
-                        print('ключ присвоен')
                         phone.save()
                     except:
                         phone = PhoneOTP.objects.create(phone=user.phone, otp=key)

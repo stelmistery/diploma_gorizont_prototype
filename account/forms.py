@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .models import CustomerUser
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
@@ -54,3 +53,4 @@ class PhoneVerify(forms.Form):
     phone = forms.CharField(required=True, label='Мобильный телефон', validators=[validate_phone_number], max_length=20,
                             widget=forms.HiddenInput)
     code = forms.CharField(required=True, label='Код из СМС', max_length=4)
+

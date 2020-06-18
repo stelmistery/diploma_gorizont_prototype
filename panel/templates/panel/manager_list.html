@@ -1,0 +1,85 @@
+{% extends 'panel/panel_base.html' %}
+{% load static %}
+
+{% block title %}
+    Создание брони
+{% endblock %}
+
+{% block mainblock %}
+    <div id="page-content" style="min-height: 1125px;">
+        <!-- Forms General Header -->
+        <div class="content-header">
+            <div class="header-section">
+                <h1>
+                    <i class="gi gi-notes_2"></i>Действующие менеджеры<br>
+                </h1>
+            </div>
+        </div>
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Менеджмент</li>
+            <li><a href="">Менеджеры</a></li>
+        </ul>
+        <!-- END Forms General Header -->
+
+        <div class="block">
+            <!-- Time and Date Pickers Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""
+                       data-original-title="Settings"><i class="gi gi-cogwheel"></i></a>
+                </div>
+                <h2><strong>Cписок менеджеров</strong></h2>
+                <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 90px">ID</th>
+                        <th class="text-center" style="width: 200px">Телефон</th>
+                        <th class="visible-lg text-center">Email</th>
+                        <th class="visible-lg">Фамилия</th>
+                        <th class="visible-lg">Имя</th>
+                        <th class="visible-lg text-center">Отчество</th>
+                        <th class="text-center" style="width: 50px">Действие</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for manager in manages %}
+                        <tr>
+                            <td class="text-center"><a
+                                    href="page_ecom_order_view.html"><strong>{{ book.pk }}</strong></a></td>
+                            <td class="text-center"><a
+                                    href="page_ecom_order_view.html"><strong>{{ book.room }}</strong></a></td>
+                            <td class="visible-lg"><a
+                                    href="#">{{ book.customer.last_name }} {{ book.customer.first_name }}</a>
+                            </td>
+                            <td class="text-center">{{ book.number_of_adults }}</td>
+                            <td class="text-center">{{ book.number_of_children }}</td>
+                            <td class="text-center hidden-xs"><strong>{{ book.price }}</strong></td>
+                            <td class="hidden-xs text-center">{{ book.check_in_date }}</td>
+                            <td class="hidden-xs text-center">{{ book.date_of_eviction }}</td>
+                            <td>
+                                {% if book.confirmed %}
+                                    <span class="label label-success">Подтверждён</span>
+                                {% else %}
+                                    <span class="label label-danger">Не подтверждён</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group btn-group-xs">
+                                    <a href="{% url 'book_view_detail' pk=book.pk %}" data-toggle="tooltip" title="View"
+                                       class="btn btn-default"><i class="fa fa-eye"></i></a>
+                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
+                                       class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerblock %}
+{% endblock %}

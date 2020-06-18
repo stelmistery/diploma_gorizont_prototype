@@ -1,18 +1,19 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
-from .forms import CustomerUserCreateForm
-from django.contrib import messages
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import  TemplateView
 from django.contrib.auth.views import LoginView
 from .models import CustomerUser, PhoneOTP
 from .services import send_otp
 from .forms import CustomerUserCreateForm, PhoneVerify
-from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+import pdb
+from django.contrib.auth.decorators import login_required
+from .auth import AuthenticationFormWithInactiveUsersOkay
 
 
 def register_user(request):
+    # pdb.set_trace()
     if request.method == 'POST':
         rf = CustomerUserCreateForm(request.POST)
         if rf.is_valid():
@@ -40,6 +41,8 @@ def register_user(request):
                                      password=rf.cleaned_data.get('password1'))
             if auth_user is not None:
                 login(request, auth_user)
+            else:
+                return HttpResponse('Пользовтаель не производит вход после регистрации')
 
             key = send_otp(rf.cleaned_data.get('phone'))
             if key:
@@ -55,11 +58,13 @@ def register_user(request):
                               context={'phone_field': code_form, 'phone': rf.cleaned_data.get('phone')})
             else:
                 return HttpResponse('что-то пошло не так 2')
+        return HttpResponse('Валидация не проходит')
     form = CustomerUserCreateForm
     context = {'form': form}
     return render(request, 'account/register.html', context)
 
 
+@login_required(login_url='/account/login/')
 def phone_activate(request):
     if request.method == 'POST':
         pa = PhoneVerify(request.POST)
@@ -71,7 +76,7 @@ def phone_activate(request):
                     if phone_otp.otp == pa.cleaned_data.get('code'):
                         try:
                             user = CustomerUser.objects.get(pk=user.pk)
-                            user.is_staff = True
+                            user.is_active = True
                             print('смена прав пользователя')
                             user.save()
                         except:
@@ -93,6 +98,7 @@ class RegisterDoneView(TemplateView):
 class LoginUserView(LoginView):
     template_name = 'account/login.html'
     next = '/'
+    authentication_form = AuthenticationFormWithInactiveUsersOkay
 
 
 class LogoutUserView(LoginView):

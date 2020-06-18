@@ -34,14 +34,13 @@ def save_event_image(request):
     event.end_date = request.POST['end_date']
     event.max_members = request.POST['max_members']
     event.tech_support = request.POST['tech_support']
-    event.image = request.FILES['image']
-    event.save()
+    event = event.save()
     try:
         Member.objects.create(event=event, customer=customer, orderer=True)
     except:
         return HttpResponse('Сохранение Объекта member : неуспешно')
-    # return render(request, 'main/index.html', {'event_done': 'Мероприятие отправлено на рассмотрение!'})
-    # return HttpResponse('Сохранение Объекта member : тоже неуспешно')
+    if event.pk:
+        return HttpResponse('Сохранение Объекта event : неуспешно')
     return HttpResponse('Сохранение Объекта member : все пашет')
 
 

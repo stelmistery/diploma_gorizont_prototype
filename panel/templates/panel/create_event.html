@@ -1,0 +1,63 @@
+{% extends 'panel/panel_base.html' %}
+
+{% block mainblock %}
+
+
+
+    <div id="page-content" style="min-height: 1125px;">
+        <!-- Forms General Header -->
+        <div class="content-header">
+            <div class="header-section">
+                <h1>
+                    <i class="gi gi-notes_2"></i>Создание мероприятия<br>
+                </h1>
+            </div>
+        </div>
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Мероприятия</li>
+            <li><a href="">Создать мероприятие</a></li>
+        </ul>
+        <!-- END Forms General Header -->
+        <div class="block">
+            <!-- Time and Date Pickers Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""
+                       data-original-title="Settings"><i class="gi gi-cogwheel"></i></a>
+                </div>
+                <h2><strong>Проверить категорию</strong></h2>
+            </div>
+            <!-- END Time and Date Pickers Title -->
+
+            <!-- Time and Date Pickers Content -->
+
+            <form action="{% url 'create_event' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                {% csrf_token %}
+                <div class="form-group">
+                    {% if ef %}
+                        {% for field in ef %}
+                            {{ field.label }}
+                            {{ field }}
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+
+                <div class="form-group form-actions">
+                    <div class="col-md-8 col-md-offset-4">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
+                            Submit
+                        </button>
+                        <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- END Time and Date Pickers Content -->
+        </div>
+
+    </div>
+
+
+{% endblock %}

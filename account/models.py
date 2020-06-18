@@ -35,6 +35,7 @@ class CustomUserManager(BaseUserManager):
 
         user.customer_id = customer.pk
         user.is_staff = False
+        user.is_active = False
         user.set_password(password)
         user.save(using=self._db)
         return user

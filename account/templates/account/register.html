@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    {% if errors %}
+        {% for error in errors %}
+            {{ error }}
+        {% endfor %}
+    {% endif %}
     <div class="content-section">
         {% if phone_field %}
             <form method="post" action="{% url 'account:phone_activate' %}">

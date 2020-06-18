@@ -1,7 +1,8 @@
-from django.shortcuts import render, HttpResponseRedirect, redirect, reverse, get_list_or_404
+from django.shortcuts import render, HttpResponseRedirect, redirect, reverse, get_list_or_404, HttpResponse
 from book.models import Book, Category
 from account.models import CustomerUser, Customer
 from event.models import Event, Member
+from event.forms import EventForms
 from django.views.generic.list import ListView
 from django.db.models import Q
 from .forms import PanelDataForm, PanelBookForm
@@ -11,6 +12,12 @@ from event.models import get_event
 from django.contrib import messages
 import pdb
 
+
+###################### ----> TODO_LIST <---- ######################
+# TODO: Доделать иконки на панели
+# TODO: Перевести элементы таблицы с сортировкой на русский язык
+
+###################### ----> END TODO_LIST <---- ######################
 
 # Create your views here.
 
@@ -249,4 +256,37 @@ def member_list_view(request, pk):
     members = get_list_or_404(Member, event_id=pk)
     return render(request, 'panel/list_member.html', {'members': members})
 
+
+# TODO: Доделать html
+def create_event(request):
+    if request.method == 'POST':
+        event = Event()
+        # pdb.set_trace()
+        event.image = request.FILES['image']
+        customer = request.user.customer
+        event.name = request.POST['name']
+        event.type = request.POST['type']
+        event.description = request.POST['description']
+        event.cost = request.POST['cost']
+        event.start_date = request.POST['start_date']
+        event.end_date = request.POST['end_date']
+        event.max_members = request.POST['max_members']
+        event.tech_support = request.POST['tech_support']
+        event.save()
+        try:
+            Member.objects.create(event=event, customer=customer, orderer=True)
+        except:
+            return HttpResponse('Сохранение Объекта event : неуспешно')
+        return HttpResponse('Сохранение Объекта member : все пашет')
+    ef = EventForms()
+    return render(request, 'panel/create_event.html', {'ef': ef})
 ###################### ----> END EVENT <---- ######################
+
+
+###################### ----> MANAGER SETTIGNS <---- ######################
+
+def manager_list(request):
+    
+    return render(request, 'panel/manager_list.html')
+
+###################### ----> END MANAGER SETTIGNS <---- ######################
