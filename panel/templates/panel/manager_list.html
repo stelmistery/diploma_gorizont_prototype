@@ -42,31 +42,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for manager in manages %}
+                    {% for manager in managers %}
                         <tr>
-                            <td class="text-center"><a
-                                    href="page_ecom_order_view.html"><strong>{{ book.pk }}</strong></a></td>
-                            <td class="text-center"><a
-                                    href="page_ecom_order_view.html"><strong>{{ book.room }}</strong></a></td>
-                            <td class="visible-lg"><a
-                                    href="#">{{ book.customer.last_name }} {{ book.customer.first_name }}</a>
-                            </td>
-                            <td class="text-center">{{ book.number_of_adults }}</td>
-                            <td class="text-center">{{ book.number_of_children }}</td>
-                            <td class="text-center hidden-xs"><strong>{{ book.price }}</strong></td>
-                            <td class="hidden-xs text-center">{{ book.check_in_date }}</td>
-                            <td class="hidden-xs text-center">{{ book.date_of_eviction }}</td>
-                            <td>
-                                {% if book.confirmed %}
-                                    <span class="label label-success">Подтверждён</span>
-                                {% else %}
-                                    <span class="label label-danger">Не подтверждён</span>
-                                {% endif %}
-                            </td>
+                            <td class="text-center">{{ manager.pk }}</td>
+                            <td class="text-center">{{ manager.phone }}</td>
+                            <td class="text-center">{{ manager.email }}</td>
+                            <td class="text-center">{{ manager.customer.last_name }}</td>
+                            <td class="text-center">{{ manager.customer.first_name }}</td>
+                            <td class="text-center">{{ manager.customer.middle_name }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-xs">
-                                    <a href="{% url 'book_view_detail' pk=book.pk %}" data-toggle="tooltip" title="View"
-                                       class="btn btn-default"><i class="fa fa-eye"></i></a>
+                                    <a href="{% url 'manager_group' pk=manager.pk %}" data-toggle="tooltip" title="View"
+                                       class="btn btn-default">Права</a>
                                     <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"
                                        class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
                                 </div>

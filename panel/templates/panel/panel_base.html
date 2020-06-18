@@ -127,6 +127,17 @@
                             <a href="{% url 'create_event' %}"><i class="hi hi-list sidebar-nav-icon"></i><span
                                     class="sidebar-nav-mini-hide">Создать мероприятие</span></a>
                         </li>
+                         <li class="sidebar-header">
+                            <span class="sidebar-header-title">Менеджмент</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'manager_list' %}"><i class="hi hi-list sidebar-nav-icon"></i><span
+                                    class="sidebar-nav-mini-hide">Менеджеры</span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'group_list' %}"><i class="hi hi-list sidebar-nav-icon"></i><span
+                                    class="sidebar-nav-mini-hide">Группы менеджеров</span></a>
+                        </li>
                         <!-- END Sidebar Navigation -->
                     </ul>
                 </div>

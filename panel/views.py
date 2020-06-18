@@ -3,6 +3,7 @@ from book.models import Book, Category
 from account.models import CustomerUser, Customer
 from event.models import Event, Member
 from event.forms import EventForms
+from django.views.decorators.http import require_http_methods
 from django.views.generic.list import ListView
 from django.db.models import Q
 from .forms import PanelDataForm, PanelBookForm
@@ -11,6 +12,7 @@ from book.services.booking_services import free_room_search_func, get_book
 from event.models import get_event
 from django.contrib import messages
 import pdb
+from django.contrib.auth.models import Group
 
 
 ###################### ----> TODO_LIST <---- ######################
@@ -280,13 +282,70 @@ def create_event(request):
         return HttpResponse('Сохранение Объекта member : все пашет')
     ef = EventForms()
     return render(request, 'panel/create_event.html', {'ef': ef})
+
+
 ###################### ----> END EVENT <---- ######################
 
 
 ###################### ----> MANAGER SETTIGNS <---- ######################
 
 def manager_list(request):
-    
-    return render(request, 'panel/manager_list.html')
+    managers = CustomerUser.objects.filter(is_staff=True)
+    context = {
+        'managers': managers
+    }
+    return render(request, 'panel/manager_list.html', context)
+
+
+def group_list(request):
+    groups = Group.objects.all()
+    context = {
+        'groups': groups
+    }
+    return render(request, 'panel/group_list.html', context)
+
+
+@require_http_methods(["POST"])
+def add_group(request):
+    name = request.POST.get('name')
+    if Group.objects.filter(name=name).exists():
+        messages.warning(request, 'Группа с таким названием уже существует')
+        return redirect('group_list')
+    else:
+        group = Group()
+        group.name = name
+        group.save()
+        return redirect('group_list')
+
+
+def del_group(request, pk):
+    group = Group.objects.get(pk=pk)
+    group.delete()
+    return redirect('group_list')
+
+
+def manager_group(request, pk):
+    customer = CustomerUser.objects.get(pk=pk)
+    ugroups = customer.groups.all()
+    groups = Group.objects.exclude(id__in=ugroups)
+    context = {
+        'groups': groups,
+        'customer': customer,
+        'ugroups': ugroups
+    }
+    return render(request, 'panel/manager_group.html', context)
+
+#
+# def manager_group_add(request, pk):
+#     customer = CustomerUser.objects.get(pk=pk)
+#     ugroups = customer.groups.all()
+#     groups = Group.objects.exclude(pk=ugroups.pk)
+#
+#     context = {
+#         'groups': groups,
+#         'customer': customer,
+#         'ugroups': ugroups
+#     }
+#     return render(request, 'panel/manager_group.html', context)
 
 ###################### ----> END MANAGER SETTIGNS <---- ######################
