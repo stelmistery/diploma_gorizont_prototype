@@ -6,9 +6,12 @@ from .forms import BookForm, DataForm, AuthDataForm
 from .services.booking_services import free_room_search_func, del_session
 from account.services import phone_converter
 import datetime
+import pdb
 
-
+# TODO: Выяснить почему при использовании методов clean, вывод ошибок работает только тогда, когда переменная
+#  присваивает форму в самом начале
 def room_check(request):
+    bf = BookForm()
     if request.method == 'POST':
         bf = BookForm(request.POST)
         if bf.is_valid():
@@ -52,10 +55,10 @@ def room_check(request):
                 return HttpResponse('К сожалению свободные места на заданную дату отсутствуют. Вы можете выбрать /'
                                     ' другую дату или другую категорию')
         else:
-            return HttpResponse('Данные введены не корректно')
-
-    bf = BookForm()
-    context = {'bookform': bf}
+            print(bf.errors)
+            # return HttpResponse('Проверьте правильность данных')
+    print('Этот вывод тоже срабатывает')
+    context = {'form': bf}
     return render(request, 'book/booking.html', context)
 
 
@@ -83,7 +86,10 @@ def book_process(request):
             room = free_room_search_func(check_in_date, date_of_eviction, category, num)
 
             price = Category.objects.get(pk=room.category_id_id)
-            price = (float(price.price) * number_of_adults) + (float(price.price) * number_of_children * 0.5)
+            # pdb.set_trace()
+            days = date_of_eviction - check_in_date
+            days = days.days
+            price = ((float(price.price) * number_of_adults) + (float(price.price) * number_of_children * 0.5)) * float(days)
 
             if room:
                 check_in_date_str = check_in_date.strftime('%m/%d/%Y')

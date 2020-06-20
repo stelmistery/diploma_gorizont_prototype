@@ -2,17 +2,18 @@
 
 {% block body %}
 
-    <form method="post" enctype="multipart/form-data" action="{% url 'save_event_image' %}">
+    <form method="post" enctype="multipart/form-data" action="{% url 'save_event' %}">
         {% csrf_token %}
-        <div class="form-row">
+{#        <div class="form-row">#}
 {#            {{ ef.as_ul }}#}
-            {% for field in ef %}
-                <div class="form-group col-md-2">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                </div>
-            {% endfor %}
-        </div>
+{#            {% for field in ef %}#}
+{#                <div class="form-group col-md-2">#}
+{#                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>#}
+{#                    {{ field }}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+        {{ ef.as_ul }}
         <button type="submit" class="btn btn-primary">Забронировать</button>
     </form>
 {% endblock %}

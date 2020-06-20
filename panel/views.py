@@ -23,9 +23,12 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 
-###################### ----> BOOK <---- ######################
+
 def index(request):
     return render(request, 'panel/panel_base.html')
+
+
+###################### ----> BOOK <---- ######################
 
 
 class BookListView(ListView):

@@ -40,7 +40,7 @@ class Book(models.Model):
     check_in_date = models.DateField(verbose_name='Дата заселения')
     date_of_eviction = models.DateField(verbose_name='Дата выселения')
     additional_information = models.TextField(verbose_name='Дополнительная информация', null=True, blank=True)
-    price = models.DecimalField(verbose_name='Сумма', max_digits=6, decimal_places=2, default=0)
+    price = models.FloatField(verbose_name='Сумма', default=0)
     confirmed = models.BooleanField(default=False, verbose_name='Подтвержедено')
 
     def __str__(self):

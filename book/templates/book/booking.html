@@ -2,16 +2,26 @@
 
 {% block body %}
 
-    <form method="POST" action="{% url 'room_check' %}">
-        {% csrf_token %}
-        <div class="form-row">
-            {% for field in bookform %}
-                <div class="form-group col-md-2">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                </div>
-            {% endfor %}
-        </div>
-        <button type="submit" class="btn btn-primary">Забронировать</button>
-    </form>
+{#    <form method="POST" action="{% url 'room_check' %}">#}
+{#        {% csrf_token %}#}
+{#        <div class="form-row">#}
+{#            {% for field in form %}#}
+{#                <div class="form-group col-md-2">#}
+{#                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>#}
+{#                    {{ field }}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <button type="submit" class="btn btn-primary">Забронировать</button>#}
+{#    </form>#}
+
+        {% if form %}
+            <form method="POST" action="{% url 'room_check' %}">
+                {% csrf_token %}
+{#                <div class="form-row">#}
+                {{ form.as_p }}
+{#                </div>#}
+                <button type="submit" class="btn btn-primary">Забронировать</button>
+            </form>
+        {% endif %}
 {% endblock %}

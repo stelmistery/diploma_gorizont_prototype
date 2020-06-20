@@ -146,3 +146,10 @@ AUTH_USER_MODEL = 'account.CustomerUser'
 AUTHENTICATION_BACKENDS = ('account.auth.AuthenticationBackend', 'django.contrib.auth.backends.ModelBackend')
 
 LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'stelmistery@yandex.ru'
+EMAIL_HOST_PASSWORD = 'dubman4ara23091998'
