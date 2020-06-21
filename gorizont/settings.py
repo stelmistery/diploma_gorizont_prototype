@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'account.middlewares.PhoneValidMiddleware',
+    'gorizont.middlewares.StatsMiddleware',
 ]
 
 ROOT_URLCONF = 'gorizont.urls'
@@ -129,6 +130,7 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, 'templates/gorizont/static')
 # ]
 
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
@@ -153,3 +155,4 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'stelmistery@yandex.ru'
 EMAIL_HOST_PASSWORD = 'dubman4ara23091998'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

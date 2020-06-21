@@ -13,15 +13,6 @@ def events(request):
     return render(request, 'event/pub_event.html', {'events': events})
 
 
-#
-# @login_required(login_url='/account/login/')
-# def save_event(request):
-#     print(request)
-#     f = EventForms()
-#     context = {'ef': f}
-#     return render(request, 'event/save_event.html', context)
-
-
 # @require_http_methods(['POST'])
 def save_event(request):
     f = EventForms()

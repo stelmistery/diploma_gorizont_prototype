@@ -35,14 +35,6 @@ class CustomerUserCreateForm(forms.ModelForm):
                 'Ввдённые пароли не совпадают', code='password_mismatch')}
             raise ValidationError(errors)
 
-    # def save(self, commit=True):
-    #     customer = Customer.objects.create(phone=self.cleaned_data.get('phone'), email=self.cleaned_data.get('email'))
-    #     user = super().save(commit=False)
-    #     user.set_password(self.cleaned_data['password1'])
-    #     user.customer_id = customer.id
-    #     user.is_active = True
-    #     if commit:
-    #         user.save()
 
     class Meta:
         model = CustomerUser
@@ -53,4 +45,3 @@ class PhoneVerify(forms.Form):
     phone = forms.CharField(required=True, label='Мобильный телефон', validators=[validate_phone_number], max_length=20,
                             widget=forms.HiddenInput)
     code = forms.CharField(required=True, label='Код из СМС', max_length=4)
-

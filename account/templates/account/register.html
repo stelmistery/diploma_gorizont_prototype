@@ -11,7 +11,7 @@
     {% endif %}
     <div class="content-section">
         {% if phone_field %}
-            <form method="post" action="{% url 'account:phone_activate' %}">
+            <form method="post" action="{% url 'phone_activate' %}">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom md-4">Активация</legend>

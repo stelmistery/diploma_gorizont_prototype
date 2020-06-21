@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from .views import index, BookListView, book_view, book_view_detail, book_success, customer_view, customer_detail_view, \
     book_create, book_check, event_list, panel_event_view_detail, event_success, panel_event_post, orderer_detail_view, \
-    orderer_view, member_list_view, create_event, manager_list, group_list, add_group, del_group, manager_group
-
+    orderer_view, member_list_view, create_event, manager_list, group_list, add_group, del_group, manager_group, \
+    book_delete
 
 urlpatterns = [
     path('', index, name='panel_index'),
@@ -13,6 +13,7 @@ urlpatterns = [
     path('book/check/', book_check, name='book_check'),
     path('book/detail/<int:pk>', book_view_detail, name='book_view_detail'),
     path('book/<int:pk>/success', book_success, name='book_success'),
+    path('book/<int:pk>/delete', book_delete, name='book_delete'),
 
     path('event/list/', event_list, name='event_list'),
     path('event/detail/<int:pk>', panel_event_view_detail, name='panel_event_view_detail'),

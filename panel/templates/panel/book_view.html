@@ -57,10 +57,10 @@
                 <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""
                    data-original-title="Hire"><i class="fa fa-briefcase"></i></a>
             </div>
-            <h2 style="font-size: 14pt">Подробности мероприятия <strong>{{ event.pk }}</strong></h2>
+            <h2 style="font-size: 14pt">Подробности бронирования <strong>{{ event.pk }}</strong></h2>
             <h2>
                 <strong>Статус: </strong>
-                {% if event.status %}
+                {% if book.confirmed %}
                     <span class="label label-success">Подтверждено</span>
                 {% else %}
                     <span class="label label-danger">Не подтверждено</span>
@@ -73,7 +73,7 @@
         <table class="table table-borderless table-striped " style="font-size: 13pt">
             <tbody>
             <tr>
-                <td><strong>Заказчик</strong></td>
+                <td><strong>Клиент</strong></td>
                 <td>
                     <a href="{% url 'customer_view_detail' pk=book.customer.pk %}">{{ book.customer.last_name }} {{ book.customer.first_name }}</a>
                 </td>
@@ -114,16 +114,20 @@
 
             </tbody>
         </table>
-        <form action="{% url 'book_success' pk=book.pk %}" class="form-horizontal form-bordered">
-            <div class="form-group form-actions">
-                <div class="col-xs-12">
-                    <button type="submit" class="btn  btn-success"><i class="fa fa-angle-right"></i> Подтвердить
-                        бронирование
-                    </button>
-                    <button type="reset" class="btn  btn-danger"><i class="fa fa-repeat"></i> Отменить</button>
-                </div>
-            </div>
-        </form>
+        {#        <form action="{% url 'book_success' pk=book.pk %}" class="form-horizontal form-bordered">#}
+        {#            <div class="form-group form-actions">#}
+        {#                <div class="col-xs-12">#}
+        <a href="{% url 'book_success' pk=book.pk %}">
+            <button type="submit" class="btn  btn-success"><i class="fa fa-angle-right"></i> Подтвердить
+                бронирование
+            </button>
+        </a>
+        <a href="{% url 'book_delete' pk=book.pk %}">
+            <button type="submit" class="btn  btn-danger"><i class="fa fa-repeat"></i> Отменить</button>
+        </a>
+        {#                </div>#}
+        {#            </div>#}
+        {#        </form>#}
     {% endif %}
 <!-- END Info Content -->
 </div>

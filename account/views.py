@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http.response import HttpResponse
 from django.views.generic import  TemplateView
 from django.contrib.auth.views import LoginView
@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 import pdb
 from django.contrib.auth.decorators import login_required
 from .auth import AuthenticationFormWithInactiveUsersOkay
-
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView
 
 def register_user(request):
     # pdb.set_trace()
@@ -103,3 +103,21 @@ class LoginUserView(LoginView):
 
 class LogoutUserView(LoginView):
     template_name = 'account/login.html'
+
+
+class CustomPasswordResetView(PasswordResetView):
+    subject_template_name = 'account/password_reset_subject.txt'
+    email_template_name = 'account/password_reset_email.html'
+    template_name = 'account/password_reset_form.html'
+
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'account/password_reset_done.html'
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'account/password_reset_confirm.html'
+
+
+def reset_done(request):
+    return HttpResponse('пароль сброшен')

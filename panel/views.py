@@ -86,6 +86,11 @@ def book_success(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
+def book_delete(request, pk):
+    Book.objects.filter(pk=pk).delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
 def book_create(request):
     if request.method == 'POST':
         pdf = PanelDataForm(request.POST)

@@ -24,43 +24,43 @@
     <div id="page-content">
 
         <!-- Quick Stats -->
-        <div class="row text-center">
-            <div class="col-sm-6 col-lg-3">
-                <a href="javascript:void(0)" class="widget widget-hover-effect2">
-                    <div class="widget-extra themed-background">
-                        <h4 class="widget-content-light"><strong>Pending</strong> Orders</h4>
-                    </div>
-                    <div class="widget-extra-full"><span class="h2 animation-expandOpen">3</span></div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <a href="javascript:void(0)" class="widget widget-hover-effect2">
-                    <div class="widget-extra themed-background-dark">
-                        <h4 class="widget-content-light"><strong>Orders</strong> Today</h4>
-                    </div>
-                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">120</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <a href="javascript:void(0)" class="widget widget-hover-effect2">
-                    <div class="widget-extra themed-background-dark">
-                        <h4 class="widget-content-light"><strong>Orders</strong> This Month</h4>
-                    </div>
-                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">3.200</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <a href="javascript:void(0)" class="widget widget-hover-effect2">
-                    <div class="widget-extra themed-background-dark">
-                        <h4 class="widget-content-light"><strong>Orders</strong> Last Month</h4>
-                    </div>
-                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">2.850</span>
-                    </div>
-                </a>
-            </div>
-        </div>
+        {#        <div class="row text-center">#}
+        {#            <div class="col-sm-6 col-lg-3">#}
+        {#                <a href="javascript:void(0)" class="widget widget-hover-effect2">#}
+        {#                    <div class="widget-extra themed-background">#}
+        {#                        <h4 class="widget-content-light"><strong>Pending</strong> Orders</h4>#}
+        {#                    </div>#}
+        {#                    <div class="widget-extra-full"><span class="h2 animation-expandOpen">3</span></div>#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-sm-6 col-lg-3">#}
+        {#                <a href="javascript:void(0)" class="widget widget-hover-effect2">#}
+        {#                    <div class="widget-extra themed-background-dark">#}
+        {#                        <h4 class="widget-content-light"><strong>Orders</strong> Today</h4>#}
+        {#                    </div>#}
+        {#                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">120</span>#}
+        {#                    </div>#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-sm-6 col-lg-3">#}
+        {#                <a href="javascript:void(0)" class="widget widget-hover-effect2">#}
+        {#                    <div class="widget-extra themed-background-dark">#}
+        {#                        <h4 class="widget-content-light"><strong>Orders</strong> This Month</h4>#}
+        {#                    </div>#}
+        {#                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">3.200</span>#}
+        {#                    </div>#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-sm-6 col-lg-3">#}
+        {#                <a href="javascript:void(0)" class="widget widget-hover-effect2">#}
+        {#                    <div class="widget-extra themed-background-dark">#}
+        {#                        <h4 class="widget-content-light"><strong>Orders</strong> Last Month</h4>#}
+        {#                    </div>#}
+        {#                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">2.850</span>#}
+        {#                    </div>#}
+        {#                </a>#}
+        {#            </div>#}
+        {#        </div>#}
         <!-- END Quick Stats -->
 
         <!-- All Orders Block -->
@@ -95,7 +95,7 @@
                 {% for book in books %}
                     <tr>
                         <td class="text-center"><a
-                                href="page_ecom_order_view.html"><strong>{{ book.pk }}</strong></a></td>
+                                href="{% url 'book_view_detail' pk=book.pk %}"><strong>{{ book.pk }}</strong></a></td>
                         <td class="text-center"><a
                                 href="page_ecom_order_view.html"><strong>{{ book.room }}</strong></a></td>
                         <td class="visible-lg"><a
@@ -110,9 +110,11 @@
                             {% if book.confirmed %}
                                 <span class="label label-success">Подтверждён</span>
                             {% else %}
-                                <span class="label label-danger">Не подтверждён</span>
+                                <span class="lab   el label-danger">Не подтверждён</span>
                             {% endif %}
                         </td>
+
+
                         <td class="text-center">
                             <div class="btn-group btn-group-xs">
                                 <a href="{% url 'book_view_detail' pk=book.pk %}" data-toggle="tooltip" title="View"
