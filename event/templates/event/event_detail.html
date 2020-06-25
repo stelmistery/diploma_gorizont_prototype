@@ -18,7 +18,7 @@
                 <img src="{{ event.image.url }}" width="300" height="300" alt="">
                 <p>{{ event.type }}</p>
                 <p>{{ event.description }}</p>
-                {% for member in members %}
+{#                {% for member in members %}#}
                     {% if user.id == member.customer_id %}
                         <span class="label label-primary">вы уже участвуете в этом мероприяти</span>
 
@@ -27,7 +27,7 @@
                             <button type="button" class="btn btn-alt btn-lg btn-primary">Принять участие</button>
                         </a>
                     {% endif %}
-                {% endfor %}
+{#                {% endfor %}#}
 
 
             </div>
