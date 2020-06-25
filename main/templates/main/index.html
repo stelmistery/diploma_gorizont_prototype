@@ -1,11 +1,446 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
+
+{% block main_active %}active{% endblock %}
+
 {% block body %}
-    <h1>Главная</h1>
-    {% if user.is_authenticated %}
-        <h2>Вы вошли как {{ user.customer.first_name }} {{ user.customer.last_name }}</h2>
 
 
-    {% endif %}
+    <section class="first_section">
+
+        <span class="first_section-48px">Спортивно-оздоровительный лагерь</span> <br/>
+        <span class="first_section-quote">«</span>
+        <span class="first_section-100px">Горизонт</span>
+        <span class="first_section-quote">»</span> <br/>
+
+        <img src="{% static 'main/front/images/src/wave-white.svg' %}" class="white-wave">
+
+        <h3>Отдых на берегу Черного моря</h3>
+
+        <div class="advanced_search">
+            <div class="container">
+                <form class="advanced_search-form">
+                    <div class="row">
+
+                        <div class="col">
+                            <div class="advanced_search-item">
+                                <p class="T-300-16">Дата заезда:</p>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="advanced_search-item">
+                                <p class="T-300-16">Дата выезда:</p>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="advanced_search-item">
+                                <p class="T-300-16">Категория:</p>
+                                <select>
+                                    <option value="">Улучшенная категория</option>
+                                    <option value="">1-ая категория</option>
+                                    <option value="">2-ая категория</option>
+                                    <option value="">3-ья категория</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="advanced_search-item">
+                                <p class="T-300-16">Взрослые:</p>
+                                <select>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="advanced_search-item">
+                                <p class="T-300-16">Дети:</p>
+                                <select>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="advanced_search-item">
+                                <input type="submit" value="Забронировать">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- ЦИФРЫ -->
+
+    <section class="about_us_in_numbers">
+        <div class="container">
+            <div class="row">
+
+                <div class="col d-flex justify-content-center">
+                    <div class="information_in_numbers">
+                        <h2>200 метров</h2>
+                        <p class="M-400-16">Общая протяженность<br/>пляжа</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <div class="information_in_numbers">
+                        <h2>300 метров</h2>
+                        <p class="M-400-16">Расстояние от номеров<br/>до моря</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <div class="information_in_numbers">
+                        <h2>700 человек</h2>
+                        <p class="M-400-16">В среднем количество<br/>отдыхающих за сезон</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <div class="information_in_numbers">
+                        <h2>286 номеров</h2>
+                        <p class="M-400-16">Общее количество<br/>предоставляемых мест</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- КОРОТКО О НАС -->
+
+    <section class="briefly_about_us">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-6">
+                    <img class="briefly_about_us-image" src="{% static 'main/front/images/src/about-us_photo.png' %}" alt="Фото СОЛ «Горизонт»">
+                </div>
+
+                <div class="col-6">
+                    <div class="briefly_about_us__description">
+                        <div class="header_h1-h5">
+                            <h1>Вкратце о нас</h1>
+                            <h5>Давайте познакомимся поближе!</h5>
+                            <img class="blue-wave" src="{% static 'main/front/images/src/wave-blue.svg' %}">
+                        </div>
+                        <div class="description_text">
+                            <p>Туристическая база «Горизонт» расположена на крымском побережье Черного моря в курортном
+                                поселке Любимовка, в 40 км. от города Севастополь.</p>
+                            <p>Гостям базы предлагается неспешный отдых на пляже, купание в чистой морской воде, пикник
+                                на свежем воздухе и комфортное проживание в небольших и уютных домиках.</p>
+                        </div>
+                        <a class="read_more" href="#">
+                            Читать далее
+                            <img class="arrow-right" src="{% static 'main/front/images/src/arrow-right.svg' %}" alt="→">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- КАРУСЕЛЬ КАТЕГОРИЙ БРОНИРОВАНИЯ -->
+
+    <section class="our_numbers">
+        <div class="container">
+            <div class="row">
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ПРЕИМУЩЕСТВА -->
+
+    <section class="advantages">
+        <div class="container">
+            <div class="row advantages-header">
+
+                <div class="col-12">
+                    <div class="header_h1-h5">
+                        <h1>Почему выбирают нас?</h1>
+                        <h5>Наши преимущества</h5>
+                        <img class="blue-wave" src="{% static 'main/front/images/src/wave-blue.svg' %}">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row advantages_1-3">
+
+                <div class="col-4 advantages_col-1">
+                    <img src="{% static 'main/front/images/src/small-pebble-beach.svg' %}">
+                    <h4>Мелкогалечный пляж</h4>
+                    <p class="T-300-16">
+                        Роскошный пляж с мелкой теплой галькой — лучшее воспоминание об отдыхе в Крыму, которое вы
+                        увезете с собой.
+                    </p>
+                </div>
+
+                <div class="col-4 advantages_col-2">
+                    <img src="{% static 'main/front/images/src/BBQ.svg' %}">
+                    <h4>Беседка с мангалами и прекрасным видом</h4>
+                    <p class="T-300-16">
+                        Провести один, или несколько летних вечеров в садовой беседке с барбекю, пожалуй, лучшее
+                        времяпрепровождение.
+                    </p>
+                </div>
+
+                <div class="col-4 advantages_col-3">
+                    <img src="{% static 'main/front/images/src/sunset.svg' %}">
+                    <h4>Самые красивые закаты на побережье</h4>
+                    <p class="T-300-16">
+                        Красота природы, первозданная, естественная и чистая – то, что привлекало человека испокон
+                        веков.
+                    </p>
+                </div>
+
+            </div>
+            <div class="row advantages_4-6">
+
+                <div class="col-4 advantages_col-4">
+                    <img src="{% static 'main/front/images/src/food.svg' %}">
+                    <h4>Вкусная кухня из местных продуктов</h4>
+                    <p class="T-300-16">
+                        Местные блюда, напитки, свежие овощи и фрукты обладают не только неповторимым вкусом, но и
+                        полезными свойствами.
+                    </p>
+                </div>
+
+                <div class="col-4 advantages_col-5">
+                    <img src="{% static 'main/front/images/src/football-field.svg' %}">
+                    <h4>Спортивная площадка</h4>
+                    <p class="T-300-16">
+                        На территории СОЛ «Горизонт» имеется спортивный инвентарь, который включает в себя мячи
+                        волейбольные, футбольные; ракетки, сетки для тенниса; и многое другое.
+                    </p>
+                </div>
+
+                <div class="col-4 advantages_col-6">
+                    <img src="{% static 'main/front/images/src/kitchen-equipment.svg' %}">
+                    <h4>Современно оборудованная столовая</h4>
+                    <p class="T-300-16">
+                        Небольшое и емкое описание, которое может занимать до 3-4 строк и кратко рассказать о сути
+                        данного преимущества
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ССЫЛКА НА ФОРМУ ЗАЯВКИ -->
+
+    <section class="request_for_the_event">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <p class="T-400-16">
+                        У нас вы можете не только отлично отдохнуть, но и с пользой провести время: мы проводим
+                        интересные тренинги,<br/>а также поможем с организацией мероприятий
+                    </p>
+                    <a class="blue-button_on-blue B-400-16_white" href="#">
+                        Оформить заявку
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- МЕРОПРИЯТИЯ -->
+
+    <section class="our_events">
+        <div class="container">
+            <div class="row">
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- АКТУАЛЬНЫЕ НОВОСТИ -->
+
+    <section class="actual_news">
+        <div class="container">
+
+            <div class="row actual_news-header">
+                <div class="col-12">
+                    <div class="header_h1-h5">
+                        <h1>Почему выбирают нас?</h1>
+                        <h5>Наши преимущества</h5>
+                        <img class="blue-wave" src="{% static 'main/front/images/src/wave-blue.svg' %}">
+                    </div>
+                </div>
+            </div> <!-- .row -->
+
+            <div class="row actual_news-carousel">
+                <div class="col-4 news-vertical_card">
+                    <img class="actual_news-img" src="{% static 'main/front/images/src/1.png' %}">
+                    <h3 class="actual_news-header">Наимнование статьи</h3>
+                    <div class="actual_news-date_and_views">
+                        <div class="publication_date">
+                            <img class="publication_date-img" src="{% static 'main/front/images/src/calendar.svg' %}">
+                            <span class="publication_date-text T-300-16">01 января 1990</span>
+                        </div>
+                        <div class="number_of_views">
+                            <img class="number_of_views-img" src="{% static 'main/front/images/src/eye.svg' %}">
+                            <span class="number_of_views-text T-300-16">999 просмотров</span>
+                        </div>
+                    </div>
+                    <div class="actual_news-hashtags">
+                        <span>#SevSU</span>
+                        <span>#МореВозможностей</span>
+                    </div>
+                    <span class="actual_news-text T-300-16">
+						Небольшое и емкое описание, либо вырезка из статьи, которое может занимать до 3-4 строк.
+					</span>
+                </div>
+                <div class="col-4 news-vertical_card">
+                    <img class="actual_news-img" src="{%  static 'main/front/images/src/2.png' %}">
+                    <h3 class="actual_news-header">Наимнование статьи</h3>
+                    <div class="actual_news-date_and_views">
+                        <div class="publication_date">
+                            <img class="publication_date-img" src="{% static 'main/front/images/src/calendar.svg' %}">
+                            <span class="publication_date-text T-300-16">01 января 1990</span>
+                        </div>
+                        <div class="number_of_views">
+                            <img class="number_of_views-img" src="{% static 'main/front/images/src/eye.svg' %}">
+                            <span class="number_of_views-text T-300-16">999 просмотров</span>
+                        </div>
+                    </div>
+                    <div class="actual_news-hashtags">
+                        <span>#SevSU</span>
+                        <span>#МореВозможностей</span>
+                    </div>
+                    <span class="actual_news-text T-300-16">
+						Небольшое и емкое описание, либо вырезка из статьи, которое может занимать до 3-4 строк.
+					</span>
+                </div>
+                <div class="col-4 news-vertical_card">
+                    <img class="actual_news-img" src="{% static 'main/front/images/src/3.png' %}">
+                    <h3 class="actual_news-header">Наимнование статьи</h3>
+                    <div class="actual_news-date_and_views">
+                        <div class="publication_date">
+                            <img class="publication_date-img" src="{% static 'main/front/images/src/calendar.svg' %}">
+                            <span class="publication_date-text T-300-16">01 января 1990</span>
+                        </div>
+                        <div class="number_of_views">
+                            <img class="number_of_views-img" src="{% static 'main/front/images/src/eye.svg' %}">
+                            <span class="number_of_views-text T-300-16">999 просмотров</span>
+                        </div>
+                    </div>
+                    <div class="actual_news-hashtags">
+                        <span>#SevSU</span>
+                        <span>#МореВозможностей</span>
+                    </div>
+                    <span class="actual_news-text T-300-16">
+						Небольшое и емкое описание, либо вырезка из статьи, которое может занимать до 3-4 строк.
+					</span>
+                </div>
+                <div class="col-4 news-vertical_card">
+                    <img class="actual_news-img" src="{% static 'main/front/images/src/4.png' %}">
+                    <h3 class="actual_news-header">Наимнование статьи</h3>
+                    <div class="actual_news-date_and_views">
+                        <div class="publication_date">
+                            <img class="publication_date-img" src="{% static 'main/front/images/src/calendar.svg' %}">
+                            <span class="publication_date-text T-300-16">01 января 1990</span>
+                        </div>
+                        <div class="number_of_views">
+                            <img class="number_of_views-img" src="{% static 'main/front/images/src/eye.svg' %}">
+                            <span class="number_of_views-text T-300-16">999 просмотров</span>
+                        </div>
+                    </div>
+                    <div class="actual_news-hashtags">
+                        <span>#SevSU</span>
+                        <span>#МореВозможностей</span>
+                    </div>
+                    <span class="actual_news-text T-300-16">
+						Небольшое и емкое описание, либо вырезка из статьи, которое может занимать до 3-4 строк.
+					</span>
+                </div>
+                <div class="col-4 news-vertical_card">
+                    <img class="actual_news-img" src="{% static 'main/front/images/src/5.png' %}">
+                    <h3 class="actual_news-header">Наимнование статьи</h3>
+                    <div class="actual_news-date_and_views">
+                        <div class="publication_date">
+                            <img class="publication_date-img" src="{% static 'main/front/images/src/calendar.svg' %}">
+                            <span class="publication_date-text T-300-16">01 января 1990</span>
+                        </div>
+                        <div class="number_of_views">
+                            <img class="number_of_views-img" src="{% static 'main/front/images/src/eye.svg' %}">
+                            <span class="number_of_views-text T-300-16">999 просмотров</span>
+                        </div>
+                    </div>
+                    <div class="actual_news-hashtags">
+                        <span>#SevSU</span>
+                        <span>#МореВозможностей</span>
+                    </div>
+                    <span class="actual_news-text T-300-16">
+						Небольшое и емкое описание, либо вырезка из статьи, которое может занимать до 3-4 строк.
+					</span>
+                </div>
+                <div class="col-4 news-vertical_card">
+                    <img class="actual_news-img" src="{% static 'main/front/images/src/6.png' %}">
+                    <h3 class="actual_news-header">Наимнование статьи</h3>
+                    <div class="actual_news-date_and_views">
+                        <div class="publication_date">
+                            <img class="publication_date-img" src="{% static 'main/front/images/src/calendar.svg' %}">
+                            <span class="publication_date-text T-300-16">01 января 1990</span>
+                        </div>
+                        <div class="number_of_views">
+                            <img class="number_of_views-img" src="{% static 'main/front/images/src/eye.svg' %}">
+                            <span class="number_of_views-text T-300-16">999 просмотров</span>
+                        </div>
+                    </div>
+                    <div class="actual_news-hashtags">
+                        <span>#SevSU</span>
+                        <span>#МореВозможностей</span>
+                    </div>
+                    <span class="actual_news-text T-300-16">
+						Небольшое и емкое описание, либо вырезка из статьи, которое может занимать до 3-4 строк.
+					</span>
+                </div>
+            </div> <!-- .actual_news-carousel -->
+
+            <div class="row actual_news-all_news_link">
+                <div class="col">
+                    <a class="TU-400-16" href="news.html">Просмотреть список всех новостей</a>
+                </div>
+            </div>
+
+        </div> <!-- .container -->
+    </section> <!-- .actual_news -->
+
 
 {% endblock %}

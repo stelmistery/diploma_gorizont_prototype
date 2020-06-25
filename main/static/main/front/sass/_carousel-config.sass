@@ -1,0 +1,28 @@
+.actual_news-carousel
+    position: relative
+
+    .slick-arrow
+        position: absolute
+        top: 50%
+        font-size: 0
+        width: 45px
+        height: 45px
+        z-index: 1
+
+
+        &::before, &::after
+            content: none
+
+    .slick-slide
+        outline: none
+
+
+    .slick-prev
+        position: absolute
+        left: -75px 
+        background: url(../images/src/button_arrow-left.svg) 0 0 / 100% no-repeat
+    
+    .slick-next
+        position: absolute
+        right: -75px 
+        background: url(../images/src/button_arrow-right.svg) 0 0 / 100% no-repeat

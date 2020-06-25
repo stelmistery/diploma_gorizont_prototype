@@ -1,34 +1,245 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+
+    <title>
+        {% block title %}
+            Спортивно-оздоровительный лагерь «Горизонт» – отдых на берегу Черного моря!
+
+        {% endblock %}
+    </title>
+
+    <meta name="description" content="Home page of the «Horizon» Sports and Health Camp">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="{% static 'main/front/images/favicon/favicon.png' %}">
+    <meta property="og:image" content="{% static 'main/front/images/dest/preview.jpg' %}">
+    <link rel="stylesheet" href="{% static 'main/front/css/app.min.css' %}">
 
 </head>
+
 <body>
+
+<!-- ШАПКА ВЕБ-САЙТА -->
+
+<header class="header_section">
+    <div class="header_section-information_block">
+        <div class="container">
+            <div class="row">
+
+                <div class="col">
+                    <a class="information_block-logo" href="index.html">
+                        <img src="{% static 'main/front/images/src/logo/logo.svg' %}" alt="Логотип СОЛ «Горизонт»">
+                    </a>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <img class="information_block-image" src="{% static 'main/front/images/src/clock.svg' %}">
+                    <p class="information_block-text M-400-14">
+                        Работаем круглосуточно,<br/>без праздников и выходных
+                    </p>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <img class="information_block-image" src="{% static 'main/front/images/src/phone.svg' %}">
+                    <p class="information_block-text M-400-14">
+                        Телефон: 8 (978) 022-26-90<br/>
+                        <a href="#" class="information_block-link MU-400-14">
+                            Обратный звонок
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <img class="information_block-image" src="{% static 'main/front/images/src/address.svg' %}">
+                    <p class="information_block-text M-400-14">
+                        Мы находимся по адресу:<br/>
+                        <a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
+                           class="information_block-link MU-400-14">
+                            г. Севастополь, Челюскинцев 119
+                        </a>
+                    </p>
+                </div>
+
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div> <!-- .header_section-information_block -->
+
+    <div class="header_section-navigation_block">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navigation_elements">
+                    <ul class="navbar-nav">
+                        <li class="nav-item {% block main_active %}{% endblock %}"><a href="{% url 'main' %}"
+                                                                                      class="nav-link M-400-16">Главная</a>
+                        </li>
+                        <li class="nav-item {% block news_active %}{% endblock %}"><a href="" class="nav-link M-400-16">Новости</a>
+                        </li>
+                        <li class="nav-item {% block book_active %}{% endblock %}"><a href="" class="nav-link M-400-16">Бронирование</a>
+                        </li>
+                        <li class="nav-item {% block event_active %}{% endblock %}"><a href=""
+                                                                                       class="nav-link M-400-16">Мероприятия</a>
+                        </li>
+                        <li class="nav-item {% block us_active %}{% endblock %}"><a href="" class="nav-link M-400-16">О
+                            нас</a></li>
+                        <li class="nav-item {% block contact_active %}{% endblock %}"><a href=""
+                                                                                         class="nav-link M-400-16">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="personal_area">
+                    <ul class="personal_area-nav">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link registration_button" href="{% url 'logout' %}">
+                                    Выход
+                                </a>
+                            </li>
+
+                        {% else %}
+                            <li class="nav-item">
+                                <a href="{% url 'login' %}" class="nav-link">
+                                    <img class="nav-img" src="{% static 'main/front/images/src/login.svg' %}">
+                                    Авторизация
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link registration_button" href="{% url 'register' %}">
+                                    Регистрация
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+            </nav> <!-- .navbar -->
+        </div> <!-- .container -->
+    </div> <!-- .header_section-navigation_block -->
+</header> <!-- .header_section -->
+
 
 
 {% block body %}
 
 {% endblock %}
 
-<footer class="text-muted">
-    <div class="container text-center">
-        <p>© CopyRight Wil Ascension {% now "Y" %}</p>
-    </div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+
+<footer class="footer_section">
+    <div class="footer_section-navigation_block">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-3 navigation_elements">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link M-400-14">Главная</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="news.html" class="nav-link M-400-14">Новости</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="booking.html" class="nav-link M-400-14">Бронирование</a>
+                        </li>
+                    </ul>
+
+                    <div class="vertical-line"></div>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="events.html" class="nav-link M-400-14">Мероприятия</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about_us.html" class="nav-link M-400-14">О нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contacts.html" class="nav-link M-400-14">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <img class="information_block-image" src="{% static 'main/front/images/src/clock.svg' %}">
+                    <p class="information_block-text align-self-center M-400-14">
+                        Работаем круглосуточно,<br/>без праздников и выходных
+                    </p>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <img class="information_block-image" src="{% static 'main/front/images/src/phone.svg' %}">
+                    <p class="information_block-text align-self-center M-400-14">
+                        Телефон: 8 (978) 022-26-90<br/>
+                        <a href="#" class="information_block-link MU-400-14">
+                            Обратный звонок
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <img class="information_block-image" src="{% static 'main/front/images/src/address.svg' %}">
+                    <p class="information_block-text align-self-center M-400-14">
+                        Мы находимся по адресу:<br/>
+                        <a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
+                           class="information_block-link MU-400-14">
+                            г. Севастополь, Челюскинцев 119
+                        </a>
+                    </p>
+                </div>
+
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div> <!-- .footer_section-navigation_block -->
+
+    <div class="footer_section-information_block">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-2">
+                    <a href="index.html" class="logo">
+                        <img src="{% static 'main/front/images/src/logo/logo.svg' %}"
+                             alt="Логотип Спортивно-оздоровительного лагеря «Горизонт»">
+                    </a>
+                </div>
+
+                <div class="col-2">
+                    <div class="information_block-text M-400-14">
+                        <p>СОЛ «Горизонт» © 2020.</p>
+                        <p>Официальный сайт.</p>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="information_block-link MU-400-14">
+                        <p>Политика обработки</p>
+                        <p>Политика конфиденциальности</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex justify-content-end">
+                    <div class="information_block-social_media">
+                        <a href="#">
+                            <img src="{% static 'main/front/images/src/vk.svg' %}">
+                        </a>
+                        <a href="#">
+                            <img src="{% static 'main/front/images/src/instagram.svg' %}">
+                        </a>
+                        <a href="#">
+                            <img src="{% static 'main/front/images/src/facebook.svg' %}">
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div> <!-- .footer_section-information_block -->
+</footer> <!-- .footer_section -->
+
+
+<script src="{% static 'main/front/js/app.min.js' %}"></script>
+
+{
+
 </body>
+
 </html>
