@@ -1,57 +1,202 @@
-.registration_button
-    border: 1px solid $light-gray_color-2
-    border-radius: 2.5px
-    transition: 0.25s !important
+.button
 
-    &:hover
-        color: $blue_color !important        
-        border: 1px solid $blue_color
-        background-color: $white
+    // ССЫЛКА НА ФОРМУ АВТОРИЗАЦИИ
 
-.advanced_search
-    input[type="date"], select
-        color: $dark-gray_color
-        width: 165px
-        height: 50px
-        padding: 0 15px
-        -webkit-appearance: none
-        -moz-appearance: none
-        appearance: none
-        display: block
-        border: 1px solid $gray_color
+    &--autorization
+        &:hover .nav-image
+            stroke: $white !important
+
+    // ССЫЛКА НА ФОРМУ РЕГИСТРАЦИИ
+
+    &--registration
+        border: 1px solid $light-gray--2
         border-radius: 2.5px
-        background-color: transparent
-        text-decoration: none
-
-        &:active, &:hover, &:focus
-            outline: 0
-            outline-offset: 0
-
-            option:active
-                border: 1px solid $blue_color
-                background-color: $blue_color
-            
-    input[type="submit"]
-        color: $white
-        width: 165px
-        height: 50px
-        margin-top: 42px
-        border: none
-        background: $blue_color
-        border-radius: 2.5px
-        transition: 0.25s
+        transition: 0.35s !important
 
         &:hover
-            background: $dark-blue_color
+            color: $blue !important        
+            border: 1px solid $blue
+            background-color: $white
 
-.blue-button_on-blue
-    padding: 15px 25px
-    text-align: center
-    color: $white
-    border-radius: 1.5px
-    background-color: $blue_color
-    transition: 0.25s !important
+    &--read-more
+        display: flex
+        transition: 0.25s !important
 
-    &:hover
-        background-color: $white
-        border-radius: 1.5px
+        &-image
+            margin: 3.5px 0 0 7.5px
+            stroke: $blue
+            transition: 0.25s !important
+
+        &:hover
+            text-decoration: none
+            .button--read-more-image
+                stroke: $dark-blue
+
+
+
+// СТРОКА ПОИСКА (КНОПКА "ПОИСК")
+
+.news-search
+    &__button
+        position: absolute
+        right: 10px
+        top: 6.5px
+
+        margin: 0
+        padding: 0
+        border: none
+        font-size: 0
+        background-color: transparent
+
+
+
+// ОТОБРАЖЕНИЕ НОВОСТНОЙ ЛЕНТЫ (КНОПКИ ПЕРЕКЛЮЧЕНИЯ)
+
+.newsfeed__display
+    display: flex
+
+    &--tile, &--list
+        &:focus
+            outline: none
+
+        svg
+            fill: $gray
+
+        margin: 0
+        padding: 0
+        font-size: 0
+        border: none
+        background: none
+
+    &--tile
+        margin-right: 10px
+
+    .active svg
+        fill: $blue
+
+
+
+// ПАГИНАЦИЯ
+
+.page-item
+    height: 40px
+    margin: 0 10px
+    
+    .page-link
+        color: $text
+        border: 0
+        transition: 0.25s !important
+
+        &:hover
+            color: $blue
+            background-color: transparent
+
+        &:focus
+            box-shadow: none
+
+.some-page // ...
+    height: 40px
+    margin: 0 10px
+    
+    p
+        padding: 8px 0 0
+        pointer-events: none
+
+.page-vr
+    border-right: 1px solid $light-gray--2
+    margin: 5px
+    margin-right: 15px
+
+.page-item.active .page-link
+    color: $blue
+    background-color: transparent
+
+.gotopage
+    &-input
+        height: 38px
+
+        text-align: center
+        color: $text
+        border: 1px solid $light-gray--2
+
+
+
+// 
+
+// 
+
+
+
+
+
+
+
+
+// .advanced_search
+//     input[type="date"], select
+//         color: $dark-gray
+//         width: 165px
+//         height: 50px
+//         padding: 0 15px
+//         -webkit-appearance: none
+//         -moz-appearance: none
+//         appearance: none
+//         display: block
+//         border: 1px solid $gray
+//         border-radius: 2.5px
+//         background-color: transparent
+//         text-decoration: none
+
+//         &:active, &:hover, &:focus
+//             outline: 0
+//             outline-offset: 0
+
+//             option:active
+//                 border: 1px solid $blue
+//                 background-color: $blue
+            
+//     input[type="submit"]
+//         color: $white
+//         width: 165px
+//         height: 50px
+//         margin-top: 42px
+//         border: none
+//         background: $blue
+//         border-radius: 2.5px
+//         transition: 0.25s
+
+//         &:hover
+//             background: $dark-blue
+
+// .blue-button_on-blue
+//     padding: 15px 25px
+//     text-align: center
+//     color: $white
+//     border-radius: 1.5px
+//     background-color: $blue
+//     transition: 0.25s !important
+
+//     &:hover
+//         background-color: $white
+//         border-radius: 1.5px
+
+// .blue-button_on-white
+//     padding: 15px 50px
+//     text-align: center
+//     color: $white
+//     border-radius: 1.5px
+//     background-color: $blue
+//     transition: 0.25s !important
+
+//     &:hover
+//         color: $white
+//         background-color: $dark-blue
+//         border-radius: 1.5px
+//         text-decoration: none
+
+
+
+
+
+
+

@@ -2,63 +2,67 @@
     margin: 0
     padding: 0
     
-// ИНФОРМАЦИОННЫЙ БЛОК
-    
-.header_section-information_block
-    height: 85px
-    padding: 22.5px 0
-    background-color: $dark-blue_color
+.header-section
 
-    .information_block-image
-        margin-right: 20px
+    // ИНФОРМАЦИОННЫЙ БЛОК
 
-    .information_block-text
-        margin-bottom: 0
+    &__information-block
+        height: 85px
+        padding: 22.5px 0
+        background-color: $dark-blue
+
+        .information-block
+            &__image
+                margin-right: 20px
+
+            &__text
+                margin-bottom: 0
         
 
-// НАВИГАЦИОННЫЙ БЛОК
+    // НАВИГАЦИОННЫЙ БЛОК
 
-.header_section-navigation_block
-    height: 55px
-    padding: 8.5px 0 0
-    background-color: $blue_color
+    &__navigation-block
+        height: 55px
+        padding: 8.5px 0 0
+        background-color: $blue
 
-    .navigation_elements
-        .navbar-nav
-            display: block
-            list-style-type: none
+        .navigation-elements
+            .navbar-nav
+                display: block
+                list-style-type: none
 
-            margin: 0
-            padding: 0
+                margin: 0
+                padding: 0
 
-            .nav-item
-                display: inline-block
-                margin: 0 15px
-                padding-bottom: 5px 
+                .nav-item
+                    display: inline-block
+                    margin: 0 15px
+                    padding-bottom: 5px 
 
-                &:first-child
-                    margin-left: 0
+                    &:first-child
+                        margin-left: 0
 
-                &:last-child
-                    margin-right: 0
-            
-            .active
-                border-bottom: 3px solid $white_color
-
-    .personal_area
-        margin-bottom: 8px
-
-        .personal_area-nav
-            padding: 0
-            margin: 0
-            list-style-type: none
-            
-            .nav-item
-                display: inline-block
+                    &:last-child
+                        margin-right: 0
                 
-                .nav-img
-                    margin-right: 10px
-                    margin-bottom: 2px
+                .active
+                    border-bottom: 3px solid $white
 
-                &:first-child
-                    margin-right: 5px
+        .personal-area
+            margin-bottom: 8px
+
+            &__nav
+                padding: 0
+                margin: 0
+                list-style-type: none
+                
+                .nav-item
+                    display: inline-block
+                    
+                    .nav-image
+                        margin-right: 10px
+                        margin-bottom: 2px
+                        stroke: #E5E5E5
+
+                    &:first-child
+                        margin-right: 5px

@@ -1,27 +1,167 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block body %}
 
-{#    <form method="POST" action="{% url 'room_check' %}">#}
-{#        {% csrf_token %}#}
-{#        <div class="form-row">#}
-{#            {% for field in form %}#}
-{#                <div class="form-group col-md-2">#}
-{#                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>#}
-{#                    {{ field }}#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#        <button type="submit" class="btn btn-primary">Забронировать</button>#}
-{#    </form>#}
+	<!-- ХЛЕБНЫЕ КРОШКИ -->
 
-        {% if form %}
-            <form method="POST" action="{% url 'room_check' %}">
-                {% csrf_token %}
-{#                <div class="form-row">#}
-                {{ form.as_p }}
-{#                </div>#}
-                <button type="submit" class="btn btn-primary">Забронировать</button>
-            </form>
-        {% endif %}
+	<section class="breadcrumb_section">
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+					<li class="breadcrumb-item" aria-current="page">Бронирование</li>
+				</ol>
+			</nav> <!-- .breadcrumb -->
+		</div> <!-- .container -->
+	</section> <!-- .breadcrumb_section -->
+
+
+	<!-- ЗАГОЛОВОК -->
+
+	<div class="container">
+		<div class="row booking-header">
+
+			<div class="col-12">
+				<div class="header_h1-h5_center">
+					<h1>Наши номера</h1>
+					<h5>Лаконичное сочетание удобства и простоты</h5>
+					<img class="blue-wave" src="images/src/wave-blue.svg">
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- ОПИСАНИЕ -->
+
+	<div class="container">
+		<div class="row booking-description">
+			<p class="T-300-16">
+				Отдых на природе, как глоток родниковой воды – способ вырваться из городской жизни,
+				чтобы сменить обстановку и
+				насладится спокойствием природы. Но не у всех есть возможность поехать на собственный загородный
+				участок.
+				Альтернативой ему станет спортивно-оздоровительный лагерь «Горизонт». Снять номер близь Севастополя –
+				повод
+				провести неделю, выходные или стуки в комфортабельном и уютном местечке.
+			</p>
+		</div>
+	</div>
+
+
+	<!-- КАТЕГОРИИ ПРОЖИВАНИЯ -->
+
+	<section class="categories_of_accommodation">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-6">
+					<div class="category_card advanced_category">
+						<img class="category_card-img" src="images/src/advanced.png">
+
+						<div class="category_card-description">
+							<h3>Улучшенная категория</h3>
+							<p class="category_card-description-price">
+								от
+								<span class="price_accent">1 200</span>
+								руб / сутки
+							</p>
+							<p class="category_card-description-text">
+								Небольшое и емкое описание категории номеров, которое может занимать от 3-ех до 4-ех
+								строк и кратко рассказывать о выбранной категории.
+							</p>
+							<div class="category_card-description-buttons">
+								<a href="#" class="BU-400-16_white blue-button_on-white">Подробнее</a>
+								<a href="#" class="TU-400-16 button-fast">Забронировать номер<br/>в один клик!</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-6">
+					<div class="category_card category_1">
+						<img class="category_card-img" src="images/src/1 category.png">
+
+						<div class="category_card-description">
+							<h3>1 категория</h3>
+							<p class="category_card-description-price">
+								от
+								<span class="price_accent">1 000</span>
+								руб / сутки
+							</p>
+							<p class="category_card-description-text">
+								Небольшое и емкое описание категории номеров, которое может занимать от 3-ех до 4-ех
+								строк и кратко рассказывать о выбранной категории.
+							</p>
+							<div class="category_card-description-buttons">
+								<a href="#" class="BU-400-16_white blue-button_on-white">Подробнее</a>
+								<a href="#" class="TU-400-16 button-fast">Забронировать номер<br/>в один клик!</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div> <!-- .row -->
+
+			<div class="row">
+
+				<div class="col-6">
+					<div class="category_card category_2">
+						<img class="category_card-img" src="images/src/2 category.png">
+
+						<div class="category_card-description">
+							<h3>2 категория</h3>
+							<p class="category_card-description-price">
+								от
+								<span class="price_accent">700</span>
+								руб / сутки
+							</p>
+							<p class="category_card-description-text">
+								Небольшое и емкое описание категории номеров, которое может занимать от 3-ех до 4-ех
+								строк и кратко рассказывать о выбранной категории.
+							</p>
+							<div class="category_card-description-buttons">
+								<a href="#" class="BU-400-16_white blue-button_on-white">Подробнее</a>
+								<a href="#" class="TU-400-16 button-fast">Забронировать номер<br/>в один клик!</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-6">
+					<div class="category_card category_3">
+						<img class="category_card-img" src="images/src/3 category.png">
+
+						<div class="category_card-description">
+							<h3>3 категория</h3>
+							<p class="category_card-description-price">
+								от
+								<span class="price_accent">500</span>
+								руб / сутки
+							</p>
+							<p class="category_card-description-text">
+								Небольшое и емкое описание категории номеров, которое может занимать от 3-ех до 4-ех
+								строк и кратко рассказывать о выбранной категории.
+							</p>
+							<div class="category_card-description-buttons">
+								<a href="#" class="BU-400-16_white blue-button_on-white">Подробнее</a>
+								<a href="#" class="TU-400-16 button-fast">Забронировать номер<br/>в один клик!</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div> <!-- .row -->
+
+		</div> <!-- .container -->
+	</section> <!-- .categories_of_accommodation -->
+
+
 {% endblock %}

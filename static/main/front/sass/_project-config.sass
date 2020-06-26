@@ -1,0 +1,135 @@
+// РАЗДЕЛ ПЕРЕМЕННЫХ ПОЛЬЗОВАТЕЛЯ
+
+$white_color: #FFFFFF
+$light-blue_color: #7EA5FF
+$blue_color: #4077F6
+$dark-blue_color: #223F99
+$light-gray_color-1: #F8F8F8
+$light-gray_color-2: #E5E5E5
+$gray_color: #BDBDBD
+$dark-gray_color: #828282
+$text_color: #333 // Цвет текста
+
+$light-blue_color__hover: #A4BFFF
+
+$fontsize: 16px // Размер шрифта по умолчанию
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // Семейство системных шрифтов
+$exo2: Exo2, sans-serif // Семейство шрифтов Exo 2
+$oswald: Oswald, sans-serif // Семейство шрифтов Exo 2
+
+// Переменная отступа Bootstrap → $gutter
+$grid-gutter-width: 20px
+$gutter: $grid-gutter-width
+
+
+// РАЗДЕЛ ИМПОРТА
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss'
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Необязательная сетка начальной загрузки
+@import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Необязательные утилиты Bootstrap
+@import 'node_modules/slick-1.8.1/slick/slick.scss'
+@import 'node_modules/slick-1.8.1/slick/slick-theme.scss'
+
+
+// РАЗДЕЛ ЗАГРУЗКИ ШРИФТОВ
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		// font-display: swap // Раскомментируй для начального отображения системных шрифтов
+		src: local($fname), url($furl) format('woff2')
+
+@include font('Exo2', normal, 100, '../fonts/exo2thin.woff2')
+@include font('Exo2', italic, 100, '../fonts/exo2thinitalic.woff2')
+
+@include font('Exo2', normal, 200, '../fonts/exo2extralight.woff2')
+@include font('Exo2', italic, 200, '../fonts/exo2extralightitalic.woff2')
+
+@include font('Exo2', normal, 300, '../fonts/exo2light.woff2')
+@include font('Exo2', italic, 300, '../fonts/exo2lightitalic.woff2')
+
+@include font('Exo2', normal, 400, '../fonts/exo2.woff2')
+@include font('Exo2', italic, 400, '../fonts/exo2italic.woff2')
+
+@include font('Exo2', normal, 500, '../fonts/exo2medium.woff2')
+@include font('Exo2', italic, 500, '../fonts/exo2mediumitalic.woff2')
+
+@include font('Exo2', normal, 600, '../fonts/exo2semibold.woff2')
+@include font('Exo2', italic, 600, '../fonts/exo2semibolditalic.woff2')
+
+@include font('Exo2', normal, 700, '../fonts/exo2bold.woff2')
+@include font('Exo2', italic, 700, '../fonts/exo2bolditalic.woff2')
+
+@include font('Exo2', normal, 800, '../fonts/exo2extrabold.woff2')
+@include font('Exo2', italic, 800, '../fonts/exo2extrabolditalic.woff2')
+
+@include font('Exo2', normal, 900, '../fonts/exo2black.woff2')
+@include font('Exo2', italic, 900, '../fonts/exo2blackitalic.woff2')
+
+@include font('Oswald', normal, 500, '../fonts/oswaldmedium.woff2')
+
+// 100 - Extra Light or Ultra Light
+// 200 - Light or Thin
+// 300 - Book or Demi
+// 400 - Regular or Normal
+// 500 - Medium
+// 600 - Semibold or Demibold
+// 700 - Bold
+// 800 - Black or Extra Bold or Heavy
+// 900 - Extra Black or Fat or Ultra Blac
+
+	
+// ОБЩИЕ СТИЛИ ДОКУМЕНТА
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $blue_color
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $exo2
+	font-size: $fontsize
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	overflow-x: hidden
+	color: $text_color
+
+.header_h1-h5
+	// margin-bottom: 75px
+
+.header_h1-h5 h1
+	margin-bottom: 10px
+
+.header_h1-h5 h5
+	margin-bottom: 25px
+
+.blue-wave
+	margin-bottom: 50px
+
+.breadcrumb
+	color: $text_color
+	margin: 0
+	padding: 15px 0
+	background-color: transparent
+	border-bottom: 1px solid $light-gray_color-2
+	
+	&-item a
+		color: $text_color
+
+		&:hover
+			text-decoration: none
+		

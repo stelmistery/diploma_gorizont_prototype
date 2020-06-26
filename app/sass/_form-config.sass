@@ -1,0 +1,47 @@
+// Удаление ссылок с input number
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+    -webkit-appearance: none
+    margin: 0
+input[type=number] 
+    -moz-appearance: textfield
+
+// Скрытие placeholder-а при фокусе
+
+input::-webkit-input-placeholder       
+    opacity: 1
+    transition: opacity 0.3s ease
+input::-moz-placeholder                
+    opacity: 1
+    transition: opacity 0.3s ease
+input:-moz-placeholder                 
+    opacity: 1
+    transition: opacity 0.3s ease
+input:-ms-input-placeholder            
+    opacity: 1
+    transition: opacity 0.3s ease
+input:focus::-webkit-input-placeholder 
+    opacity: 0
+    transition: opacity 0.3s ease
+input:focus::-moz-placeholder          
+    opacity: 0
+    transition: opacity 0.3s ease
+input:focus:-moz-placeholder           
+    opacity: 0
+    transition: opacity 0.3s ease
+input:focus:-ms-input-placeholder      
+    opacity: 0
+    transition: opacity 0.3s ease
+
+
+	
+.form-control
+	&::placeholder
+		color: $gray
+
+	&:active, &:hover, &:focus
+		outline: 0
+		outline-offset: 0
+		border-color: $gray
+		box-shadow: none !important

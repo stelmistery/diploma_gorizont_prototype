@@ -77,7 +77,7 @@
                         </li>
                         <li class="nav-item {% block news_active %}{% endblock %}"><a href="" class="nav-link M-400-16">Новости</a>
                         </li>
-                        <li class="nav-item {% block book_active %}{% endblock %}"><a href="" class="nav-link M-400-16">Бронирование</a>
+                        <li class="nav-item {% block book_active %}{% endblock %}"><a href="{% url 'room_check' %}" class="nav-link M-400-16">Бронирование</a>
                         </li>
                         <li class="nav-item {% block event_active %}{% endblock %}"><a href=""
                                                                                        class="nav-link M-400-16">Мероприятия</a>
@@ -238,7 +238,7 @@
 
 <script src="{% static 'main/front/js/app.min.js' %}"></script>
 
-{
+
 
 </body>
 

@@ -3,217 +3,1407 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <title>Спортивно-оздоровительный лагерь «Горизонт» – отдых на берегу Черного моря!</title>
-    <meta name="description" content="Home page of the «Horizon» Sports and Health Camp">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="img/favicon/favicon.png">
-    <meta property="og:image" content="img/dest/preview.jpg">
-    <link rel="stylesheet" href="css/app.min.css">
+	<meta charset="utf-8">
+	<title>Новостная лента спортивно-оздоровительного лагеря «Горизонт» – отдых на берегу Черного моря!</title>
+	<meta name="description" content="News feed of the «Horizon» Sports and Health Camp">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="img/favicon/favicon.png">
+	<meta property="og:image" content="img/dest/preview.jpg">
+	<link rel="stylesheet" href="css/app.min.css">
 
 </head>
 
 <body>
 
-<!-- ШАПКА ВЕБ-САЙТА -->
+	<!-- ШАПКА ВЕБ-САЙТА -->
 
-<header class="header_section">
-    <div class="header_section-information_block">
-        <div class="container">
-            <div class="row">
+	<header class="header-section">
+		<div class="header-section__information-block">
+			<div class="container">
+				<div class="row">
 
-                <div class="col">
-                    <a class="information_block-logo" href="index.html">
-                        <img src="images/src/logo/logo.svg" alt="Логотип СОЛ «Горизонт»">
-                    </a>
-                </div>
+					<div class="col">
+						<a class="information-block__logo" href="index.html">
+							<img src="images/src/logo/logo.svg" alt="Логотип СОЛ «Горизонт»">
+						</a>
+					</div> <!-- .col -->
 
-                <div class="col d-flex justify-content-center">
-                    <img class="information_block-image" src="images/src/clock.svg">
-                    <p class="information_block-text M-400-14">
-                        Работаем круглосуточно,<br/>без праздников и выходных
-                    </p>
-                </div>
+					<div class="col d-flex justify-content-center">
+						<img class="information-block__image" src="images/src/clock.svg">
+						<p class="information-block__text M-400-14">
+							Работаем круглосуточно,<br />без праздников и выходных
+						</p>
+					</div> <!-- .col -->
 
-                <div class="col d-flex justify-content-center">
-                    <img class="information_block-image" src="images/src/phone.svg">
-                    <p class="information_block-text M-400-14">
-                        Телефон: 8 (978) 022-26-90<br/>
-                        <a href="#" class="information_block-link MU-400-14">
-                            Обратный звонок
-                        </a>
-                    </p>
-                </div>
+					<div class="col d-flex justify-content-center">
+						<img class="information-block__image" src="images/src/phone.svg">
+						<p class="information-block__text M-400-14">
+							Телефон: 8 (978) 022-26-90<br />
+							<a href="#" class="information-block__link MU-400-14">
+								Обратный звонок
+							</a>
+						</p>
+					</div> <!-- .col -->
 
-                <div class="col d-flex justify-content-center">
-                    <img class="information_block-image" src="images/src/address.svg">
-                    <p class="information_block-text M-400-14">
-                        Мы находимся по адресу:<br/>
-                        <a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
-                           class="information_block-link MU-400-14">
-                            г. Севастополь, Челюскинцев 119
-                        </a>
-                    </p>
-                </div>
+					<div class="col d-flex justify-content-center">
+						<img class="information-block__image" src="images/src/address.svg">
+						<p class="information-block__text M-400-14">
+							Мы находимся по адресу:<br />
+							<a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
+								class="information-block__link MU-400-14">
+								г. Севастополь, Челюскинцев 119
+							</a>
+						</p>
+					</div> <!-- .col -->
 
-            </div> <!-- .row -->
-        </div> <!-- .container -->
-    </div> <!-- .header_section-information_block -->
+				</div> <!-- .row -->
+			</div> <!-- .container -->
+		</div> <!-- .header-section__information-block -->
 
-    <div class="header_section-navigation_block">
-        <div class="container">
-            <nav class="navbar">
+		<div class="header-section__navigation-block">
+			<div class="container">
+				<nav class="navbar">
 
-                {% block menu-item %}
-                    <div class="navigation_elements">
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a href="index.html" class="nav-link M-400-16">Главная</a></li>
-                            <li class="nav-item active"><a href="news.html" class="nav-link M-400-16">Новости</a></li>
-                            <li class="nav-item"><a href="booking.html" class="nav-link M-400-16">Бронирование</a></li>
-                            <li class="nav-item"><a href="events.html" class="nav-link M-400-16">Мероприятия</a></li>
-                            <li class="nav-item"><a href="about_us.html" class="nav-link M-400-16">О нас</a></li>
-                            <li class="nav-item"><a href="contacts.html" class="nav-link M-400-16">Контакты</a></li>
-                        </ul>
-                    </div>
-                {% endblock %}
-                <div class="personal_area">
-                    <ul class="personal_area-nav">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <img class="nav-img" src="images/src/login.svg">
-                                Авторизация
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link registration_button" href="#">
-                                Регистрация
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+					<div class="navigation-elements">
+						<ul class="navbar-nav">
+							<li class="nav-item"><a href="index.html" class="nav-link M-400-16">Главная</a></li>
+							<li class="nav-item active"><a href="news.html" class="nav-link M-400-16">Новости</a></li>
+							<li class="nav-item"><a href="booking.html" class="nav-link M-400-16">Бронирование</a></li>
+							<li class="nav-item"><a href="events.html" class="nav-link M-400-16">Мероприятия</a></li>
+							<li class="nav-item"><a href="about_us.html" class="nav-link M-400-16">О нас</a></li>
+							<li class="nav-item"><a href="contacts.html" class="nav-link M-400-16">Контакты</a></li>
+						</ul> <!-- .navbar-nav -->
+					</div> <!-- .navigation-elements -->
 
-            </nav> <!-- .navbar -->
-        </div> <!-- .container -->
-    </div> <!-- .header_section-navigation_block -->
-</header> <!-- .header_section -->
+					<div class="personal-area">
+						<ul class="personal-area__nav">
+							<li class="nav-item">
+								<a href="#" class="nav-link button--autorization">
+									<svg class="nav-image" width="15" height="15" viewBox="0 0 15 15" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.375 1.875H11.875C12.2065 1.875 12.5245 2.0067 12.7589 2.24112C12.9933 2.47554 13.125 2.79348 13.125 3.125V11.875C13.125 12.2065 12.9933 12.5245 12.7589 12.7589C12.5245 12.9933 12.2065 13.125 11.875 13.125H9.375"
+											stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.25 10.625L9.375 7.5L6.25 4.375" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M9.375 7.5H1.875" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+									Авторизация
+								</a>
+							</li> <!-- .nav-item -->
+							<li class="nav-item">
+								<a href="#" class="nav-link button--registration">
+									Регистрация
+								</a>
+							</li> <!-- .nav-item -->
+						</ul> <!-- .personal-area__nav -->
+					</div> <!-- .personal-area -->
 
-
-<!-- ПОЛЬЗОВАТЕЛЬСКИЙ КОД -->
-
-
-<!-- ПОДВАЛ ВЕБ-САЙТА -->
-
-<footer class="footer_section">
-    <div class="footer_section-navigation_block">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-3 navigation_elements">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link M-400-14">Главная</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="news.html" class="nav-link M-400-14">Новости</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="booking.html" class="nav-link M-400-14">Бронирование</a>
-                        </li>
-                    </ul>
-
-                    <div class="vertical-line"></div>
-
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="events.html" class="nav-link M-400-14">Мероприятия</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about_us.html" class="nav-link M-400-14">О нас</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contacts.html" class="nav-link M-400-14">Контакты</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col d-flex justify-content-center">
-                    <img class="information_block-image" src="images/src/clock.svg">
-                    <p class="information_block-text align-self-center M-400-14">
-                        Работаем круглосуточно,<br/>без праздников и выходных
-                    </p>
-                </div>
-
-                <div class="col d-flex justify-content-center">
-                    <img class="information_block-image" src="images/src/phone.svg">
-                    <p class="information_block-text align-self-center M-400-14">
-                        Телефон: 8 (978) 022-26-90<br/>
-                        <a href="#" class="information_block-link MU-400-14">
-                            Обратный звонок
-                        </a>
-                    </p>
-                </div>
-
-                <div class="col d-flex justify-content-center">
-                    <img class="information_block-image" src="images/src/address.svg">
-                    <p class="information_block-text align-self-center M-400-14">
-                        Мы находимся по адресу:<br/>
-                        <a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
-                           class="information_block-link MU-400-14">
-                            г. Севастополь, Челюскинцев 119
-                        </a>
-                    </p>
-                </div>
-
-            </div> <!-- .row -->
-        </div> <!-- .container -->
-    </div> <!-- .footer_section-navigation_block -->
-
-    <div class="footer_section-information_block">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-2">
-                    <a href="index.html" class="logo">
-                        <img src="images/src/logo/logo.svg"
-                             alt="Логотип Спортивно-оздоровительного лагеря «Горизонт»">
-                    </a>
-                </div>
-
-                <div class="col-2">
-                    <div class="information_block-text M-400-14">
-                        <p>СОЛ «Горизонт» © 2020.</p>
-                        <p>Официальный сайт.</p>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="information_block-link MU-400-14">
-                        <p>Политика обработки</p>
-                        <p>Политика конфиденциальности</p>
-                    </div>
-                </div>
-
-                <div class="col d-flex justify-content-end">
-                    <div class="information_block-social_media">
-                        <a href="#">
-                            <img src="images/src/vk.svg">
-                        </a>
-                        <a href="#">
-                            <img src="images/src/instagram.svg">
-                        </a>
-                        <a href="#">
-                            <img src="images/src/facebook.svg">
-                        </a>
-                    </div>
-                </div>
-
-            </div> <!-- .row -->
-        </div> <!-- .container -->
-    </div> <!-- .footer_section-information_block -->
-</footer> <!-- .footer_section -->
+				</nav> <!-- .navbar -->
+			</div> <!-- .container -->
+		</div> <!-- .header-section__navigation-block -->
+	</header> <!-- .header-section -->
 
 
-<script src="js/app.min.js"></script>
+
+	<!-- ХЛЕБНЫЕ КРОШКИ -->
+
+	<section class="breadcrumb-section">
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+					<li class="breadcrumb-item" aria-current="page">Новости</li>
+				</ol>
+			</nav> <!-- .breadcrumb -->
+		</div> <!-- .container -->
+	</section> <!-- .breadcrumb_section -->
+
+
+
+	<div class="container website-body">
+
+		<!-- ЗАГОЛОВОК -->
+
+		<div class="row h1-h5--center">
+			<div class="col-12">
+				<h1>Новостная лента</h1>
+				<h5>Самые свежие и актуальные новости СОЛ «Горизонт»</h5>
+				<img class="wave--blue" src="images/src/wave-blue.svg">
+			</div> <!-- .col-12 -->
+		</div> <!-- .h1-h5--center -->
+
+
+		<!-- ПОИСКОВАЯ СТРОКА -->
+
+		<div class="row align-items-center news-search">
+			<div class="col-2">
+				<p class="T-300-16">Поиск по новостям:</p>
+			</div> <!-- .col -->
+
+			<div class="col">
+				<form class="news-search__form" action="">
+					<input class="form-control" type="text" placeholder="Ключевые слова и хештеги..."
+						aria-label="Search">
+					<button class="news-search__button">
+						<img class="news-search__button-image" src="images/src/search.svg">
+					</button>
+				</form> <!-- .news-search__form -->
+			</div> <!-- .col -->
+		</div> <!-- .news_search -->
+
+
+		<!-- ОТОБРАЖЕНИЕ НОВОСТНОЙ ЛЕНТЫ -->
+
+		<div class="row align-items-center newsfeed">
+			<div class="col">
+				<div class="newsfeed__info">
+					<p class="T-300-16">
+						Количество статей на странице:
+						<span class="articlesPerPage-first">0</span>
+						-
+						<span class="articlesPerPage-last">0</span>
+						(
+						<span class="numberArticles">0</span>
+						)
+					</p>
+				</div> <!-- .newsfeed__info -->
+			</div> <!-- .col -->
+
+			<div class="col d-flex justify-content-end">
+				<p class="T-300-16">Вид списка:</p>
+				<div class="newsfeed__display">
+					<button class="newsfeed__display--tile">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M5.55556 3.90556V1.68333C5.55556 0.294445 5.26111 0.0166667 3.88889 0.0166667L1.66667 0C0.344444 0 0 0.311667 0 1.66667V3.88889C0 5.26167 0.277778 5.55556 1.66667 5.55556H3.88889C5.27778 5.55556 5.55556 5.27778 5.55556 3.90556ZM5.55556 11.1272V8.905C5.55556 7.51611 5.26111 7.23833 3.88889 7.23833L1.66667 7.22167C0.344444 7.22167 0 7.53333 0 8.88833V11.1106C0 12.4833 0.277778 12.7772 1.66667 12.7772H3.88889C5.27778 12.7778 5.55556 12.5 5.55556 11.1272ZM5.55556 18.3494V16.1272C5.55556 14.7383 5.26111 14.4606 3.88889 14.4606L1.66667 14.4444C0.344444 14.4444 0 14.7561 0 16.1111V18.3333C0 19.7061 0.277778 20 1.66667 20H3.88889C5.27778 20 5.55556 19.7222 5.55556 18.3494ZM12.7778 3.90556V1.68333C12.7778 0.294445 12.4839 0.0166667 11.1111 0.0166667L8.88889 0C7.56667 0 7.22222 0.311667 7.22222 1.66667V3.88889C7.22222 5.26167 7.5 5.55556 8.88889 5.55556H11.1111C12.5 5.55556 12.7778 5.27778 12.7778 3.90556ZM12.7778 11.1272V8.905C12.7778 7.51611 12.4839 7.23833 11.1111 7.23833L8.88889 7.22167C7.56667 7.22167 7.22222 7.53333 7.22222 8.88833V11.1106C7.22222 12.4833 7.5 12.7772 8.88889 12.7772H11.1111C12.5 12.7778 12.7778 12.5 12.7778 11.1272ZM12.7778 18.3494V16.1272C12.7778 14.7383 12.4839 14.4606 11.1111 14.4606L8.88889 14.4444C7.56667 14.4444 7.22222 14.7561 7.22222 16.1111V18.3333C7.22222 19.7061 7.5 20 8.88889 20H11.1111C12.5 20 12.7778 19.7222 12.7778 18.3494ZM20 3.90556V1.68333C20 0.294445 19.7061 0.0166667 18.3333 0.0166667L16.1111 0C14.7889 0 14.4444 0.311667 14.4444 1.66667V3.88889C14.4444 5.26167 14.7222 5.55556 16.1111 5.55556H18.3333C19.7222 5.55556 20 5.27778 20 3.90556ZM20 11.1272V8.905C20 7.51611 19.7061 7.23833 18.3333 7.23833L16.1111 7.22167C14.7889 7.22167 14.4444 7.53333 14.4444 8.88833V11.1106C14.4444 12.4833 14.7222 12.7772 16.1111 12.7772H18.3333C19.7222 12.7778 20 12.5 20 11.1272ZM20 18.3494V16.1272C20 14.7383 19.7061 14.4606 18.3333 14.4606L16.1111 14.4444C14.7889 14.4444 14.4444 14.7561 14.4444 16.1111V18.3333C14.4444 19.7061 14.7222 20 16.1111 20H18.3333C19.7222 20 20 19.7222 20 18.3494Z" />
+						</svg>
+					</button>
+					<button class="newsfeed__display--list active">
+						<svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1.47059 12.8571H4.41176C5.22059 12.8571 5.88235 12.2143 5.88235 11.4286V8.57143C5.88235 7.78571 5.22059 7.14286 4.41176 7.14286H1.47059C0.661765 7.14286 0 7.78571 0 8.57143V11.4286C0 12.2143 0.661765 12.8571 1.47059 12.8571ZM1.47059 20H4.41176C5.22059 20 5.88235 19.3571 5.88235 18.5714V15.7143C5.88235 14.9286 5.22059 14.2857 4.41176 14.2857H1.47059C0.661765 14.2857 0 14.9286 0 15.7143V18.5714C0 19.3571 0.661765 20 1.47059 20ZM1.47059 5.71429H4.41176C5.22059 5.71429 5.88235 5.07143 5.88235 4.28571V1.42857C5.88235 0.642857 5.22059 0 4.41176 0H1.47059C0.661765 0 0 0.642857 0 1.42857V4.28571C0 5.07143 0.661765 5.71429 1.47059 5.71429ZM8.82353 12.8571H23.5294C24.3382 12.8571 25 12.2143 25 11.4286V8.57143C25 7.78571 24.3382 7.14286 23.5294 7.14286H8.82353C8.01471 7.14286 7.35294 7.78571 7.35294 8.57143V11.4286C7.35294 12.2143 8.01471 12.8571 8.82353 12.8571ZM8.82353 20H23.5294C24.3382 20 25 19.3571 25 18.5714V15.7143C25 14.9286 24.3382 14.2857 23.5294 14.2857H8.82353C8.01471 14.2857 7.35294 14.9286 7.35294 15.7143V18.5714C7.35294 19.3571 8.01471 20 8.82353 20ZM7.35294 1.42857V4.28571C7.35294 5.07143 8.01471 5.71429 8.82353 5.71429H23.5294C24.3382 5.71429 25 5.07143 25 4.28571V1.42857C25 0.642857 24.3382 0 23.5294 0H8.82353C8.01471 0 7.35294 0.642857 7.35294 1.42857Z" />
+						</svg>
+					</button>
+				</div> <!-- .newsfeed__display -->
+			</div> <!-- .col -->
+		</div> <!-- .newsfeed -->
+
+
+		<!-- НОВОСТНАЯ ЛЕНТА (список) -->
+
+		<div class="newsfeed--list">
+
+			<!-- Горизонтальная карточка новости (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="newscard--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="newscard--horizontal__cover">
+								<a href="#" class="newscard--horizontal-link">
+									<img class="newscard--horizontal__cover-image" src="images/src/1.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="newscard--horizontal__description">
+
+								<a class="newscard--horizontal-link" href="#">
+									<h3 class="newscard--horizontal__description-h3">Наименование статьи</h3>
+								</a>
+
+								<div class="newscard--horizontal__description-date-views d-flex">
+									<div class="newscard--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01 января 1980</p>
+									</div>
+
+									<div class="newscard--horizontal__description-views align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path
+												d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+										<p><span>0</span> просмотров</p>
+									</div>
+								</div>
+
+								<div class="hashtags newscard--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 newscard--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .newscard--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .newscard--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка новости (конец) -->
+
+			<!-- Горизонтальная карточка новости (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="newscard--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="newscard--horizontal__cover">
+								<a href="#" class="newscard--horizontal-link">
+									<img class="newscard--horizontal__cover-image" src="images/src/2.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="newscard--horizontal__description">
+
+								<a class="newscard--horizontal-link" href="#">
+									<h3 class="newscard--horizontal__description-h3">Наименование статьи</h3>
+								</a>
+
+								<div class="newscard--horizontal__description-date-views d-flex">
+									<div class="newscard--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01 января 1980</p>
+									</div>
+
+									<div class="newscard--horizontal__description-views align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path
+												d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+										<p><span>0</span> просмотров</p>
+									</div>
+								</div>
+
+								<div class="hashtags newscard--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 newscard--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .newscard--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .newscard--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка новости (конец) -->
+
+			<!-- Горизонтальная карточка новости (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="newscard--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="newscard--horizontal__cover">
+								<a href="#" class="newscard--horizontal-link">
+									<img class="newscard--horizontal__cover-image" src="images/src/3.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="newscard--horizontal__description">
+
+								<a class="newscard--horizontal-link" href="#">
+									<h3 class="newscard--horizontal__description-h3">Наименование статьи</h3>
+								</a>
+
+								<div class="newscard--horizontal__description-date-views d-flex">
+									<div class="newscard--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01 января 1980</p>
+									</div>
+
+									<div class="newscard--horizontal__description-views align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path
+												d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+										<p><span>0</span> просмотров</p>
+									</div>
+								</div>
+
+								<div class="hashtags newscard--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 newscard--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .newscard--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .newscard--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка новости (конец) -->
+
+			<!-- Горизонтальная карточка новости (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="newscard--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="newscard--horizontal__cover">
+								<a href="#" class="newscard--horizontal-link">
+									<img class="newscard--horizontal__cover-image" src="images/src/4.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="newscard--horizontal__description">
+
+								<a class="newscard--horizontal-link" href="#">
+									<h3 class="newscard--horizontal__description-h3">Наименование статьи</h3>
+								</a>
+
+								<div class="newscard--horizontal__description-date-views d-flex">
+									<div class="newscard--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01 января 1980</p>
+									</div>
+
+									<div class="newscard--horizontal__description-views align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path
+												d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+										<p><span>0</span> просмотров</p>
+									</div>
+								</div>
+
+								<div class="hashtags newscard--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 newscard--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .newscard--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .newscard--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка новости (конец) -->
+
+			<!-- Горизонтальная карточка новости (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="newscard--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="newscard--horizontal__cover">
+								<a href="#" class="newscard--horizontal-link">
+									<img class="newscard--horizontal__cover-image" src="images/src/5.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="newscard--horizontal__description">
+
+								<a class="newscard--horizontal-link" href="#">
+									<h3 class="newscard--horizontal__description-h3">Наименование статьи</h3>
+								</a>
+
+								<div class="newscard--horizontal__description-date-views d-flex">
+									<div class="newscard--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01 января 1980</p>
+									</div>
+
+									<div class="newscard--horizontal__description-views align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path
+												d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+										<p><span>0</span> просмотров</p>
+									</div>
+								</div>
+
+								<div class="hashtags newscard--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 newscard--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .newscard--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .newscard--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка новости (конец) -->
+
+		</div> <!-- .newsfeed--list -->
+
+
+		<!-- НОВОСТНАЯ ЛЕНТА (плитка) -->
+
+		<div class="newsfeed--tile hide">
+
+			<!-- НАЧАЛО РЯДА №1 -->
+			<div class="row">
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/1.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/2.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/3.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+			</div> <!-- row -->
+			<!-- КОНЕЦ РЯДА №1 -->
+
+			<!-- НАЧАЛО РЯДА №2 -->
+			<div class="row">
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/4.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/5.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/6.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+			</div> <!-- row -->
+			<!-- КОНЕЦ РЯДА №2 -->
+
+			<!-- НАЧАЛО РЯДА №3 -->
+			<div class="row">
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/7.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/8.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+				<!-- Вертикальная карточка новости (начало) -->
+				<div class="col-4">
+					<div class="newscard--vertical">
+
+						<div class="newscard--vertical__cover">
+							<a href="#" class="newscard--vertical-link">
+								<img class="newscard--vertical__cover-image" src="images/src/9.png">
+							</a>
+						</div>
+
+						<div class="newscard--vertical__description">
+
+							<a href="#" class="newscard--vertical-link">
+								<h3 class="newscard--vertical__description-h3">Наименование статьи</h3>
+							</a>
+
+							<div class="newscard--vertical__description-date-views d-flex">
+								<div class="newscard--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01 января 1980</p>
+								</div>
+
+								<div class="newscard--vertical__description-views align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.833313 10.0002C0.833313 10.0002 4.16665 3.3335 9.99998 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99998 16.6668C4.16665 16.6668 0.833313 10.0002 0.833313 10.0002Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path
+											d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+									<p><span>0</span> просмотров</p>
+								</div>
+							</div>
+
+							<div class="hashtags newscard--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 newscard--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- newscard--vertical__description -->
+
+
+					</div> <!-- newscard--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка новости (конец) -->
+
+			</div> <!-- row -->
+			<!-- КОНЕЦ РЯДА №3 -->
+
+		</div> <!-- newsfeed--tile -->
+
+
+
+		<!-- ПАГИНАЦИЯ -->
+
+		<nav class="news-pagination" aria-label="Навигация по новостной ленте">
+			<ul class="pagination justify-content-center">
+
+				<li class="page-item disabled">
+					<a class="page-link" href="#">
+						<span aria-hidden="true">&laquo;</span>
+						<span>Предыдущая</span>
+					</a>
+				</li>
+
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+
+				<li class="some-page">
+					<p>...</p>
+				</li>
+
+				<li class="page-item"><a class="page-link" href="#">6</a></li>
+
+				<li class="page-vr"></li>
+
+				<li class="page-item gotopage">
+					<form class="gotopage-form" action="">
+						<input class="gotopage-input" type="number" placeholder="_" min="0" max="99">
+					</form>
+				</li>
+
+				<li class="page-item">
+					<a class="page-link" href="#">
+						<span>Следующая</span>
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+
+			</ul> <!-- .pagination -->
+		</nav> <!-- .newspagination -->
+
+
+
+	</div> <!-- .container website-body -->
+
+
+	<!-- ПОДВАЛ ВЕБ-САЙТА -->
+
+	<footer class="footer-section">
+		<div class="footer-section__navigation-block">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-3 navigation-elements">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a href="index.html" class="nav-link M-400-14">Главная</a>
+							</li>
+							<li class="nav-item active">
+								<a href="news.html" class="nav-link M-400-14">Новости</a>
+							</li>
+							<li class="nav-item">
+								<a href="booking.html" class="nav-link M-400-14">Бронирование</a>
+							</li>
+						</ul>
+
+						<div class="vertical-line"></div>
+
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a href="events.html" class="nav-link M-400-14">Мероприятия</a>
+							</li>
+							<li class="nav-item">
+								<a href="about_us.html" class="nav-link M-400-14">О нас</a>
+							</li>
+							<li class="nav-item">
+								<a href="contacts.html" class="nav-link M-400-14">Контакты</a>
+							</li>
+						</ul>
+					</div> <!-- .col -->
+
+					<div class="col d-flex justify-content-center">
+						<img class="information-block__image" src="images/src/clock.svg">
+						<p class="information-block__text align-self-center M-400-14">
+							Работаем круглосуточно,<br />без праздников и выходных
+						</p>
+					</div> <!-- .col -->
+
+					<div class="col d-flex justify-content-center">
+						<img class="information-block__image" src="images/src/phone.svg">
+						<p class="information-block__text align-self-center M-400-14">
+							Телефон: 8 (978) 022-26-90<br />
+							<a href="#" class="information-block__link MU-400-14">
+								Обратный звонок
+							</a>
+						</p>
+					</div> <!-- .col -->
+
+					<div class="col d-flex justify-content-center">
+						<img class="information-block__image" src="images/src/address.svg">
+						<p class="information-block__text align-self-center M-400-14">
+							Мы находимся по адресу:<br />
+							<a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
+								class="information-block__link MU-400-14">
+								г. Севастополь, Челюскинцев 119
+							</a>
+						</p>
+					</div> <!-- .col -->
+
+				</div> <!-- .row -->
+			</div> <!-- .container -->
+		</div> <!-- .footer-section__navigation-block -->
+
+		<div class="footer-section__information-block">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-2">
+						<a href="index.html" class="logo">
+							<img src="images/src/logo/logo.svg"
+								alt="Логотип Спортивно-оздоровительного лагеря «Горизонт»">
+						</a>
+					</div> <!-- .col -->
+
+					<div class="col-2">
+						<div class="information-block__text M-400-14">
+							<p>СОЛ «Горизонт» © 2020.</p>
+							<p>Официальный сайт.</p>
+						</div>
+					</div> <!-- .col -->
+
+					<div class="col-3">
+						<div class="information-block__link MU-400-14">
+							<p>Политика обработки</p>
+							<p>Политика конфиденциальности</p>
+						</div>
+					</div> <!-- .col -->
+
+					<div class="col d-flex justify-content-end">
+						<div class="information-block__social-media">
+							<a href="#">
+								<img src="images/src/vk.svg">
+							</a>
+							<a href="#">
+								<img src="images/src/instagram.svg">
+							</a>
+							<a href="#">
+								<img src="images/src/facebook.svg">
+							</a>
+						</div>
+					</div> <!-- .col -->
+
+				</div> <!-- .row -->
+			</div> <!-- .container -->
+		</div> <!-- .footer-section__information-block -->
+	</footer> <!-- .footer-section -->
+
+	<script src="js/app.min.js"></script>
 
 </body>
 

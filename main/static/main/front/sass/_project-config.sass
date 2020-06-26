@@ -1,16 +1,16 @@
 // РАЗДЕЛ ПЕРЕМЕННЫХ ПОЛЬЗОВАТЕЛЯ
 
-$white_color: #FFFFFF
-$light-blue_color: #7EA5FF
-$blue_color: #4077F6
-$dark-blue_color: #223F99
-$light-gray_color-1: #F8F8F8
-$light-gray_color-2: #E5E5E5
-$gray_color: #BDBDBD
-$dark-gray_color: #828282
-$text_color: #333 // Цвет текста
+$white: #FFFFFF
+$light-blue: #7EA5FF
+$blue: #4077F6
+$dark-blue: #223F99
+$light-gray--1: #F8F8F8
+$light-gray--2: #E5E5E5
+$gray: #BDBDBD
+$dark-gray: #828282
+$text: #333 // Цвет текста
 
-$light-blue_color__hover: #A4BFFF
+$light-blue--hover: #A4BFFF
 
 $fontsize: 16px // Размер шрифта по умолчанию
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // Семейство системных шрифтов
@@ -21,7 +21,6 @@ $oswald: Oswald, sans-serif // Семейство шрифтов Exo 2
 $grid-gutter-width: 20px
 $gutter: $grid-gutter-width
 
-
 // РАЗДЕЛ ИМПОРТА
 
 @import 'node_modules/bootstrap/scss/bootstrap.scss'
@@ -31,7 +30,6 @@ $gutter: $grid-gutter-width
 @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Необязательные утилиты Bootstrap
 @import 'node_modules/slick-1.8.1/slick/slick.scss'
 @import 'node_modules/slick-1.8.1/slick/slick-theme.scss'
-
 
 // РАЗДЕЛ ЗАГРУЗКИ ШРИФТОВ
 
@@ -82,14 +80,13 @@ $gutter: $grid-gutter-width
 // 800 - Black or Extra Bold or Heavy
 // 900 - Extra Black or Fat or Ultra Blac
 
-	
 // ОБЩИЕ СТИЛИ ДОКУМЕНТА
 
 ::placeholder
 	color: #666
 
 ::selection
-	background-color: $blue_color
+	background-color: $blue
 	color: #fff
 
 input, textarea
@@ -99,6 +96,9 @@ input, textarea
 	&:required:valid
 		border-color: green
 
+.hide
+	display: none
+
 body
 	font-family: $exo2
 	font-size: $fontsize
@@ -106,16 +106,5 @@ body
 	position: relative
 	line-height: 1.65
 	overflow-x: hidden
-	color: $text_color
-
-.header_h1-h5
-	// margin-bottom: 75px
-
-.header_h1-h5 h1
-	margin-bottom: 10px
-
-.header_h1-h5 h5
-	margin-bottom: 25px
-
-.blue-wave
-	margin-bottom: 50px
+	color: $text
+	

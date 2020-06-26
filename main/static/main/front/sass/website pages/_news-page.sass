@@ -1,0 +1,52 @@
+// ПОИСКОВАЯ СТРОКА
+    
+.news-search
+    margin-bottom: 25px
+
+    &__form
+        position: relative
+
+
+
+// ОТОБРАЖЕНИЕ НОВОСТНОЙ ЛЕНТЫ
+
+.newsfeed
+    margin-bottom: 100px
+
+    &__display
+        margin-left: 20px
+
+
+
+// НОВОСТНАЯ ЛЕНТА (список)
+
+.newsfeed--list
+    opacity: 1
+    margin-bottom: 100px
+    transition: opacity 0.75s ease
+
+    .row:first-child .col .newscard--horizontal
+        margin-top: 0
+        padding-top: 0
+        border-top: none
+
+
+// НОВОСТНАЯ ЛЕНТА (плитка)
+
+.newsfeed--tile
+    opacity: 0
+    margin-bottom: 100px
+    transition: opacity 0.75s ease
+
+    .row
+        margin-top: 35px
+
+        &:first-child
+            margin-top: 0
+
+
+
+// ПАГИНАЦИЯ НОВОСТНОЙ ЛЕНТЫ
+
+.news-pagination
+    margin-bottom: 100px

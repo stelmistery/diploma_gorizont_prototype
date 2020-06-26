@@ -1,0 +1,71 @@
+.registration_button
+    border: 1px solid $light-gray_color-2
+    border-radius: 2.5px
+    transition: 0.25s !important
+
+    &:hover
+        color: $blue_color !important        
+        border: 1px solid $blue_color
+        background-color: $white
+
+.advanced_search
+    input[type="date"], select
+        color: $dark-gray_color
+        width: 165px
+        height: 50px
+        padding: 0 15px
+        -webkit-appearance: none
+        -moz-appearance: none
+        appearance: none
+        display: block
+        border: 1px solid $gray_color
+        border-radius: 2.5px
+        background-color: transparent
+        text-decoration: none
+
+        &:active, &:hover, &:focus
+            outline: 0
+            outline-offset: 0
+
+            option:active
+                border: 1px solid $blue_color
+                background-color: $blue_color
+            
+    input[type="submit"]
+        color: $white
+        width: 165px
+        height: 50px
+        margin-top: 42px
+        border: none
+        background: $blue_color
+        border-radius: 2.5px
+        transition: 0.25s
+
+        &:hover
+            background: $dark-blue_color
+
+.blue-button_on-blue
+    padding: 15px 25px
+    text-align: center
+    color: $white
+    border-radius: 1.5px
+    background-color: $blue_color
+    transition: 0.25s !important
+
+    &:hover
+        background-color: $white
+        border-radius: 1.5px
+
+.blue-button_on-white
+    padding: 15px 50px
+    text-align: center
+    color: $white
+    border-radius: 1.5px
+    background-color: $blue_color
+    transition: 0.25s !important
+
+    &:hover
+        color: $white_color
+        background-color: $dark-blue_color
+        border-radius: 1.5px
+        text-decoration: none

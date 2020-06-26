@@ -1,48 +1,51 @@
-// ИНФОРМАЦИОННЫЙ БЛОК
-    
-.footer_section-navigation_block
-    height: 125px
-    padding: 15px 0
-    background-color: $blue_color
+.footer-section
 
-    .information_block-image
-        margin-right: 20px
+    // ИНФОРМАЦИОННЫЙ БЛОК
 
-    .navigation_elements
-        display: flex
+    &__navigation-block
+        height: 125px
+        padding: 15px 0
+        background-color: $blue
 
-        .nav-item a
-            padding: 5px 0
+        .navigation-elements
+            display: flex
 
-        .vertical-line
-            margin: 7.5px 25px
-            border-left: 1px solid $light-gray_color-1
-            opacity: 0.15
-    
-    .information_block-link
-        color: $light-gray_color-2
+            .nav-item a
+                padding: 5px 0
 
-// НАВИГАЦИОННЫЙ БЛОК
+            .vertical-line
+                margin: 7.5px 25px
+                border-left: 1px solid $light-gray--1
+                opacity: 0.15
 
-.footer_section-information_block
-    height: 85px
-    padding: 25px 0
-    background-color: $dark-blue_color
+        .information-block
+            &__link
+                color: $light-gray--2
 
-    .information_block-text
-        p
-            margin-bottom: 0
-
-    .information_block-link
-        color: $light-gray_color-2
-
-        p
-            margin-bottom: 0
-            cursor: pointer
-            
-
-    .information_block-social_media
-        margin-top: 5px
+            &__image
+                margin-right: 20px
         
-        a
-            margin-left: 15px
+        
+    // НАВИГАЦИОННЫЙ БЛОК
+
+    &__information-block
+        height: 85px
+        padding: 25px 0
+        background-color: $dark-blue
+
+        .information-block
+            &__text
+                p
+                    margin-bottom: 0
+
+            &__link
+                color: $light-gray--2
+                p
+                    margin-bottom: 0
+                    cursor: pointer
+                
+            &__social-media
+                margin-top: 5px
+                
+                a
+                    margin-left: 15px

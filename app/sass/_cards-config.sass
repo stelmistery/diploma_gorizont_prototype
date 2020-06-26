@@ -1,40 +1,143 @@
-.news-vertical_card
-    height: 475px
+// КАРТОЧКА НОВОСТИ
 
-    margin: 0 15px
-    padding: 0
+.newscard
 
-    // background-color: $gray_color
+    // ГОРИЗОНТАЛЬНАЯ
 
-.actual_news
-    cursor: pointer
+    &--horizontal
+        margin-top: 50px
+        padding-top: 50px
+        border-top: 1px solid $light-gray--2
 
-    &-header
-        margin: 25px 0 5px
+        &-link
+            &:hover
+                text-decoration: none
+
+                h3
+                    color: $blue
+
+        &__cover
+            &-image
+                width: 415px
+                object-fit: cover
+
+        &__description
+            margin-top: -7px
+            
+            &-h3
+                color: $text
+                margin-bottom: 5px
+                transition: 0.35s ease
+
+            &-date-views
+                color: $gray
+                margin-bottom: 5px
+                
+                svg
+                    margin-right: 10px
+
+            &-date
+                margin-right: 20px
+
+            &-text
+                margin-bottom: 15px
+
+            &-hashtags
+                margin-bottom: 35px
+
+                a
+                    margin-right: 10px
+                    
+                    &:hover
+                        text-decoration: none
+
+
+    // ВЕРТИКАЛЬНАЯ
+
+    &--vertical
+
+        &-link
+            &:hover
+                text-decoration: none
+
+                h3
+                    color: $blue
+
+        &__cover
+            &-image
+                width: 360px
+                height: 250px
+                object-fit: cover
+                margin-bottom: 35px
+
+        &__description
+            &-h3
+                color: $text
+                margin-bottom: 10px
+                transition: 0.35s ease
+
+            &-date-views
+                color: $gray
+                margin-bottom: 5px
+                
+                svg
+                    margin-right: 10px
+
+            &-date
+                margin-right: 25px
+
+            &-text
+                margin-bottom: 15px
+
+            &-hashtags
+                margin-bottom: 25px
+
+                a
+                    margin-right: 10px
+                    
+                    &:hover
+                        text-decoration: none
     
-    &-img
-        width: 360px
+    
+    
+    
+// .news-vertical_card
+//     height: 475px
 
-    &-date_and_views
-        display: flex
+//     margin: 0 15px
+//     padding: 0
+
+//     // background-color: $gray
+
+// .actual_news
+//     cursor: pointer
+
+//     &-header
+//         margin: 25px 0 5px
+    
+//     &-img
+//         width: 350px
+
+//     &-date_and_views
+//         display: flex
         
-        .publication_date, .number_of_views
-            color: $dark_gray-color
-            display: flex
+//         .publication_date, .number_of_views
+//             color: $dark-gray
+//             display: flex
 
-            .publication_date-img, .number_of_views-img
-                margin-right: 10px
+//             .publication_date-img, .number_of_views-img
+//                 margin-right: 10px
 
-        .publication_date
-            margin-right: 15px
+//         .publication_date
+//             margin-right: 15px
 
-    &-hashtags
-        color: $blue-color
-        margin: 5px 0 25px
+//     &-hashtags
+//         color: $blue
+//         margin: 5px 0 25px
         
-        span
-            margin-right: 10px
+//         span
+//             margin-right: 10px
 
-    &-all_news_link
-        margin-top: 75px
-        text-align: center
+//     &-all_news_link
+//         margin-top: 75px
+//         text-align: center
