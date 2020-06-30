@@ -3,6 +3,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 from .models import Event, Customer, Member
+from account.models import CustomerUser
 from .forms import EventForms
 from django.core.mail import send_mail
 import pdb
@@ -49,14 +50,19 @@ def save_event(request):
 
 def event_detail(request, pk):
     event = get_object_or_404(Event, pk=pk)
-    memvers = get_list_or_404(Member, event=event)
-    return render(request, 'event/event_detail.html', {'event': event, 'members': memvers})
+    user = CustomerUser.objects.get(pk=request.user.pk)
+    try:
+        member = Member.objects.get(customer_id=user.customer_id)
+    except:
+        member = False
+    print(user)
+    return render(request, 'event/event_detail.html', {'event': event, 'member': member})
 
 
 @login_required(login_url='/account/login/')
 def participate(request, pk, user_id):
     member = Member()
-    member.event_id = pk
     member.customer_id = user_id
+    member.event_id = pk
     member.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

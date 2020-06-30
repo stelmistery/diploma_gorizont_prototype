@@ -17,113 +17,1280 @@
 
 	<!-- ШАПКА ВЕБ-САЙТА -->
 
-	<header class="header_section">
-		<div class="header_section-information_block">
+	<header class="header-section">
+		<div class="header-section__information-block">
 			<div class="container">
 				<div class="row">
 
 					<div class="col">
-						<a class="information_block-logo" href="index.html">
+						<a class="information-block__logo" href="index.html">
 							<img src="images/src/logo/logo.svg" alt="Логотип СОЛ «Горизонт»">
 						</a>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/clock.svg">
-						<p class="information_block-text M-400-14">
+						<img class="information-block__image" src="images/src/clock.svg">
+						<p class="information-block__text M-400-14">
 							Работаем круглосуточно,<br />без праздников и выходных
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/phone.svg">
-						<p class="information_block-text M-400-14">
+						<img class="information-block__image" src="images/src/phone.svg">
+						<p class="information-block__text M-400-14">
 							Телефон: 8 (978) 022-26-90<br />
-							<a href="#" class="information_block-link MU-400-14">
+							<a href="#" class="information-block__link MU-400-14">
 								Обратный звонок
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/address.svg">
-						<p class="information_block-text M-400-14">
+						<img class="information-block__image" src="images/src/address.svg">
+						<p class="information-block__text M-400-14">
 							Мы находимся по адресу:<br />
 							<a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
-								class="information_block-link MU-400-14">
+								class="information-block__link MU-400-14">
 								г. Севастополь, Челюскинцев 119
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 				</div> <!-- .row -->
 			</div> <!-- .container -->
-		</div> <!-- .header_section-information_block -->
+		</div> <!-- .header-section__information-block -->
 
-		<div class="header_section-navigation_block">
+		<div class="header-section__navigation-block">
 			<div class="container">
 				<nav class="navbar">
 
-					<div class="navigation_elements">
+					<div class="navigation-elements">
 						<ul class="navbar-nav">
 							<li class="nav-item"><a href="index.html" class="nav-link M-400-16">Главная</a></li>
 							<li class="nav-item"><a href="news.html" class="nav-link M-400-16">Новости</a></li>
 							<li class="nav-item"><a href="booking.html" class="nav-link M-400-16">Бронирование</a></li>
-							<li class="nav-item active"><a href="events.html" class="nav-link M-400-16">Мероприятия</a></li>
+							<li class="nav-item active"><a href="events.html" class="nav-link M-400-16">Мероприятия</a>
+							</li>
 							<li class="nav-item"><a href="about_us.html" class="nav-link M-400-16">О нас</a></li>
 							<li class="nav-item"><a href="contacts.html" class="nav-link M-400-16">Контакты</a></li>
-						</ul>
-					</div> <!-- .navigation_elements -->
+						</ul> <!-- .navbar-nav -->
+					</div> <!-- .navigation-elements -->
 
-					<div class="personal_area">
-						<ul class="personal_area-nav">
+					<div class="personal-area">
+						<ul class="personal-area__nav">
 							<li class="nav-item">
-								<a href="#" class="nav-link">
-									<img class="nav-img" src="images/src/login.svg">
+								<a href="#" class="nav-link button--autorization">
+									<svg class="nav-image" width="15" height="15" viewBox="0 0 15 15" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.375 1.875H11.875C12.2065 1.875 12.5245 2.0067 12.7589 2.24112C12.9933 2.47554 13.125 2.79348 13.125 3.125V11.875C13.125 12.2065 12.9933 12.5245 12.7589 12.7589C12.5245 12.9933 12.2065 13.125 11.875 13.125H9.375"
+											stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.25 10.625L9.375 7.5L6.25 4.375" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M9.375 7.5H1.875" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
 									Авторизация
 								</a>
-							</li>
+							</li> <!-- .nav-item -->
 							<li class="nav-item">
-								<a class="nav-link registration_button" href="#">
+								<a href="#" class="nav-link button--registration">
 									Регистрация
 								</a>
-							</li>
-						</ul>
-					</div> <!-- .personal_area -->
+							</li> <!-- .nav-item -->
+						</ul> <!-- .personal-area__nav -->
+					</div> <!-- .personal-area -->
 
 				</nav> <!-- .navbar -->
 			</div> <!-- .container -->
-		</div> <!-- .header_section-navigation_block -->
-	</header> <!-- .header_section -->
+		</div> <!-- .header-section__navigation-block -->
+	</header> <!-- .header-section -->
 
 
 	<!-- ХЛЕБНЫЕ КРОШКИ -->
 
-	<section class="breadcrumb_section">
+	<section class="breadcrumb-section">
 		<div class="container">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+					<li class="breadcrumb-item"><a href="index.html" class="slide">Главная</a></li>
 					<li class="breadcrumb-item" aria-current="page">Мероприятия</li>
 				</ol>
 			</nav> <!-- .breadcrumb -->
 		</div> <!-- .container -->
 	</section> <!-- .breadcrumb_section -->
-	
 
-	<!-- ПОЛЬЗОВАТЕЛЬСКИЙ КОД -->
 
-	
+	<div class="container website-body">
+
+		<!-- ЗАГОЛОВОК -->
+
+		<div class="row header-h1-h5--center">
+			<div class="col-12">
+				<h1>Мероприятия Горизонта</h1>
+				<h5>Календарь событий</h5>
+				<img class="wave--blue" src="images/src/wave-blue.svg">
+			</div> <!-- .col-12 -->
+		</div> <!-- .header-h1-h5--center -->
+
+
+		<!-- ПОИСКОВАЯ СТРОКА -->
+
+		<div class="row align-items-center events-search">
+			<div class="col-2">
+				<p class="T-300-16">Поиск по событиям:</p>
+			</div> <!-- .col -->
+
+			<div class="col">
+				<form class="events-search__form" action="">
+					<input class="form-control" type="text" placeholder="Ключевые слова и хештеги..."
+						aria-label="Search">
+					<button class="events-search__button">
+						<img class="events-search__button-image" src="images/src/search.svg">
+					</button>
+				</form> <!-- .events-search__form -->
+			</div> <!-- .col -->
+		</div> <!-- .events_search -->
+
+
+		<!-- ОТОБРАЖЕНИЕ ЛЕНТЫ МЕРОПРИЯТИЙ -->
+
+		<div class="row align-items-center eventsfeed">
+			<div class="col">
+				<div class="eventsfeed__info">
+					<p class="T-300-16">
+						Список мероприятий начиная с
+						<span class="listOfEventsStarting">1 января</span>:
+					</p>
+				</div> <!-- .eventsfeed__info -->
+			</div> <!-- .col -->
+
+			<div class="col d-flex justify-content-end">
+				<p class="T-300-16">Выбрать другую дату:</p>
+				<div class="eventsfeed__date">
+					<button class="eventsfeed__date-button">
+						<svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+								fill="#BDBDBD" />
+						</svg>
+					</button>
+				</div> <!-- .eventsfeed__display -->
+			</div> <!-- .col -->
+
+			<div class="col-2 d-flex justify-content-end">
+				<p class="T-300-16">Вид списка:</p>
+				<div class="eventsfeed__display">
+					<button class="eventsfeed__display--tile">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M5.55556 3.90556V1.68333C5.55556 0.294445 5.26111 0.0166667 3.88889 0.0166667L1.66667 0C0.344444 0 0 0.311667 0 1.66667V3.88889C0 5.26167 0.277778 5.55556 1.66667 5.55556H3.88889C5.27778 5.55556 5.55556 5.27778 5.55556 3.90556ZM5.55556 11.1272V8.905C5.55556 7.51611 5.26111 7.23833 3.88889 7.23833L1.66667 7.22167C0.344444 7.22167 0 7.53333 0 8.88833V11.1106C0 12.4833 0.277778 12.7772 1.66667 12.7772H3.88889C5.27778 12.7778 5.55556 12.5 5.55556 11.1272ZM5.55556 18.3494V16.1272C5.55556 14.7383 5.26111 14.4606 3.88889 14.4606L1.66667 14.4444C0.344444 14.4444 0 14.7561 0 16.1111V18.3333C0 19.7061 0.277778 20 1.66667 20H3.88889C5.27778 20 5.55556 19.7222 5.55556 18.3494ZM12.7778 3.90556V1.68333C12.7778 0.294445 12.4839 0.0166667 11.1111 0.0166667L8.88889 0C7.56667 0 7.22222 0.311667 7.22222 1.66667V3.88889C7.22222 5.26167 7.5 5.55556 8.88889 5.55556H11.1111C12.5 5.55556 12.7778 5.27778 12.7778 3.90556ZM12.7778 11.1272V8.905C12.7778 7.51611 12.4839 7.23833 11.1111 7.23833L8.88889 7.22167C7.56667 7.22167 7.22222 7.53333 7.22222 8.88833V11.1106C7.22222 12.4833 7.5 12.7772 8.88889 12.7772H11.1111C12.5 12.7778 12.7778 12.5 12.7778 11.1272ZM12.7778 18.3494V16.1272C12.7778 14.7383 12.4839 14.4606 11.1111 14.4606L8.88889 14.4444C7.56667 14.4444 7.22222 14.7561 7.22222 16.1111V18.3333C7.22222 19.7061 7.5 20 8.88889 20H11.1111C12.5 20 12.7778 19.7222 12.7778 18.3494ZM20 3.90556V1.68333C20 0.294445 19.7061 0.0166667 18.3333 0.0166667L16.1111 0C14.7889 0 14.4444 0.311667 14.4444 1.66667V3.88889C14.4444 5.26167 14.7222 5.55556 16.1111 5.55556H18.3333C19.7222 5.55556 20 5.27778 20 3.90556ZM20 11.1272V8.905C20 7.51611 19.7061 7.23833 18.3333 7.23833L16.1111 7.22167C14.7889 7.22167 14.4444 7.53333 14.4444 8.88833V11.1106C14.4444 12.4833 14.7222 12.7772 16.1111 12.7772H18.3333C19.7222 12.7778 20 12.5 20 11.1272ZM20 18.3494V16.1272C20 14.7383 19.7061 14.4606 18.3333 14.4606L16.1111 14.4444C14.7889 14.4444 14.4444 14.7561 14.4444 16.1111V18.3333C14.4444 19.7061 14.7222 20 16.1111 20H18.3333C19.7222 20 20 19.7222 20 18.3494Z" />
+						</svg>
+					</button>
+					<button class="eventsfeed__display--list active">
+						<svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1.47059 12.8571H4.41176C5.22059 12.8571 5.88235 12.2143 5.88235 11.4286V8.57143C5.88235 7.78571 5.22059 7.14286 4.41176 7.14286H1.47059C0.661765 7.14286 0 7.78571 0 8.57143V11.4286C0 12.2143 0.661765 12.8571 1.47059 12.8571ZM1.47059 20H4.41176C5.22059 20 5.88235 19.3571 5.88235 18.5714V15.7143C5.88235 14.9286 5.22059 14.2857 4.41176 14.2857H1.47059C0.661765 14.2857 0 14.9286 0 15.7143V18.5714C0 19.3571 0.661765 20 1.47059 20ZM1.47059 5.71429H4.41176C5.22059 5.71429 5.88235 5.07143 5.88235 4.28571V1.42857C5.88235 0.642857 5.22059 0 4.41176 0H1.47059C0.661765 0 0 0.642857 0 1.42857V4.28571C0 5.07143 0.661765 5.71429 1.47059 5.71429ZM8.82353 12.8571H23.5294C24.3382 12.8571 25 12.2143 25 11.4286V8.57143C25 7.78571 24.3382 7.14286 23.5294 7.14286H8.82353C8.01471 7.14286 7.35294 7.78571 7.35294 8.57143V11.4286C7.35294 12.2143 8.01471 12.8571 8.82353 12.8571ZM8.82353 20H23.5294C24.3382 20 25 19.3571 25 18.5714V15.7143C25 14.9286 24.3382 14.2857 23.5294 14.2857H8.82353C8.01471 14.2857 7.35294 14.9286 7.35294 15.7143V18.5714C7.35294 19.3571 8.01471 20 8.82353 20ZM7.35294 1.42857V4.28571C7.35294 5.07143 8.01471 5.71429 8.82353 5.71429H23.5294C24.3382 5.71429 25 5.07143 25 4.28571V1.42857C25 0.642857 24.3382 0 23.5294 0H8.82353C8.01471 0 7.35294 0.642857 7.35294 1.42857Z" />
+						</svg>
+					</button>
+				</div> <!-- .eventsfeed__display -->
+			</div> <!-- .col -->
+		</div> <!-- .eventsfeed -->
+
+
+		<!-- ЛЕНТА МЕРОПРИЯТИЙ (список) -->
+
+		<div class="eventsfeed--list">
+
+			<!-- Горизонтальная карточка мероприятия (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="event-card--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="event-card--horizontal__cover">
+								<a href="#" class="event-card--horizontal-link">
+									<img class="event-card--horizontal__cover-image" src="images/src/01.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="event-card--horizontal__description">
+
+								<a class="event-card--horizontal-link" href="#">
+									<h3 class="event-card--horizontal__description-h3">Наименование мероприятия</h3>
+								</a>
+
+								<div class="event-card--horizontal__description-date-time d-flex">
+									<div class="event-card--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01-31 января 1980</p>
+									</div>
+
+									<div class="event-card--horizontal__description-time align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+
+										<p>начало в <span>00:00</span></p>
+									</div>
+								</div>
+
+								<div class="hashtags event-card--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 event-card--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .event-card--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .event-card--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка мероприятия (конец) -->
+
+			<!-- Горизонтальная карточка мероприятия (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="event-card--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="event-card--horizontal__cover">
+								<a href="#" class="event-card--horizontal-link">
+									<img class="event-card--horizontal__cover-image" src="images/src/0.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="event-card--horizontal__description">
+
+								<a class="event-card--horizontal-link" href="#">
+									<h3 class="event-card--horizontal__description-h3">Наименование мероприятия</h3>
+								</a>
+
+								<div class="event-card--horizontal__description-date-time d-flex">
+									<div class="event-card--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01-31 января 1980</p>
+									</div>
+
+									<div class="event-card--horizontal__description-time align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+
+										<p>начало в <span>00:00</span></p>
+									</div>
+								</div>
+
+								<div class="hashtags event-card--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 event-card--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .event-card--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .event-card--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка мероприятия (конец) -->
+
+			<!-- Горизонтальная карточка мероприятия (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="event-card--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="event-card--horizontal__cover">
+								<a href="#" class="event-card--horizontal-link">
+									<img class="event-card--horizontal__cover-image" src="images/src/0.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="event-card--horizontal__description">
+
+								<a class="event-card--horizontal-link" href="#">
+									<h3 class="event-card--horizontal__description-h3">Наименование мероприятия</h3>
+								</a>
+
+								<div class="event-card--horizontal__description-date-time d-flex">
+									<div class="event-card--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01-31 января 1980</p>
+									</div>
+
+									<div class="event-card--horizontal__description-time align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+
+										<p>начало в <span>00:00</span></p>
+									</div>
+								</div>
+
+								<div class="hashtags event-card--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 event-card--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .event-card--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .event-card--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка мероприятия (конец) -->
+
+			<!-- Горизонтальная карточка мероприятия (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="event-card--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="event-card--horizontal__cover">
+								<a href="#" class="event-card--horizontal-link">
+									<img class="event-card--horizontal__cover-image" src="images/src/0.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="event-card--horizontal__description">
+
+								<a class="event-card--horizontal-link" href="#">
+									<h3 class="event-card--horizontal__description-h3">Наименование мероприятия</h3>
+								</a>
+
+								<div class="event-card--horizontal__description-date-time d-flex">
+									<div class="event-card--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01-31 января 1980</p>
+									</div>
+
+									<div class="event-card--horizontal__description-time align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+
+										<p>начало в <span>00:00</span></p>
+									</div>
+								</div>
+
+								<div class="hashtags event-card--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 event-card--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .event-card--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .event-card--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка мероприятия (конец) -->
+
+			<!-- Горизонтальная карточка мероприятия (начало) -->
+			<div class="row">
+				<div class="col">
+					<div class="event-card--horizontal d-flex">
+
+						<div class="col-5">
+							<div class="event-card--horizontal__cover">
+								<a href="#" class="event-card--horizontal-link">
+									<img class="event-card--horizontal__cover-image" src="images/src/0.png">
+								</a>
+							</div>
+						</div> <!-- .col -->
+
+						<div class="col">
+							<div class="event-card--horizontal__description">
+
+								<a class="event-card--horizontal-link" href="#">
+									<h3 class="event-card--horizontal__description-h3">Наименование мероприятия</h3>
+								</a>
+
+								<div class="event-card--horizontal__description-date-time d-flex">
+									<div class="event-card--horizontal__description-date align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+												fill="#BDBDBD" />
+										</svg>
+										<p>01-31 января 1980</p>
+									</div>
+
+									<div class="event-card--horizontal__description-time align-items-center d-flex">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+												stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+
+										<p>начало в <span>00:00</span></p>
+									</div>
+								</div>
+
+								<div class="hashtags event-card--horizontal__description-hashtags">
+									<a href="#" class="hashtags-link">#SevSU</a>
+									<a href="#" class="hashtags-link">#МореВозможностей</a>
+									<a href="#" class="hashtags-link">...</a>
+								</div>
+
+								<p class="T-300-16 event-card--horizontal__description-text">
+									Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+									блока текстовым содержимым. Вы можете встречать этот текст на протяжении всей
+									страницы веб-сайта.
+								</p>
+
+								<a class="button--read-more align-items-center" href="#">
+									<p class="T-300-16">Читать далее</p>
+									<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+
+							</div> <!-- .event-card--horizontal__description -->
+						</div> <!-- .col -->
+
+					</div> <!-- .event-card--horizontal -->
+				</div> <!-- .col -->
+			</div> <!-- .row -->
+			<!-- Горизонтальная карточка мероприятия (конец) -->
+
+		</div> <!-- .eventsfeed--list -->
+
+
+		<!-- ЛЕНТА МЕРОПРИЯТИЙ (плитка) -->
+
+		<div class="eventsfeed--tile hide">
+
+			<!-- НАЧАЛО РЯДА №1 -->
+			<div class="row">
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/01.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+			</div> <!-- row -->
+			<!-- КОНЕЦ РЯДА №1 -->
+
+			<!-- НАЧАЛО РЯДА №2 -->
+			<div class="row">
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+			</div> <!-- row -->
+			<!-- КОНЕЦ РЯДА №2 -->
+
+			<!-- НАЧАЛО РЯДА №3 -->
+			<div class="row">
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+				<!-- Вертикальная карточка мероприятия (начало) -->
+				<div class="col-4">
+					<div class="event-card--vertical">
+
+						<div class="event-card--vertical__cover">
+							<a href="#" class="event-card--vertical-link">
+								<img class="event-card--vertical__cover-image" src="images/src/0.png">
+							</a>
+						</div>
+
+						<div class="event-card--vertical__description">
+
+							<a href="#" class="event-card--vertical-link">
+								<h3 class="event-card--vertical__description-h3">Наименование события</h3>
+							</a>
+
+							<div class="event-card--vertical__description-date-time d-flex">
+								<div class="event-card--vertical__description-date align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M17.1875 3.59375H13.9062V2.34375C13.9062 2.25781 13.8359 2.1875 13.75 2.1875H12.6562C12.5703 2.1875 12.5 2.25781 12.5 2.34375V3.59375H7.5V2.34375C7.5 2.25781 7.42969 2.1875 7.34375 2.1875H6.25C6.16406 2.1875 6.09375 2.25781 6.09375 2.34375V3.59375H2.8125C2.4668 3.59375 2.1875 3.87305 2.1875 4.21875V17.1875C2.1875 17.5332 2.4668 17.8125 2.8125 17.8125H17.1875C17.5332 17.8125 17.8125 17.5332 17.8125 17.1875V4.21875C17.8125 3.87305 17.5332 3.59375 17.1875 3.59375ZM16.4062 16.4062H3.59375V8.98438H16.4062V16.4062ZM3.59375 7.65625V5H6.09375V5.9375C6.09375 6.02344 6.16406 6.09375 6.25 6.09375H7.34375C7.42969 6.09375 7.5 6.02344 7.5 5.9375V5H12.5V5.9375C12.5 6.02344 12.5703 6.09375 12.6562 6.09375H13.75C13.8359 6.09375 13.9062 6.02344 13.9062 5.9375V5H16.4062V7.65625H3.59375Z"
+											fill="#BDBDBD" />
+									</svg>
+									<p>01-31 января 1980</p>
+								</div>
+
+								<div class="event-card--horizontal__description-time align-items-center d-flex">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.99996 18.3334C14.6023 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6023 1.66669 9.99996 1.66669C5.39759 1.66669 1.66663 5.39765 1.66663 10C1.66663 14.6024 5.39759 18.3334 9.99996 18.3334Z"
+											stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M10 5V10L13.3333 11.6667" stroke="#BDBDBD" stroke-width="1.5"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+
+									<p>начало в <span>00:00</span></p>
+								</div>
+							</div>
+
+							<div class="hashtags event-card--vertical__description-hashtags">
+								<a href="#" class="hashtags-link">#SevSU</a>
+								<a href="#" class="hashtags-link">#МореВозможностей</a>
+								<a href="#" class="hashtags-link">...</a>
+							</div>
+
+							<p class="T-300-16 event-card--vertical__description-text">
+								Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения
+								блока текстовым содержимым.
+							</p>
+
+							<a class="button--read-more align-items-center" href="#">
+								<p class="T-300-16">Читать далее</p>
+								<svg class="button--read-more-image" width="16" height="10" viewBox="0 0 16 10"
+									fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 5L14 5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M11 2L13.9167 4.91667L11 7.83333" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</a>
+
+						</div> <!-- event-card--vertical__description -->
+
+
+					</div> <!-- event-card--vertical -->
+				</div> <!-- col -->
+				<!-- Вертикальная карточка мероприятия (конец) -->
+
+			</div> <!-- row -->
+			<!-- КОНЕЦ РЯДА №3 -->
+
+		</div> <!-- eventsfeed--tile -->
+
+
+
+		<!-- ПАГИНАЦИЯ -->
+
+		<nav class="events-pagination" aria-label="Навигация по ленте мероприятий">
+			<ul class="pagination justify-content-center">
+
+				<li class="page-item disabled">
+					<a class="page-link" href="#">
+						<span aria-hidden="true">&laquo;</span>
+						<span>Предыдущая</span>
+					</a>
+				</li>
+
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+
+				<li class="some-page">
+					<p>...</p>
+				</li>
+
+				<li class="page-item"><a class="page-link" href="#">6</a></li>
+
+				<li class="page-vr"></li>
+
+				<li class="page-item gotopage">
+					<form class="gotopage-form" action="">
+						<input class="gotopage-input" type="number" placeholder="_" min="0" max="99">
+					</form>
+				</li>
+
+				<li class="page-item">
+					<a class="page-link" href="#">
+						<span>Следующая</span>
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+
+			</ul> <!-- .pagination -->
+		</nav> <!-- .events-pagination -->
+
+	</div> <!-- .container website-body -->
 
 
 	<!-- ПОДВАЛ ВЕБ-САЙТА -->
 
-	<footer class="footer_section">
-		<div class="footer_section-navigation_block">
+	<footer class="footer-section">
+		<div class="footer-section__navigation-block">
 			<div class="container">
 				<div class="row">
 
-					<div class="col-3 navigation_elements">
+					<div class="col-3 navigation-elements">
 						<ul class="navbar-nav">
 							<li class="nav-item">
 								<a href="index.html" class="nav-link M-400-14">Главная</a>
@@ -149,41 +1316,41 @@
 								<a href="contacts.html" class="nav-link M-400-14">Контакты</a>
 							</li>
 						</ul>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/clock.svg">
-						<p class="information_block-text align-self-center M-400-14">
+						<img class="information-block__image" src="images/src/clock.svg">
+						<p class="information-block__text align-self-center M-400-14">
 							Работаем круглосуточно,<br />без праздников и выходных
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/phone.svg">
-						<p class="information_block-text align-self-center M-400-14">
+						<img class="information-block__image" src="images/src/phone.svg">
+						<p class="information-block__text align-self-center M-400-14">
 							Телефон: 8 (978) 022-26-90<br />
-							<a href="#" class="information_block-link MU-400-14">
+							<a href="#" class="information-block__link MU-400-14">
 								Обратный звонок
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/address.svg">
-						<p class="information_block-text align-self-center M-400-14">
+						<img class="information-block__image" src="images/src/address.svg">
+						<p class="information-block__text align-self-center M-400-14">
 							Мы находимся по адресу:<br />
 							<a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
-								class="information_block-link MU-400-14">
+								class="information-block__link MU-400-14">
 								г. Севастополь, Челюскинцев 119
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 				</div> <!-- .row -->
 			</div> <!-- .container -->
-		</div> <!-- .footer_section-navigation_block -->
+		</div> <!-- .footer-section__navigation-block -->
 
-		<div class="footer_section-information_block">
+		<div class="footer-section__information-block">
 			<div class="container">
 				<div class="row">
 
@@ -192,24 +1359,24 @@
 							<img src="images/src/logo/logo.svg"
 								alt="Логотип Спортивно-оздоровительного лагеря «Горизонт»">
 						</a>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col-2">
-						<div class="information_block-text M-400-14">
+						<div class="information-block__text M-400-14">
 							<p>СОЛ «Горизонт» © 2020.</p>
 							<p>Официальный сайт.</p>
 						</div>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col-3">
-						<div class="information_block-link MU-400-14">
+						<div class="information-block__link MU-400-14">
 							<p>Политика обработки</p>
 							<p>Политика конфиденциальности</p>
 						</div>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-end">
-						<div class="information_block-social_media">
+						<div class="information-block__social-media">
 							<a href="#">
 								<img src="images/src/vk.svg">
 							</a>
@@ -220,14 +1387,12 @@
 								<img src="images/src/facebook.svg">
 							</a>
 						</div>
-					</div>
+					</div> <!-- .col -->
 
 				</div> <!-- .row -->
 			</div> <!-- .container -->
-		</div> <!-- .footer_section-information_block -->
-	</footer> <!-- .footer_section -->
-
-
+		</div> <!-- .footer-section__information-block -->
+	</footer> <!-- .footer-section -->
 
 	<script src="js/app.min.js"></script>
 

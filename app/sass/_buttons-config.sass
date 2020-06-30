@@ -1,4 +1,14 @@
-.button
+.button, button
+    margin: 0
+    padding: 0
+    font-size: 0
+    border: none
+    background: none
+    cursor: pointer
+
+    &:active, &:focus, &:hover
+        outline: 0
+        outline-offset: 0
 
     // ССЫЛКА НА ФОРМУ АВТОРИЗАЦИИ
 
@@ -32,11 +42,34 @@
             .button--read-more-image
                 stroke: $dark-blue
 
+    &--blue-on
+        &-white
+            margin-right: 25px
+            padding: 10px 50px
+            text-align: center
+            color: $white
+            border-radius: 1.5px
+            background-color: $blue
+            transition: 0.5s !important
+
+            &:hover
+                color: $white
+                background-color: $dark-blue
+                border-radius: 1.5px
+                text-decoration: none
+
+    &--fast-booking
+        color: $gray
+        transition: 0.5s !important
+
+        &:hover
+            color: $dark-gray
+            
 
 
 // СТРОКА ПОИСКА (КНОПКА "ПОИСК")
 
-.news-search
+.news-search, .events-search
     &__button
         position: absolute
         right: 10px
@@ -49,31 +82,27 @@
         background-color: transparent
 
 
-
 // ОТОБРАЖЕНИЕ НОВОСТНОЙ ЛЕНТЫ (КНОПКИ ПЕРЕКЛЮЧЕНИЯ)
 
-.newsfeed__display
-    display: flex
+.newsfeed, .eventsfeed
+    &__display
+        display: flex
 
-    &--tile, &--list
-        &:focus
-            outline: none
+        &--tile, &--list
+            &:focus
+                outline: none
 
-        svg
-            fill: $gray
+            svg
+                fill: $gray
 
-        margin: 0
-        padding: 0
-        font-size: 0
-        border: none
-        background: none
+        &--tile
+            margin-right: 10px
 
-    &--tile
-        margin-right: 10px
+        .active svg
+            fill: $blue
 
-    .active svg
-        fill: $blue
-
+    &__date
+        display: flex
 
 
 // ПАГИНАЦИЯ
@@ -120,53 +149,43 @@
         border: 1px solid $light-gray--2
 
 
-
 // 
 
-// 
+.advanced_search
+    input[type="date"], select
+        color: $dark-gray
+        width: 165px
+        height: 50px
+        padding: 0 15px
+        -webkit-appearance: none
+        -moz-appearance: none
+        appearance: none
+        display: block
+        border: 1px solid $gray
+        border-radius: 2.5px
+        background-color: transparent
+        text-decoration: none
 
+        &:active, &:hover, &:focus
+            outline: 0
+            outline-offset: 0
 
-
-
-
-
-
-
-// .advanced_search
-//     input[type="date"], select
-//         color: $dark-gray
-//         width: 165px
-//         height: 50px
-//         padding: 0 15px
-//         -webkit-appearance: none
-//         -moz-appearance: none
-//         appearance: none
-//         display: block
-//         border: 1px solid $gray
-//         border-radius: 2.5px
-//         background-color: transparent
-//         text-decoration: none
-
-//         &:active, &:hover, &:focus
-//             outline: 0
-//             outline-offset: 0
-
-//             option:active
-//                 border: 1px solid $blue
-//                 background-color: $blue
+        option:active
+            border: 1px solid $blue
+            background-color: $blue
             
-//     input[type="submit"]
-//         color: $white
-//         width: 165px
-//         height: 50px
-//         margin-top: 42px
-//         border: none
-//         background: $blue
-//         border-radius: 2.5px
-//         transition: 0.25s
+    input[type="submit"]
+        color: $white
+        width: 165px
+        height: 50px
+        margin-top: 42px
+        border: none
+        background: $blue
+        border-radius: 2.5px
+        transition: 0.25s
 
-//         &:hover
-//             background: $dark-blue
+        &:hover
+            background: $dark-blue
 
 // .blue-button_on-blue
 //     padding: 15px 25px

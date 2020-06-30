@@ -35,7 +35,8 @@ input:focus:-ms-input-placeholder
     transition: opacity 0.3s ease
 
 
-	
+// ПОИСКОВАЯ СТРОКА
+
 .form-control
 	&::placeholder
 		color: $gray
@@ -45,3 +46,25 @@ input:focus:-ms-input-placeholder
 		outline-offset: 0
 		border-color: $gray
 		box-shadow: none !important
+
+
+// РАСШИРЕННЫЙ ПОИСК СВОБОДНЫХ НОМЕРОВ
+
+.advanced_search
+    width: 1240px
+    height: 172px
+
+    margin-right: auto
+    margin-left: auto
+    text-align: left
+
+    background-color: $white
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15)
+    border-radius: 3px
+
+    &-item
+        color: $text 
+        margin: 40px 0
+
+        p
+            margin-bottom: 15px

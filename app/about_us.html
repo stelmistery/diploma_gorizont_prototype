@@ -10,6 +10,7 @@
 	<link rel="icon" href="img/favicon/favicon.png">
 	<meta property="og:image" content="img/dest/preview.jpg">
 	<link rel="stylesheet" href="css/app.min.css">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
 
 </head>
 
@@ -17,54 +18,54 @@
 
 	<!-- ШАПКА ВЕБ-САЙТА -->
 
-	<header class="header_section">
-		<div class="header_section-information_block">
+	<header class="header-section">
+		<div class="header-section__information-block">
 			<div class="container">
 				<div class="row">
 
 					<div class="col">
-						<a class="information_block-logo" href="index.html">
+						<a class="information-block__logo" href="index.html">
 							<img src="images/src/logo/logo.svg" alt="Логотип СОЛ «Горизонт»">
 						</a>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/clock.svg">
-						<p class="information_block-text M-400-14">
+						<img class="information-block__image" src="images/src/clock.svg">
+						<p class="information-block__text M-400-14">
 							Работаем круглосуточно,<br />без праздников и выходных
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/phone.svg">
-						<p class="information_block-text M-400-14">
+						<img class="information-block__image" src="images/src/phone.svg">
+						<p class="information-block__text M-400-14">
 							Телефон: 8 (978) 022-26-90<br />
-							<a href="#" class="information_block-link MU-400-14">
+							<a href="#" class="information-block__link MU-400-14">
 								Обратный звонок
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/address.svg">
-						<p class="information_block-text M-400-14">
+						<img class="information-block__image" src="images/src/address.svg">
+						<p class="information-block__text M-400-14">
 							Мы находимся по адресу:<br />
 							<a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
-								class="information_block-link MU-400-14">
+								class="information-block__link MU-400-14">
 								г. Севастополь, Челюскинцев 119
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 				</div> <!-- .row -->
 			</div> <!-- .container -->
-		</div> <!-- .header_section-information_block -->
+		</div> <!-- .header-section__information-block -->
 
-		<div class="header_section-navigation_block">
+		<div class="header-section__navigation-block">
 			<div class="container">
 				<nav class="navbar">
 
-					<div class="navigation_elements">
+					<div class="navigation-elements">
 						<ul class="navbar-nav">
 							<li class="nav-item"><a href="index.html" class="nav-link M-400-16">Главная</a></li>
 							<li class="nav-item"><a href="news.html" class="nav-link M-400-16">Новости</a></li>
@@ -72,58 +73,313 @@
 							<li class="nav-item"><a href="events.html" class="nav-link M-400-16">Мероприятия</a></li>
 							<li class="nav-item active"><a href="about_us.html" class="nav-link M-400-16">О нас</a></li>
 							<li class="nav-item"><a href="contacts.html" class="nav-link M-400-16">Контакты</a></li>
-						</ul>
-					</div> <!-- .navigation_elements -->
+						</ul> <!-- .navbar-nav -->
+					</div> <!-- .navigation-elements -->
 
-					<div class="personal_area">
-						<ul class="personal_area-nav">
+					<div class="personal-area">
+						<ul class="personal-area__nav">
 							<li class="nav-item">
-								<a href="#" class="nav-link">
-									<img class="nav-img" src="images/src/login.svg">
+								<a href="#" class="nav-link button--autorization">
+									<svg class="nav-image" width="15" height="15" viewBox="0 0 15 15" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.375 1.875H11.875C12.2065 1.875 12.5245 2.0067 12.7589 2.24112C12.9933 2.47554 13.125 2.79348 13.125 3.125V11.875C13.125 12.2065 12.9933 12.5245 12.7589 12.7589C12.5245 12.9933 12.2065 13.125 11.875 13.125H9.375"
+											stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.25 10.625L9.375 7.5L6.25 4.375" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M9.375 7.5H1.875" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
 									Авторизация
 								</a>
-							</li>
+							</li> <!-- .nav-item -->
 							<li class="nav-item">
-								<a class="nav-link registration_button" href="#">
+								<a href="#" class="nav-link button--registration">
 									Регистрация
 								</a>
-							</li>
-						</ul>
-					</div> <!-- .personal_area -->
+							</li> <!-- .nav-item -->
+						</ul> <!-- .personal-area__nav -->
+					</div> <!-- .personal-area -->
 
 				</nav> <!-- .navbar -->
 			</div> <!-- .container -->
-		</div> <!-- .header_section-navigation_block -->
-	</header> <!-- .header_section -->
+		</div> <!-- .header-section__navigation-block -->
+	</header> <!-- .header-section -->
 
 
 	<!-- ХЛЕБНЫЕ КРОШКИ -->
 
-	<section class="breadcrumb_section">
+	<section class="breadcrumb-section">
 		<div class="container">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+					<li class="breadcrumb-item"><a href="index.html" class="slide">Главная</a></li>
 					<li class="breadcrumb-item" aria-current="page">О нас</li>
 				</ol>
 			</nav> <!-- .breadcrumb -->
 		</div> <!-- .container -->
 	</section> <!-- .breadcrumb_section -->
-	
 
-	<!-- ПОЛЬЗОВАТЕЛЬСКИЙ КОД -->
 
-	
+	<div class="container website-body">
+
+		<!-- ЗАГОЛОВОК -->
+
+		<div class="row header-h1-h5--center">
+			<div class="col-12">
+				<h1>Вкратце о нас</h1>
+				<h5>Давайте познакомимся поближе!</h5>
+				<img class="wave--blue" src="images/src/wave-blue.svg">
+			</div> <!-- .col-12 -->
+		</div> <!-- .header-h1-h5--center -->
+
+
+		<!-- ПОЛЬЗОВАТЕЛЬСКИЙ КОД -->
+
+		<div class="about-us">
+			<div class="about-us__description">
+				<div class="row">
+					<div class="col">
+						<p class="T-300-16 about-us__description-text">
+							Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения блока
+							текстовым
+							содержимым. Вы можете встречать этот текст на протяжении всей страницы веб-сайта. Для более
+							полного
+							заполнения блока текстовой информацией, этот текст может быть повторен многократно. После
+							завершения
+							работы этот текст будет удален и заменен постоянным.
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<p class="T-300-16 about-us__description-text">
+							Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения блока
+							текстовым
+							содержимым. Вы можете встречать этот текст на протяжении всей страницы веб-сайта. Для более
+							полного
+							заполнения блока текстовой информацией, этот текст может быть повторен многократно. После
+							завершения
+							работы этот текст будет удален и заменен постоянным.
+						</p>
+					</div>
+				</div>
+
+				<div class="row about-us__description-in-numbers">
+
+					<div class="col d-flex justify-content-start">
+						<div class="about-us__description-in-numbers-item">
+							<h2>200 метров</h2>
+							<p class="T-400-16">Общая протяженность<br />пляжа</p>
+						</div>
+					</div>
+
+					<div class="col d-flex justify-content-center">
+						<div class="about-us__description-in-numbers-item">
+							<h2>300 метров</h2>
+							<p class="T-400-16">Расстояние от<br />номеров до моря</p>
+						</div>
+					</div>
+
+					<div class="col d-flex justify-content-center">
+						<div class="about-us__description-in-numbers-item">
+							<h2>700 человек</h2>
+							<p class="T-400-16">В среднем количество<br />отдыхающих за сезон</p>
+						</div>
+					</div>
+
+					<div class="col d-flex justify-content-end">
+						<div class="about-us__description-in-numbers-item">
+							<h2>286 номеров</h2>
+							<p class="T-400-16">Общее количество<br />предоставляемых мест</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<p class="T-300-16 about-us__description-text">
+							Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения блока
+							текстовым
+							содержимым. Вы можете встречать этот текст на протяжении всей страницы веб-сайта. Для более
+							полного
+							заполнения блока текстовой информацией, этот текст может быть повторен многократно. После
+							завершения
+							работы этот текст будет удален и заменен постоянным.
+						</p>
+					</div>
+				</div>
+
+				<div class="about-us__gallery">
+					<div class="row">
+						<div class="col-4">
+							<a href="images/src/about-us/1.png" data-fancybox="gallary">
+								<img class="about-us__gallery-image" src="images/src/about-us/thumbs/1.png"/>
+							</a>
+						</div>
+						<div class="col-4">
+							<a href="images/src/about-us/2.png" data-fancybox="gallary">
+								<img class="about-us__gallery-image" src="images/src/about-us/thumbs/2.png"/>
+							</a>
+						</div>
+						<div class="col-4">
+							<a href="images/src/about-us/3.png" data-fancybox="gallary">
+								<img class="about-us__gallery-image" src="images/src/about-us/thumbs/3.png"/>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<a href="images/src/about-us/4.png" data-fancybox="gallary">
+								<img class="about-us__gallery-image" src="images/src/about-us/thumbs/4.png"/>
+							</a>
+						</div>
+						<div class="col-4">
+							<a href="images/src/about-us/5.png" data-fancybox="gallary">
+								<img class="about-us__gallery-image" src="images/src/about-us/thumbs/5.png"/>
+							</a>
+						</div>
+						<div class="col-4">
+							<a href="images/src/about-us/6.png" data-fancybox="gallary">
+								<img class="about-us__gallery-image" src="images/src/about-us/thumbs/6.png"/>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col d-flex justify-content-center">
+							<a href="#" class="about-us__gallery-link">Просмотреть все фотографии</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<p class="T-300-16 about-us__description-text">
+							Предлагаемый временный текст написан разработчиком с целью демонстрации заполнения блока
+							текстовым
+							содержимым. Вы можете встречать этот текст на протяжении всей страницы веб-сайта. Для более
+							полного
+							заполнения блока текстовой информацией, этот текст может быть повторен многократно. После
+							завершения
+							работы этот текст будет удален и заменен постоянным.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<hr class="about-us__horizontal-line" />
+
+			<div class="about-us__feedback">
+
+				<!-- ЗАГОЛОВОК -->
+
+				<div class="row header-h1-h5--center">
+					<div class="col-12">
+						<h1>Отзывы о нас</h1>
+						<h5>Что о нас говорят</h5>
+						<img class="wave--blue" src="images/src/wave-blue.svg">
+					</div> <!-- .col-12 -->
+				</div> <!-- .header-h1-h5--center -->
+
+				<div class="row about-us__feedback-carousel">
+
+					<div class="col-4">
+						<div class="feedback-card--vertical">
+							<h4 class="feedback-card--vertical-h4">Робин Уильямс</h4>
+							<div class="feedback-card--vertical-date">
+								<p class="T-400-14">31 августа, 2019</p>
+							</div>
+							<div class="feedback-card--vertical-text">
+								<p class="T-300-16">Приятный свежо отремонтированная база с большой собственной
+									территорией и довольно
+									ухоженной растительностью, живым уголком с диковинными птичками и печаными
+									площадками
+									для пляжного волейбола. Персонал достаточно приветливый.</p>
+								<p class="T-300-16">Брали категорию «Стандарт» и даже номера в духе минимализма не
+									расстроили – все чисто и
+									аккуратно. В общем, рекомендую! И обязательно приеду еще. Спасибо :)</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="feedback-card--vertical">
+							<h4 class="feedback-card--vertical-h4">Робин Уильямс</h4>
+							<div class="feedback-card--vertical-date">
+								<p class="T-400-14">31 августа, 2019</p>
+							</div>
+							<div class="feedback-card--vertical-text">
+								<p class="T-300-16">Брали категорию «Стандарт» и даже номера в духе минимализма не
+									расстроили – все чисто и
+									аккуратно. В общем, рекомендую! И обязательно приеду еще. Спасибо :)</p>
+								<p class="T-300-16">Приятный свежо отремонтированная база с большой собственной
+									территорией и довольно
+									ухоженной растительностью, живым уголком с диковинными птичками и печаными
+									площадками
+									для пляжного волейбола. Персонал достаточно приветливый.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="feedback-card--vertical">
+							<h4 class="feedback-card--vertical-h4">Робин Уильямс</h4>
+							<div class="feedback-card--vertical-date">
+								<p class="T-400-14">31 августа, 2019</p>
+							</div>
+							<div class="feedback-card--vertical-text">
+								<p class="T-300-16">Приятный свежо отремонтированная база с большой собственной
+									территорией и довольно
+									ухоженной растительностью, живым уголком с диковинными птичками и печаными
+									площадками
+									для пляжного волейбола. Персонал достаточно приветливый.</p>
+								<p class="T-300-16">Брали категорию «Стандарт» и даже номера в духе минимализма не
+									расстроили – все чисто и
+									аккуратно. В общем, рекомендую! И обязательно приеду еще. Спасибо :)</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="feedback-card--vertical">
+							<h4 class="feedback-card--vertical-h4">Робин Уильямс</h4>
+							<div class="feedback-card--vertical-date">
+								<p class="T-400-14">31 августа, 2019</p>
+							</div>
+							<div class="feedback-card--vertical-text">
+								<p class="T-300-16">Брали категорию «Стандарт» и даже номера в духе минимализма не
+									расстроили – все чисто и
+									аккуратно. В общем, рекомендую! И обязательно приеду еще. Спасибо :)</p>
+								<p class="T-300-16">Приятный свежо отремонтированная база с большой собственной
+									территорией и довольно
+									ухоженной растительностью, живым уголком с диковинными птичками и печаными
+									площадками
+									для пляжного волейбола. Персонал достаточно приветливый.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+	</div> <!-- .container website-body -->
 
 
 	<!-- ПОДВАЛ ВЕБ-САЙТА -->
 
-	<footer class="footer_section">
-		<div class="footer_section-navigation_block">
+	<footer class="footer-section">
+		<div class="footer-section__navigation-block">
 			<div class="container">
 				<div class="row">
 
-					<div class="col-3 navigation_elements">
+					<div class="col-3 navigation-elements">
 						<ul class="navbar-nav">
 							<li class="nav-item">
 								<a href="index.html" class="nav-link M-400-14">Главная</a>
@@ -149,41 +405,41 @@
 								<a href="contacts.html" class="nav-link M-400-14">Контакты</a>
 							</li>
 						</ul>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/clock.svg">
-						<p class="information_block-text align-self-center M-400-14">
+						<img class="information-block__image" src="images/src/clock.svg">
+						<p class="information-block__text align-self-center M-400-14">
 							Работаем круглосуточно,<br />без праздников и выходных
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/phone.svg">
-						<p class="information_block-text align-self-center M-400-14">
+						<img class="information-block__image" src="images/src/phone.svg">
+						<p class="information-block__text align-self-center M-400-14">
 							Телефон: 8 (978) 022-26-90<br />
-							<a href="#" class="information_block-link MU-400-14">
+							<a href="#" class="information-block__link MU-400-14">
 								Обратный звонок
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-center">
-						<img class="information_block-image" src="images/src/address.svg">
-						<p class="information_block-text align-self-center M-400-14">
+						<img class="information-block__image" src="images/src/address.svg">
+						<p class="information-block__text align-self-center M-400-14">
 							Мы находимся по адресу:<br />
 							<a href="https://yandex.ru/maps/959/sevastopol/?ll=33.543585%2C44.652296&mode=search&oid=1053560680&ol=biz&z=21"
-								class="information_block-link MU-400-14">
+								class="information-block__link MU-400-14">
 								г. Севастополь, Челюскинцев 119
 							</a>
 						</p>
-					</div>
+					</div> <!-- .col -->
 
 				</div> <!-- .row -->
 			</div> <!-- .container -->
-		</div> <!-- .footer_section-navigation_block -->
+		</div> <!-- .footer-section__navigation-block -->
 
-		<div class="footer_section-information_block">
+		<div class="footer-section__information-block">
 			<div class="container">
 				<div class="row">
 
@@ -192,24 +448,24 @@
 							<img src="images/src/logo/logo.svg"
 								alt="Логотип Спортивно-оздоровительного лагеря «Горизонт»">
 						</a>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col-2">
-						<div class="information_block-text M-400-14">
+						<div class="information-block__text M-400-14">
 							<p>СОЛ «Горизонт» © 2020.</p>
 							<p>Официальный сайт.</p>
 						</div>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col-3">
-						<div class="information_block-link MU-400-14">
+						<div class="information-block__link MU-400-14">
 							<p>Политика обработки</p>
 							<p>Политика конфиденциальности</p>
 						</div>
-					</div>
+					</div> <!-- .col -->
 
 					<div class="col d-flex justify-content-end">
-						<div class="information_block-social_media">
+						<div class="information-block__social-media">
 							<a href="#">
 								<img src="images/src/vk.svg">
 							</a>
@@ -220,14 +476,12 @@
 								<img src="images/src/facebook.svg">
 							</a>
 						</div>
-					</div>
+					</div> <!-- .col -->
 
 				</div> <!-- .row -->
 			</div> <!-- .container -->
-		</div> <!-- .footer_section-information_block -->
-	</footer> <!-- .footer_section -->
-
-
+		</div> <!-- .footer-section__information-block -->
+	</footer> <!-- .footer-section -->
 
 	<script src="js/app.min.js"></script>
 

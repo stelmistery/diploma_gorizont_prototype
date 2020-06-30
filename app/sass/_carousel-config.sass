@@ -1,4 +1,6 @@
-.actual_news-carousel
+.actual_news-carousel, 
+.about-us__feedback-carousel,
+.category-info__photo-preview-carousel
     position: relative
 
     .slick-arrow
@@ -9,20 +11,30 @@
         height: 45px
         z-index: 1
 
-
         &::before, &::after
             content: none
 
     .slick-slide
-        outline: none
+        &:hover, &:active, &:focus
+            outline: none
+            outline-offset: 0
+            box-shadow: none !important
 
 
     .slick-prev
         position: absolute
         left: -75px 
         background: url(../images/src/button_arrow-left.svg) 0 0 / 100% no-repeat
+        transition: 0.1s !important
     
+        &:hover, &:active, &:focus
+            background: url(../images/src/button_arrow-left--hover.svg) 0 0 / 100% no-repeat
+
     .slick-next
         position: absolute
         right: -75px 
         background: url(../images/src/button_arrow-right.svg) 0 0 / 100% no-repeat
+        transition: 0.1s !important
+
+        &:hover, &:active, &:focus
+            background: url(../images/src/button_arrow-right--hover.svg) 0 0 / 100% no-repeat

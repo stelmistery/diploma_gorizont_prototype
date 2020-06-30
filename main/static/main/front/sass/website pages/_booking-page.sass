@@ -1,35 +1,184 @@
 // СТРАНИЦА КАТЕГОРИЙ БРОНИРОВАНИЙ
 
 .booking-description
-    margin-bottom: 50px
+    margin-bottom: 75px
 
-.categories_of_accommodation
-    margin-bottom: 100px
-    
-    .row:first-child
-        margin-bottom: 30px
 
-.category_card
-    padding: 0
-    transition: 1s
-
-    &:hover
-        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15)
-
-    &-img
-        width: 550px
-
-    &-description
-        padding: 50px
-
-        &-price
-            margin-bottom: 25px
+.accommodation-categories
         
-        &-buttons
-            display: flex
-            margin-top: 50px
+    &--improved-and-first-category
+        margin-bottom: 50px
 
-            .button-fast
-                color: $gray
-                margin-left: 25px
+    &--second-and-third-category
+        margin-bottom: 100px
 
+    &--improved-category, &--second-category
+        padding-right: 15px
+
+    &--first-category, &--third-category
+        padding-left: 15px
+
+
+// СТРАНИЦА КАТЕГОРИИ БРОНИРОВАНИЯ
+
+.category-info
+    &__header-and-price
+        margin-bottom: 50px
+
+    &__header h1
+        margin-bottom: 15px
+
+    &__price .H1-700-32
+        color: $blue
+        margin: 0 5px
+
+    &__text,
+        margin-bottom: 50px
+
+    .advanced_search
+        margin-bottom: 100px
+
+    &__main-photo-carousel
+        margin-bottom: 50px
+
+        img
+            width: 1120px
+            height: 750px
+            object-fit: cover
+
+    &__photo-preview-carousel
+        margin-bottom: 100px
+
+        img
+            width: 265px
+            height: 150px
+            object-fit: cover
+
+            &:active, &:focus, &:hover
+                outline: 0
+                outline-offset: 0
+                box-shadow: none !important
+
+        .image-thumb__wrapper
+            display: block
+            position: relative
+            cursor: pointer
+
+            &::before
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                opacity: 0
+                background: rgba(0,0,0,.6)
+                box-shadow: 0px 0px 25px rgba(0,0,0,0.2)
+                transition: 0.35s !important
+            
+            &::after
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                opacity: 0
+                background-image: url(../images/src/zoom.svg)
+                background-repeat: no-repeat
+                background-position: center
+                transition: 0.35s !important
+
+            &:hover
+                &::before, &::after
+                    opacity: 1
+
+    &__description
+        margin-bottom: 75px
+
+        &-h4
+            margin-bottom: 50px
+
+        &-info
+            margin-bottom: 15px
+
+        &-capacity, &-size
+            svg
+                margin-right: 15px
+
+        &-capacity
+            margin-right: 25px
+
+    &__services
+        margin-bottom: 75px
+
+        &-h4
+            margin-bottom: 50px
+
+        &-list
+            margin-bottom: 50px
+
+            &-item
+                margin-bottom: 25px
+
+                &:last-child
+                    margin-bottom: 0
+
+            img
+                margin-right: 25px
+
+        &-text
+            margin-bottom: 25px
+
+    &__rules
+        margin-bottom: 100px
+
+        &-h4
+            margin-bottom: 50px
+
+        .row
+            margin-bottom: 30px
+
+            &:nth-child(1), &:last-child
+                margin-bottom: 0
+
+            &:nth-child(3)
+                margin-bottom: 20px
+
+        &-check-in-out 
+            img
+                margin-top: 15px
+
+            p
+                margin-bottom: 5px
+                
+                &:last-child
+                    margin-bottom: 0
+
+        &-cancellation-and-prepayment 
+            img
+                margin-top: 15px
+
+            .col:nth-child(3) p
+                margin-bottom: 15px
+
+                &:last-child
+                    margin-bottom: 0
+
+        &-age, &-animals
+            img
+                margin-top: 15px
+            
+
+
+    &__hr
+        margin-top: 0
+        margin-bottom: 100px
+
+    &__categories-carousel
+        margin-bottom: 100px
+
+                
+                
+                
+                

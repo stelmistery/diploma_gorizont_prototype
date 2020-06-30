@@ -1,0 +1,49 @@
+// ПОИСКОВАЯ СТРОКА
+    
+.events-search
+    margin-bottom: 25px
+
+    &__form
+        position: relative
+
+
+// ОТОБРАЖЕНИЕ ЛЕНТЫ МЕРОПРИЯТИЙ
+
+.eventsfeed
+    margin-bottom: 100px
+
+    &__display,  &__date
+        margin-left: 15px
+        
+
+// ЛЕНТА МЕРОПРИЯТИЙ (список)
+
+.eventsfeed--list
+    opacity: 1
+    margin-bottom: 100px
+    transition: opacity 0.75s ease
+
+    .row:first-child .col .event-card--horizontal
+        margin-top: 0
+        padding-top: 0
+        border-top: none
+
+
+// ЛЕНТА МЕРОПРИЯТИЙ (плитка)
+
+.eventsfeed--tile
+    opacity: 0
+    margin-bottom: 100px
+    transition: opacity 0.75s ease
+
+    .row
+        margin-top: 35px
+
+        &:first-child
+            margin-top: 0
+
+
+// ПАГИНАЦИЯ ЛЕНТЫ МЕРОПРИЯТИЙ 
+
+.events-pagination
+    margin-bottom: 100px

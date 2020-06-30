@@ -287,7 +287,7 @@ def create_event(request):
             Member.objects.create(event=event, customer=customer, orderer=True)
         except:
             return HttpResponse('Сохранение Объекта event : неуспешно')
-        return HttpResponse('Сохранение Объекта member : все пашет')
+        return HttpResponse('Сохранение Объекта member : Мероприятие сформировано')
     ef = EventForms()
     return render(request, 'panel/create_event.html', {'ef': ef})
 

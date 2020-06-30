@@ -18,17 +18,18 @@
                 <img src="{{ event.image.url }}" width="300" height="300" alt="">
                 <p>{{ event.type }}</p>
                 <p>{{ event.description }}</p>
-{#                {% for member in members %}#}
-                    {% if user.id == member.customer_id %}
+                {% if user.is_authenticated %}
+                    {% if member %}
                         <span class="label label-primary">вы уже участвуете в этом мероприяти</span>
-
                     {% else %}
-                        <a href="{% url 'participate' pk=event.pk user_id=user.id %}">
+                        <a href="{% url 'participate' pk=event.pk user_id=user.customer.id %}">
                             <button type="button" class="btn btn-alt btn-lg btn-primary">Принять участие</button>
                         </a>
                     {% endif %}
-{#                {% endfor %}#}
-
+                {% else %}
+                    Войдите в систему чтобы принять участие
+                {% endif %}
+{#{{ member }}#}
 
             </div>
         </div>

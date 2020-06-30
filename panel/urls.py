@@ -34,4 +34,5 @@ urlpatterns = [
     path('management/group/<int:pk>', del_group, name='del_group'),
     path('management/manager_group/<int:pk>', manager_group, name='manager_group')
 
+
 ]

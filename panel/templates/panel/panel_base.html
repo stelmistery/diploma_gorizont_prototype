@@ -87,7 +87,7 @@
                                 <img src="{% static 'back/img/placeholders/avatars/avatar2.jpg' %}" alt="avatar">
                             </a>
                         </div>
-                        <div class="sidebar-user-name">Какой-то юзер</div>
+                        <div class="sidebar-user-name">{{ user.customer.last_name }}</div>
                         <div class="sidebar-user-links">
                             <a href="page_ready_user_profile.html" data-toggle="tooltip" data-placement="bottom"
                                title="Profile"><i class="gi gi-user"></i></a>

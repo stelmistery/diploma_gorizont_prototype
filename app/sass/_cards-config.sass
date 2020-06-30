@@ -1,6 +1,6 @@
 // КАРТОЧКА НОВОСТИ
 
-.newscard
+.news-card, .event-card
 
     // ГОРИЗОНТАЛЬНАЯ
 
@@ -19,6 +19,7 @@
         &__cover
             &-image
                 width: 415px
+                height: 275px
                 object-fit: cover
 
         &__description
@@ -29,7 +30,7 @@
                 margin-bottom: 5px
                 transition: 0.35s ease
 
-            &-date-views
+            &-date-views, &-date-time
                 color: $gray
                 margin-bottom: 5px
                 
@@ -55,7 +56,6 @@
     // ВЕРТИКАЛЬНАЯ
 
     &--vertical
-
         &-link
             &:hover
                 text-decoration: none
@@ -76,7 +76,7 @@
                 margin-bottom: 10px
                 transition: 0.35s ease
 
-            &-date-views
+            &-date-views, &-date-time
                 color: $gray
                 margin-bottom: 5px
                 
@@ -99,45 +99,89 @@
                         text-decoration: none
     
     
-    
-    
-// .news-vertical_card
-//     height: 475px
+// КАРТОЧКА КАТЕГОРИИ
 
-//     margin: 0 15px
-//     padding: 0
+.category-card
 
-//     // background-color: $gray
+    // ВЕРТИКАЛЬНАЯ
 
-// .actual_news
-//     cursor: pointer
+    &--vertical
+        transition: 0.35s ease
+        outline: 1px solid $light-gray--2
 
-//     &-header
-//         margin: 25px 0 5px
-    
-//     &-img
-//         width: 350px
+        &:hover
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15)
 
-//     &-date_and_views
-//         display: flex
-        
-//         .publication_date, .number_of_views
-//             color: $dark-gray
-//             display: flex
+        &-link
+            &:hover
+                text-decoration: none
 
-//             .publication_date-img, .number_of_views-img
-//                 margin-right: 10px
+                h3
+                    color: $blue
 
-//         .publication_date
-//             margin-right: 15px
+        &__cover
+            &-image
+                width: 545px
+                height: 370px
+                object-fit: cover
 
-//     &-hashtags
-//         color: $blue
-//         margin: 5px 0 25px
-        
-//         span
-//             margin-right: 10px
+        &__description
+            padding: 50px 55px
 
-//     &-all_news_link
-//         margin-top: 75px
-//         text-align: center
+            &-h3
+                color: $text
+                transition: 0.35s ease
+
+            &-price
+                margin-bottom: 35px
+
+                .H3-500-24
+                    color: $blue
+                    margin: 0 2.5px
+
+            &-info
+                margin-bottom: 15px
+                svg
+                    margin-right: 10px
+
+            &-capacity
+                margin-right: 25px
+
+            &-text
+                margin-bottom: 35px
+
+
+// КАРТОЧКА ОТЗЫВА
+
+.feedback-card
+
+    // ВЕРТИКАЛЬНАЯ
+
+    &--vertical
+        // margin: 0 10px
+        padding: 35px
+        transition: 0.35s ease
+        border: 1px solid $light-gray--2
+
+        &:hover
+            text-decoration: none
+
+        &-h4
+            text-transform: none
+            margin-bottom: 5px
+
+        &-date
+            width: 115px
+            margin-bottom: 35px
+            color: $white
+            text-align: center
+            background-color: $blue
+
+        &-text p
+            margin-bottom: 25px
+
+            &:last-child
+                margin-bottom: 0
+
+
+
