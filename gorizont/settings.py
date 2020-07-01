@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gorizont_db',
-        'USER': 'root',
+        'USER': 'django',
         'PASSWORD': 'admin1234',
         'HOST': '127.0.0.1',
         'PORT': '3306',
